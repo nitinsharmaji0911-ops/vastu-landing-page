@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Astro - Free Home Vastu Check</title>
+  <meta name="description" content="Instant 60-second Home Vastu Score & Expert Astrologer Remedy for ₹9." />
+  
+  <link rel="icon" type="image/png" href="https://www.call-astro.com/public/images/Frame%208496.png" />
+  
+  <!-- Modern Clean Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Minimal Header -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="brand-logo">
+        <img src="https://www.call-astro.com/public/images/Frame%208496.png" alt="Call Astro" class="brand-emblem-icon" />
+        <span class="brand-name">CALL <span>ASTRO</span></span>
+      </div>
+      <div class="header-pill">
+        <i class="fa-solid fa-star text-gold"></i> 4.8★ • Free Audit
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Funnel Container -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Minimal Hero -->
+      <section class="hero-intro text-center">
+        <h1 class="hero-title">Check Your Home's <span class="highlight-gold">Vastu Score</span></h1>
+        <p class="hero-subtitle">Answer 4 quick questions to find hidden doshas & get a ₹9 expert remedy.</p>
+      </section>
+
+      <!-- FUNNEL CARD -->
+      <div class="funnel-card" id="funnelCard">
+
+        <!-- STEP 1: LEAD CAPTURE -->
+        <div class="step-view active" id="step1View">
+          <div class="step-header text-center">
+            <h2>Get Your Free Vastu Scorecard</h2>
+          </div>
+
+          <form id="leadCaptureForm" class="lead-form" novalidate>
+            <div class="form-group">
+              <label for="userName">Full Name</label>
+              <input type="text" id="userName" name="name" placeholder="Your Name" required />
+              <div class="field-error" id="nameError">Please enter your name</div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="userMobile">WhatsApp Number</label>
+                <div class="phone-input-wrapper">
+                  <span class="country-prefix">+91</span>
+                  <input type="tel" id="userMobile" name="mobile" placeholder="10-digit number" maxlength="10" required />
+                </div>
+                <div class="field-error" id="mobileError">Enter valid 10-digit number</div>
+              </div>
+
+              <div class="form-group flex-1">
+                <label for="userEmail">Email</label>
+                <input type="email" id="userEmail" name="email" placeholder="name@email.com" required />
+                <div class="field-error" id="emailError">Enter valid email</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="propertyType">Property Type</label>
+              <select id="propertyType" name="propertyType">
+                <option value="Apartment / Flat">Apartment / Flat</option>
+                <option value="Independent House">Independent House</option>
+                <option value="Rented Home">Rented Home</option>
+                <option value="Office / Shop">Office / Commercial</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary" id="btnSubmitLead">
+              <span>Start Free Vastu Check</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="form-guarantees text-center">
+              <span><i class="fa-solid fa-lock"></i> 100% Private</span>
+              <span><i class="fa-solid fa-bolt"></i> Instant Result</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- STEP 2: QUESTIONS -->
+        <div class="step-view" id="step2View">
+          
+          <div class="quiz-progress-bar">
+            <div class="progress-info">
+              <span id="questionStepLabel">Question 1 of 4</span>
+              <span id="progressPercentage">25%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressFill" style="width: 25%;"></div>
+            </div>
+          </div>
+
+          <!-- Q1 -->
+          <div class="question-container active" data-qindex="1">
+            <div class="q-header">
+              <h3>1. Which direction does your Main Entrance face?</h3>
+            </div>
+            <div class="options-grid">
+              <button type="button" class="option-card" data-key="entrance" data-score="18" data-val="North / North-East">
+                <i class="fa-solid fa-compass opt-icon"></i>
+                <span>North / North-East</span>
+              </button>
+              <button type="button" class="option-card" data-key="entrance" data-score="15" data-val="East">
+                <i class="fa-solid fa-sun opt-icon"></i>
+                <span>East</span>
+              </button>
+              <button type="button" class="option-card" data-key="entrance" data-score="6" data-val="South / South-East">
+                <i class="fa-solid fa-fire opt-icon"></i>
+                <span>South / South-East</span>
+              </button>
+              <button type="button" class="option-card" data-key="entrance" data-score="4" data-val="South-West">
+                <i class="fa-solid fa-triangle-exclamation opt-icon"></i>
+                <span>South-West</span>
+              </button>
+              <button type="button" class="option-card" data-key="entrance" data-score="10" data-val="West / North-West">
+                <i class="fa-solid fa-wind opt-icon"></i>
+                <span>West / North-West</span>
+              </button>
+              <button type="button" class="option-card" data-key="entrance" data-score="8" data-val="Not Sure">
+                <i class="fa-solid fa-circle-question opt-icon"></i>
+                <span>Not Sure</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="question-container" data-qindex="2">
+            <div class="q-header">
+              <h3>2. Where is your Kitchen (Cooking Stove)?</h3>
+            </div>
+            <div class="options-grid">
+              <button type="button" class="option-card" data-key="kitchen" data-score="20" data-val="South-East (Agni)">
+                <i class="fa-solid fa-fire-burner opt-icon"></i>
+                <span>South-East (Agni Zone)</span>
+              </button>
+              <button type="button" class="option-card" data-key="kitchen" data-score="12" data-val="North-West">
+                <i class="fa-solid fa-wind opt-icon"></i>
+                <span>North-West</span>
+              </button>
+              <button type="button" class="option-card" data-key="kitchen" data-score="4" data-val="North-East">
+                <i class="fa-solid fa-faucet-drip opt-icon"></i>
+                <span>North-East (Water Zone)</span>
+              </button>
+              <button type="button" class="option-card" data-key="kitchen" data-score="5" data-val="South-West">
+                <i class="fa-solid fa-triangle-exclamation opt-icon"></i>
+                <span>South-West</span>
+              </button>
+              <button type="button" class="option-card" data-key="kitchen" data-score="8" data-val="Center / Other">
+                <i class="fa-solid fa-circle-dot opt-icon"></i>
+                <span>Center / Other</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="question-container" data-qindex="3">
+            <div class="q-header">
+              <h3>3. Where is your Master Bedroom?</h3>
+            </div>
+            <div class="options-grid">
+              <button type="button" class="option-card" data-key="bedroom" data-score="20" data-val="South-West">
+                <i class="fa-solid fa-bed opt-icon"></i>
+                <span>South-West (Stability)</span>
+              </button>
+              <button type="button" class="option-card" data-key="bedroom" data-score="14" data-val="South or West">
+                <i class="fa-solid fa-shield opt-icon"></i>
+                <span>South or West</span>
+              </button>
+              <button type="button" class="option-card" data-key="bedroom" data-score="5" data-val="North-East">
+                <i class="fa-solid fa-cloud-bolt opt-icon"></i>
+                <span>North-East</span>
+              </button>
+              <button type="button" class="option-card" data-key="bedroom" data-score="8" data-val="South-East">
+                <i class="fa-solid fa-fire opt-icon"></i>
+                <span>South-East</span>
+              </button>
+              <button type="button" class="option-card" data-key="bedroom" data-score="10" data-val="North-West">
+                <i class="fa-solid fa-person-walking opt-icon"></i>
+                <span>North-West</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="question-container" data-qindex="4">
+            <div class="q-header">
+              <h3>4. What is your biggest concern in this house?</h3>
+            </div>
+            <div class="options-grid">
+              <button type="button" class="option-card" data-key="issue" data-score="5" data-val="Money Blockage">
+                <i class="fa-solid fa-wallet opt-icon"></i>
+                <span>Money Blockage & Cash Drain</span>
+              </button>
+              <button type="button" class="option-card" data-key="issue" data-score="6" data-val="Health / Sleep">
+                <i class="fa-solid fa-heart-pulse opt-icon"></i>
+                <span>Health & Sleep Issues</span>
+              </button>
+              <button type="button" class="option-card" data-key="issue" data-score="7" data-val="Family Arguments">
+                <i class="fa-solid fa-people-arrows opt-icon"></i>
+                <span>Frequent Arguments & Stress</span>
+              </button>
+              <button type="button" class="option-card" data-key="issue" data-score="8" data-val="Career Stagnation">
+                <i class="fa-solid fa-chart-line-down opt-icon"></i>
+                <span>Career / Business Stagnation</span>
+              </button>
+              <button type="button" class="option-card" data-key="issue" data-score="10" data-val="General Peace">
+                <i class="fa-solid fa-peace opt-icon"></i>
+                <span>General Peace & Growth</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- STEP 3: LOADING -->
+        <div class="step-view" id="calculatingView">
+          <div class="calculating-box text-center">
+            <div class="yantra-spinner">
+              <div class="spinning-circle outer"></div>
+              <div class="spinning-circle inner"></div>
+              <i class="fa-solid fa-om center-icon"></i>
+            </div>
+            <h3>Calculating Vastu Score...</h3>
+            <p class="calculating-sub" id="calculationStatusText">Auditing directional energies...</p>
+          </div>
+        </div>
+
+        <!-- STEP 4: RESULT SCORECARD & ₹9 OFFER -->
+        <div class="step-view" id="step4View">
+          
+          <div class="result-header text-center">
+            <span class="user-greeting">Result for <strong id="resUserName">Friend</strong></span>
+            <h2>Home Vastu Health Score</h2>
+          </div>
+
+          <div class="score-card-wrapper">
+            <div class="score-radial">
+              <svg viewBox="0 0 120 120" class="radial-svg">
+                <circle cx="60" cy="60" r="50" class="radial-bg" />
+                <circle cx="60" cy="60" r="50" class="radial-meter" id="radialMeter" />
+              </svg>
+              <div class="radial-label">
+                <span class="score-val" id="finalScoreDisplay">58</span>
+                <span class="score-denom">/ 100</span>
+                <span class="score-status" id="scoreStatusWord">Moderate Risk</span>
+              </div>
+            </div>
+
+            <div class="score-breakdown">
+              <div class="meter-bar-item">
+                <div class="meter-header">
+                  <span>Wealth Energy</span>
+                  <span id="financePct">52%</span>
+                </div>
+                <div class="bar-track"><div class="bar-fill bar-warning" id="financeBar" style="width: 52%"></div></div>
+              </div>
+
+              <div class="meter-bar-item">
+                <div class="meter-header">
+                  <span>Health Index</span>
+                  <span id="healthPct">48%</span>
+                </div>
+                <div class="bar-track"><div class="bar-fill bar-danger" id="healthBar" style="width: 48%"></div></div>
+              </div>
+
+              <div class="meter-bar-item">
+                <div class="meter-header">
+                  <span>Harmony Index</span>
+                  <span id="harmonyPct">64%</span>
+                </div>
+                <div class="bar-track"><div class="bar-fill bar-info" id="harmonyBar" style="width: 64%"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dosha-alert-pill">
+            <i class="fa-solid fa-triangle-exclamation text-danger"></i>
+            <span><strong>2 Vastu Doshas Found:</strong> Elemental imbalance detected. 100% curable without demolition.</span>
+          </div>
+
+          <!-- THE ₹9 OFFER BOX -->
+          <div class="offer-conversion-box text-center">
+            <h3>Fix Your Vastu Doshas</h3>
+            <p>1-on-1 Consultation with Certified Senior Vastu Astrologer</p>
+            
+            <div class="price-row">
+              <del>₹999</del>
+              <span class="deal-price">Pay <strong>₹9</strong> Only</span>
+            </div>
+
+            <button type="button" class="btn-primary btn-pay-9" id="btnPay9">
+              <span>Fix My Vastu Now - Pay ₹9</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <div class="prepay-trust-guarantees">
+              <span><i class="fa-solid fa-lock"></i> 100% Secure</span>
+              <span><i class="fa-solid fa-bolt"></i> Instant Call</span>
+              <span><i class="fa-solid fa-rotate-left"></i> Money-back Guarantee</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- STEP 5: POST-PAYMENT HUB -->
+        <div class="step-view" id="step5View">
+          <div class="success-hub-card text-center">
+            
+            <div class="check-circle-pulse">
+              <i class="fa-solid fa-check"></i>
+            </div>
+            
+            <h2>Payment Successful!</h2>
+            <p class="booking-text">Booking ID: <strong id="successHubBookingId">#CA-88219</strong></p>
+            <p class="success-hub-sub">
+              Your Vastu Consultation is confirmed. Download the app to connect with your assigned astrologer.
+            </p>
+
+            <a href="https://play.google.com/store/apps/details?id=com.callastrouser&hl=en_IN" target="_blank" rel="noopener" class="btn-primary btn-playstore-large">
+              <i class="fa-brands fa-google-play"></i>
+              <span>Download Call Astro App</span>
+            </a>
+
+            <div class="post-links-row">
+              <a href="#" target="_blank" rel="noopener" class="btn-secondary" id="btnPostWhatsApp">
+                <i class="fa-brands fa-whatsapp text-success"></i> WhatsApp Us
+              </a>
+              <button type="button" class="btn-secondary" onclick="downloadVastuReportPDF()">
+                <i class="fa-solid fa-file-pdf text-danger"></i> Download Report PDF
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ₹9 PAYMENT MODAL -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal-content shadow-premium">
+      <button class="modal-close" id="closePaymentModal">&times;</button>
+      
+      <div class="modal-header text-center">
+        <h3>Call Astro Vastu Consultation</h3>
+        <p>Unlock complete personalized remedy for ₹9</p>
+      </div>
+
+      <div class="payment-methods">
+        <div class="upi-apps-grid">
+          <div class="upi-app-card" onclick="simulatePayment('Google Pay')">
+            <i class="fa-brands fa-google text-primary"></i>
+            <span>GPay</span>
+          </div>
+          <div class="upi-app-card" onclick="simulatePayment('PhonePe')">
+            <i class="fa-solid fa-mobile-screen-button text-purple"></i>
+            <span>PhonePe</span>
+          </div>
+          <div class="upi-app-card" onclick="simulatePayment('Paytm')">
+            <i class="fa-solid fa-wallet text-cyan"></i>
+            <span>Paytm</span>
+          </div>
+          <div class="upi-app-card" onclick="simulatePayment('UPI QR')">
+            <i class="fa-solid fa-qrcode text-dark"></i>
+            <span>QR</span>
+          </div>
+        </div>
+
+        <button type="button" class="btn-primary" id="btnModalPayNow" onclick="simulatePayment('Instant UPI')">
+          <span>Pay ₹9 & Connect Astrologer</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN LEAD MODAL -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-content admin-modal shadow-premium">
+      <button class="modal-close" id="closeAdminModal">&times;</button>
+      <div class="modal-header">
+        <h3>Captured Leads</h3>
+      </div>
+      
+      <div class="admin-actions">
+        <button type="button" class="btn-secondary" id="btnExportCSV"><i class="fa-solid fa-file-csv"></i> Download CSV</button>
+        <button type="button" class="btn-secondary" id="btnCopyJSON"><i class="fa-solid fa-copy"></i> Copy Leads</button>
+        <button type="button" class="btn-secondary btn-danger-soft" id="btnClearLeads"><i class="fa-solid fa-trash"></i> Clear</button>
+      </div>
+
+      <div class="leads-table-wrapper">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Score</th>
+              <th>Paid?</th>
+            </tr>
+          </thead>
+          <tbody id="leadsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING ADMIN TOGGLE -->
+  <button type="button" class="floating-admin-toggle" id="openAdminBtn" title="View Leads">
+    <i class="fa-solid fa-database"></i>
+    <span class="leads-count-badge" id="leadsBadge">0</span>
+  </button>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="minimal-footer text-center">
+    <div class="container">
+      <p>© 2026 Call Astro (www.call-astro.com) • Certified Vedic Vastu • <a href="#" id="footerAdminLink">Leads</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

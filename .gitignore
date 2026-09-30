@@ -1,0 +1,8 @@
+# Executables and binaries
+cloudflared.exe
+*.exe
+
+# OS / logs
+Thumbs.db
+.DS_Store
+*.log
