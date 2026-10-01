@@ -6,3 +6,4 @@ cloudflared.exe
 Thumbs.db
 .DS_Store
 *.log
+*.zip

@@ -34,7 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   updateLeadsBadge();
   initKeyboardShortcuts();
+  initBeforeAfterSlider();
 });
+
+/* --------------------------------------------------------------------------
+   0. BEFORE & AFTER SINGLE COMPARISON SLIDER
+   -------------------------------------------------------------------------- */
+function initBeforeAfterSlider() {
+  const range = document.getElementById('baRange');
+  const container = document.getElementById('baSlideContainer');
+  if (range && container) {
+    range.addEventListener('input', (e) => {
+      container.style.setProperty('--clip-pos', e.target.value + '%');
+    });
+  }
+}
 
 /* --------------------------------------------------------------------------
    1. STEP 1: LEAD CAPTURE VALIDATION & INSTANT RECORDING
@@ -46,29 +60,52 @@ function initLeadForm() {
   const emailInput = document.getElementById('userEmail');
   const propertySelect = document.getElementById('propertyType');
 
+  if (!form) return;
+
   // Format mobile to allow only numbers
   mobileInput.addEventListener('input', (e) => {
     e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+    mobileInput.classList.remove('has-error');
+    const mobileErr = document.getElementById('mobileError');
+    if (mobileErr) mobileErr.style.display = 'none';
+  });
+
+  nameInput.addEventListener('input', () => {
+    nameInput.classList.remove('has-error');
+    const nameErr = document.getElementById('nameError');
+    if (nameErr) nameErr.style.display = 'none';
+  });
+
+  emailInput.addEventListener('input', () => {
+    emailInput.classList.remove('has-error');
+    const emailErr = document.getElementById('emailError');
+    if (emailErr) emailErr.style.display = 'none';
   });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     let isValid = true;
+    let firstInvalidInput = null;
 
-    // Reset error messages
+    // Reset error messages and highlight classes
     document.querySelectorAll('.field-error').forEach(el => el.style.display = 'none');
+    [nameInput, mobileInput, emailInput].forEach(el => el.classList.remove('has-error'));
 
     // Name Validation
     const nameVal = nameInput.value.trim();
     if (!nameVal || nameVal.length < 2) {
       document.getElementById('nameError').style.display = 'block';
+      nameInput.classList.add('has-error');
+      if (!firstInvalidInput) firstInvalidInput = nameInput;
       isValid = false;
     }
 
-    // Mobile Validation (10 digits Indian number)
+    // Mobile Validation (10 digits number)
     const mobileVal = mobileInput.value.trim();
-    if (!/^[6-9]\d{9}$/.test(mobileVal)) {
+    if (!/^\d{10}$/.test(mobileVal)) {
       document.getElementById('mobileError').style.display = 'block';
+      mobileInput.classList.add('has-error');
+      if (!firstInvalidInput) firstInvalidInput = mobileInput;
       isValid = false;
     }
 
@@ -77,10 +114,15 @@ function initLeadForm() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailVal)) {
       document.getElementById('emailError').style.display = 'block';
+      emailInput.classList.add('has-error');
+      if (!firstInvalidInput) firstInvalidInput = emailInput;
       isValid = false;
     }
 
-    if (!isValid) return;
+    if (!isValid) {
+      if (firstInvalidInput) firstInvalidInput.focus();
+      return;
+    }
 
     // CAPTURE LEAD IMMEDIATELY - NO LOSS OF DATA!
     appState.lead.id = 'CA_' + Date.now();
@@ -97,6 +139,18 @@ function initLeadForm() {
     updateProgressBar(1);
   });
 }
+
+// Scroll to Lead form from Before & After CTA
+window.scrollToAuditForm = function() {
+  const formCard = document.getElementById('funnelCard');
+  if (formCard) {
+    formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const nameInput = document.getElementById('userName');
+    if (nameInput) {
+      setTimeout(() => nameInput.focus(), 400);
+    }
+  }
+};
 
 /* --------------------------------------------------------------------------
    2. STEP 2: INTERACTIVE VASTU QUIZ QUESTIONS
@@ -181,34 +235,40 @@ function computeVastuScore() {
   }, 900);
 
   setTimeout(() => {
-    // Generate realistic custom score based on inputs
-    const answers = appState.lead.answers;
-    let baseScore = 48;
+    try {
+      // Generate realistic custom score based on inputs
+      const answers = appState.lead.answers || {};
+      let baseScore = 48;
 
-    if (answers.entrance) baseScore += Math.min(18, answers.entrance.score);
-    if (answers.kitchen) baseScore += Math.min(16, answers.kitchen.score);
-    if (answers.bedroom) baseScore += Math.min(14, answers.bedroom.score);
+      if (answers.entrance && answers.entrance.score) baseScore += Math.min(18, answers.entrance.score);
+      if (answers.kitchen && answers.kitchen.score) baseScore += Math.min(16, answers.kitchen.score);
+      if (answers.bedroom && answers.bedroom.score) baseScore += Math.min(14, answers.bedroom.score);
 
-    // Keep it in realistic dosha range (52 to 74) to prompt the ₹9 remedy purchase
-    const finalScore = Math.min(72, Math.max(52, baseScore));
-    appState.lead.totalScore = finalScore;
-    appState.lead.financeScore = Math.max(42, finalScore - 8);
-    appState.lead.healthScore = Math.max(45, finalScore - 12);
-    appState.lead.harmonyScore = Math.min(68, finalScore + 6);
+      // Keep it in realistic dosha range (52 to 74) to prompt the ₹9 remedy purchase
+      const finalScore = Math.min(72, Math.max(52, baseScore));
+      appState.lead.totalScore = finalScore;
+      appState.lead.financeScore = Math.max(42, finalScore - 8);
+      appState.lead.healthScore = Math.max(45, finalScore - 12);
+      appState.lead.harmonyScore = Math.min(68, finalScore + 6);
 
-    // Update lead in storage with complete answers
-    saveLeadToStorage(appState.lead);
+      // Update lead in storage with complete answers
+      saveLeadToStorage(appState.lead);
 
-    // Render results
-    renderResults();
-    switchView('step4View');
+      // Render results
+      renderResults();
+      switchView('step4View');
 
-    // Show mobile sticky bar on mobile
-    if (window.innerWidth <= 768) {
-      const stickyCta = document.getElementById('stickyMobileCta');
-      if (stickyCta) stickyCta.style.display = 'block';
+      // Show mobile sticky bar on mobile
+      if (window.innerWidth <= 768) {
+        const stickyCta = document.getElementById('stickyMobileCta');
+        if (stickyCta) stickyCta.style.display = 'block';
+      }
+    } catch (err) {
+      console.error("Calculation rendering error:", err);
+      // Guarantee the user reaches the scorecard
+      switchView('step4View');
     }
-  }, 1900);
+  }, 1800);
 }
 
 /* --------------------------------------------------------------------------
@@ -218,41 +278,63 @@ function renderResults() {
   const lead = appState.lead;
   
   // Set User Name in Headers
-  const firstName = lead.name.split(' ')[0] || 'Friend';
-  document.getElementById('resUserName').textContent = firstName;
-  document.getElementById('modalClientName').textContent = lead.name;
-  document.getElementById('modalClientPhone').textContent = '+91 ' + lead.mobile;
+  const firstName = (lead.name || 'Friend').split(' ')[0] || 'Friend';
+  const resUserEl = document.getElementById('resUserName');
+  if (resUserEl) resUserEl.textContent = firstName;
+
+  const modalNameEl = document.getElementById('modalClientName');
+  if (modalNameEl) modalNameEl.textContent = lead.name || 'Friend';
+
+  const modalPhoneEl = document.getElementById('modalClientPhone');
+  if (modalPhoneEl) modalPhoneEl.textContent = '+91 ' + (lead.mobile || '');
 
   // Set Score Values
-  document.getElementById('finalScoreDisplay').textContent = lead.totalScore;
-  document.getElementById('financePct').textContent = lead.financeScore + '%';
-  document.getElementById('healthPct').textContent = lead.healthScore + '%';
-  document.getElementById('harmonyPct').textContent = lead.harmonyScore + '%';
+  const finalScoreEl = document.getElementById('finalScoreDisplay');
+  if (finalScoreEl) finalScoreEl.textContent = lead.totalScore || 58;
 
-  document.getElementById('financeBar').style.width = lead.financeScore + '%';
-  document.getElementById('healthBar').style.width = lead.healthScore + '%';
-  document.getElementById('harmonyBar').style.width = lead.harmonyScore + '%';
+  const finPctEl = document.getElementById('financePct');
+  if (finPctEl) finPctEl.textContent = (lead.financeScore || 52) + '%';
+
+  const hlthPctEl = document.getElementById('healthPct');
+  if (hlthPctEl) hlthPctEl.textContent = (lead.healthScore || 48) + '%';
+
+  const harmPctEl = document.getElementById('harmonyPct');
+  if (harmPctEl) harmPctEl.textContent = (lead.harmonyScore || 64) + '%';
+
+  const finBar = document.getElementById('financeBar');
+  if (finBar) finBar.style.width = (lead.financeScore || 52) + '%';
+
+  const hlthBar = document.getElementById('healthBar');
+  if (hlthBar) hlthBar.style.width = (lead.healthScore || 48) + '%';
+
+  const harmBar = document.getElementById('harmonyBar');
+  if (harmBar) harmBar.style.width = (lead.harmonyScore || 64) + '%';
 
   // Radial Meter Animation
   // Circumference: 2 * PI * 50 = ~314
-  const offset = 314 - (314 * (lead.totalScore / 100));
+  const scoreVal = lead.totalScore || 58;
+  const offset = 314 - (314 * (scoreVal / 100));
   const radialMeter = document.getElementById('radialMeter');
+  const scoreStatusEl = document.getElementById('scoreStatusWord');
+
   if (radialMeter) {
     radialMeter.style.strokeDashoffset = offset;
-    if (lead.totalScore < 60) {
+    if (scoreVal < 60) {
       radialMeter.style.stroke = '#EF4444';
-      document.getElementById('scoreStatusWord').textContent = 'High Vastu Risk';
-      document.getElementById('scoreStatusWord').style.color = '#B91C1C';
-      document.getElementById('scoreStatusWord').style.background = '#FEE2E2';
+      if (scoreStatusEl) {
+        scoreStatusEl.textContent = 'High Vastu Risk';
+        scoreStatusEl.style.color = '#B91C1C';
+        scoreStatusEl.style.background = '#FEE2E2';
+      }
     } else {
       radialMeter.style.stroke = '#F59E0B';
-      document.getElementById('scoreStatusWord').textContent = 'Moderate Dosha';
-      document.getElementById('scoreStatusWord').style.color = '#B45309';
-      document.getElementById('scoreStatusWord').style.background = '#FEF3C7';
+      if (scoreStatusEl) {
+        scoreStatusEl.textContent = 'Moderate Dosha';
+        scoreStatusEl.style.color = '#B45309';
+        scoreStatusEl.style.background = '#FEF3C7';
+      }
     }
   }
-
-  // No WhatsApp or exit links rendered here prior to payment!
 }
 
 /* --------------------------------------------------------------------------

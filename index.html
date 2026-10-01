@@ -6,7 +6,7 @@
   <title>Call Astro - Free Home Vastu Check</title>
   <meta name="description" content="Instant 60-second Home Vastu Score & Expert Astrologer Remedy for ₹9." />
   
-  <link rel="icon" type="image/png" href="https://www.call-astro.com/public/images/Frame%208496.png" />
+  <link rel="icon" type="image/png" href="frame_8496.png" />
   
   <!-- Modern Clean Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,11 +22,8 @@
   <header class="main-header">
     <div class="container header-inner">
       <div class="brand-logo">
-        <img src="https://www.call-astro.com/public/images/Frame%208496.png" alt="Call Astro" class="brand-emblem-icon" />
+        <img src="frame_8496.png" alt="Call Astro" class="brand-emblem-icon" />
         <span class="brand-name">CALL <span>ASTRO</span></span>
-      </div>
-      <div class="header-pill">
-        <i class="fa-solid fa-star text-gold"></i> 4.8★ • Free Audit
       </div>
     </div>
   </header>
@@ -39,6 +36,33 @@
       <section class="hero-intro text-center">
         <h1 class="hero-title">Check Your Home's <span class="highlight-gold">Vastu Score</span></h1>
         <p class="hero-subtitle">Answer 4 quick questions to find hidden doshas & get a ₹9 expert remedy.</p>
+
+        <!-- HERO BEFORE & AFTER SLIDER -->
+        <div class="hero-slider-wrap">
+          <div class="ba-slide-container" id="baSlideContainer" style="--clip-pos: 50%;">
+            <!-- After Image (Base) -->
+            <img src="vastu_after.jpg" alt="After Vastu Remedy" class="ba-slide-img ba-img-after" draggable="false" />
+            <span class="ba-float-tag tag-after">AFTER VASTU</span>
+
+            <!-- Before Image (Clipped) -->
+            <img src="vastu_before.jpg" alt="Before Vastu" class="ba-slide-img ba-img-before" draggable="false" />
+            <span class="ba-float-tag tag-before">BEFORE VASTU</span>
+
+            <!-- Divider Line with Knob -->
+            <div class="ba-slider-divider">
+              <div class="ba-slider-knob">
+                <i class="fa-solid fa-arrows-left-right"></i>
+              </div>
+            </div>
+
+            <!-- Native Range Slider for Touch and Click/Drag -->
+            <input type="range" min="0" max="100" value="50" class="ba-slider-range" id="baRange" aria-label="Slide to compare before and after vastu" />
+          </div>
+
+          <div class="ba-slider-hint text-center">
+            <span><i class="fa-solid fa-hand-pointer"></i> Drag slider left & right to see difference</span>
+          </div>
+        </div>
       </section>
 
       <!-- FUNNEL CARD -->
@@ -348,9 +372,9 @@
                 <i class="fa-solid fa-file-pdf text-danger"></i> Download Report PDF
               </button>
             </div>
-
           </div>
         </div>
+      </div>
 
       </div>
 
@@ -365,6 +389,9 @@
       <div class="modal-header text-center">
         <h3>Call Astro Vastu Consultation</h3>
         <p>Unlock complete personalized remedy for ₹9</p>
+        <p class="modal-client-preview" style="font-size: 13px; color: #64748B; margin-top: 4px;">
+          For: <strong id="modalClientName" style="color: #1A2E51;">Friend</strong> (<span id="modalClientPhone">+91</span>)
+        </p>
       </div>
 
       <div class="payment-methods">
