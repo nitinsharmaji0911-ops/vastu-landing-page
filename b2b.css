@@ -297,198 +297,234 @@ body {
   color: var(--text-muted);
 }
 
-.b2b-carousel-container {
-  position: relative;
-  background: #FFFFFF;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border-gold);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
+/* ==========================================================================
+   2. 3D Coverflow Carousel Section (Matching User Reference)
+   ========================================================================== */
+.b2b-coverflow-section {
+  margin-bottom: 24px;
 }
 
-.b2b-carousel-track-wrap {
-  overflow: hidden;
+.coverflow-container {
   position: relative;
   width: 100%;
+  padding: 10px 0 20px;
+  perspective: 1100px;
+  overflow: hidden;
 }
 
-.b2b-carousel-track {
+.coverflow-stage {
+  position: relative;
+  width: 100%;
+  height: 440px;
   display: flex;
-  transition: transform 0.35s ease-in-out;
-  width: 100%;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
 }
 
-.b2b-carousel-slide {
-  min-width: 100%;
-  padding: 18px 16px;
+/* Individual 3D Card */
+.coverflow-card {
+  position: absolute;
+  width: 290px;
+  height: 420px;
+  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease, filter 0.45s ease, box-shadow 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.coverflow-card-inner {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #131722 0%, #0D1017 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
 }
 
-/* Mockup UI Screens inside Slides */
-.app-screen-mockup {
-  background: #0F172A;
-  border-radius: var(--radius-sm);
-  padding: 14px 12px;
-  color: #FFFFFF;
-  box-shadow: inset 0 0 8px rgba(0,0,0,0.4);
-  margin-bottom: 12px;
-  border: 1px solid #334155;
+/* Glow border highlight on active card */
+.coverflow-card.active .coverflow-card-inner {
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.75), 0 0 20px rgba(242, 159, 5, 0.15);
 }
 
-.mockup-header {
+/* Top bar pills matching screenshot */
+.cf-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #334155;
-  padding-bottom: 8px;
-  margin-bottom: 10px;
+  z-index: 5;
+  margin-bottom: 8px;
 }
 
-.mockup-header-title {
-  font-size: 12px;
+.cf-pill-tag {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #D1D5DB;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.cf-pill-btn {
+  font-size: 9px;
   font-weight: 700;
-  color: #F8FAFC;
+  letter-spacing: 0.06em;
+  color: #9CA3AF;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
   display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.mockup-live-indicator {
-  display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 9.5px;
-  font-weight: 700;
-  color: #22C55E;
-  background: rgba(34, 197, 94, 0.15);
-  padding: 2px 7px;
-  border-radius: var(--radius-full);
 }
 
-.mockup-live-indicator::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #22C55E;
-  box-shadow: 0 0 6px #22C55E;
-}
-
-.mockup-cards-list {
+/* Card Visual Body */
+.cf-card-visual {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 6px 0;
+}
+
+.cf-card-visual .app-screen-mockup {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 10px;
+  margin-bottom: 0;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Footer Text & Action Arrow matching screenshot */
+.cf-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
   gap: 8px;
 }
 
-.mockup-item {
-  background: #1E293B;
-  border: 1px solid #334155;
-  border-radius: var(--radius-sm);
-  padding: 8px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.cf-footer-text {
+  min-width: 0;
+  flex: 1;
 }
 
-.mockup-item-left strong {
-  display: block;
-  font-size: 11.5px;
+.cf-card-title {
+  font-size: 13.5px;
+  font-weight: 700;
   color: #F8FAFC;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.mockup-item-left span {
-  font-size: 10.5px;
+.cf-card-sub {
+  font-size: 10px;
   color: #94A3B8;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.mockup-badge-fee {
-  background: #FEF3C7;
-  color: #92400E;
-  font-size: 10.5px;
-  font-weight: 800;
-  padding: 3px 7px;
-  border-radius: 5px;
-}
-
-.mockup-badge-action {
-  background: var(--brand-saffron);
-  color: #1A2E51;
-  font-size: 10.5px;
-  font-weight: 800;
-  padding: 3px 9px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.slide-caption {
-  text-align: center;
-}
-
-.slide-caption h4 {
-  font-size: 14px;
-  font-weight: 750;
-  color: var(--primary-navy);
-  margin-bottom: 2px;
-}
-
-.slide-caption p {
-  font-size: 11.5px;
-  color: var(--text-muted);
-}
-
-/* Carousel Nav Controls */
-.b2b-carousel-prev,
-.b2b-carousel-next {
-  position: absolute;
-  top: 42%;
-  transform: translateY(-50%);
+/* Circular Arrow Button from reference screenshot */
+.cf-action-btn {
   width: 32px;
   height: 32px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid var(--border-subtle);
   border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-navy);
+  color: #E2E8F0;
+  font-size: 11px;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  z-index: 10;
-  font-size: 12px;
+  flex-shrink: 0;
   transition: background 0.2s, transform 0.2s;
 }
 
-.b2b-carousel-prev:hover,
-.b2b-carousel-next:hover {
+.coverflow-card.active .cf-action-btn:hover {
   background: var(--brand-saffron);
-  color: #FFFFFF;
+  color: #1A2E51;
+  transform: scale(1.05);
 }
 
-.b2b-carousel-prev { left: 8px; }
-.b2b-carousel-next { right: 8px; }
+/* Navigation Arrows */
+.cf-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  color: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+  font-size: 12px;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, transform 0.2s;
+}
 
-.b2b-carousel-dots {
+.cf-nav-btn:hover {
+  background: var(--brand-saffron);
+  color: #1A2E51;
+}
+
+.cf-nav-btn.prev { left: 4px; }
+.cf-nav-btn.next { right: 4px; }
+
+/* Dots indicator */
+.cf-dots-nav {
   display: flex;
   justify-content: center;
-  gap: 5px;
-  padding: 10px 0 12px;
-  background: #FFFFFF;
+  gap: 6px;
+  margin-top: 10px;
 }
 
-.b2b-dot {
+.cf-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #CBD5E1;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: width 0.25s, background-color 0.25s;
 }
 
-.b2b-dot.active {
-  width: 18px;
-  border-radius: 8px;
-  background: var(--brand-saffron);
+.cf-dot.active {
+  width: 20px;
+  border-radius: 4px;
+  background: #D97706;
+}
+
+@media (max-width: 480px) {
+  .coverflow-card {
+    width: 245px;
+    height: 395px;
+  }
+  .coverflow-stage {
+    height: 410px;
+  }
 }
 
 /* --------------------------------------------------------------------------

@@ -10,41 +10,98 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* --------------------------------------------------------------------------
-   1. PHOTOS CAROUSEL (App Screens)
+   1. 3D COVERFLOW DECK CAROUSEL (App Screens)
    -------------------------------------------------------------------------- */
 function initCarousel() {
-  const track = document.getElementById('b2bCarouselTrack');
-  const slides = document.querySelectorAll('.b2b-carousel-slide');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
-  const dots = document.querySelectorAll('.b2b-dot');
+  const stage = document.getElementById('coverflowStage');
+  const cards = document.querySelectorAll('.coverflow-card');
+  const prevBtn = document.getElementById('cfPrev');
+  const nextBtn = document.getElementById('cfNext');
+  const dots = document.querySelectorAll('.cf-dot');
+  const container = document.getElementById('coverflowContainer');
 
-  if (!track || slides.length === 0) return;
+  if (!stage || cards.length === 0) return;
 
   let currentIndex = 0;
-  const totalSlides = slides.length;
+  const total = cards.length;
   let autoplayTimer = null;
 
-  function goToSlide(index) {
-    if (index < 0) {
-      currentIndex = totalSlides - 1;
-    } else if (index >= totalSlides) {
-      currentIndex = 0;
-    } else {
-      currentIndex = index;
-    }
+  function updateCoverflow() {
+    cards.forEach((card, index) => {
+      // Calculate signed distance from active index (-2, -1, 0, 1, 2, ...)
+      let offset = index - currentIndex;
+      
+      // Wrap around for circular loop feel
+      if (offset > total / 2) offset -= total;
+      if (offset < -total / 2) offset += total;
 
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      const isMobile = window.innerWidth <= 480;
+      const spacing = isMobile ? 135 : 185;
 
+      if (offset === 0) {
+        // Active Center Card (Elevated, fully visible, facing straight)
+        card.style.transform = `translateX(0px) translateZ(140px) rotateY(0deg) scale(1)`;
+        card.style.zIndex = '30';
+        card.style.opacity = '1';
+        card.style.filter = 'brightness(1)';
+        card.classList.add('active');
+      } else if (offset === -1) {
+        // Left Card (Angled inward towards center)
+        card.style.transform = `translateX(-${spacing}px) translateZ(0px) rotateY(26deg) scale(0.88)`;
+        card.style.zIndex = '20';
+        card.style.opacity = '0.65';
+        card.style.filter = 'brightness(0.7)';
+        card.classList.remove('active');
+      } else if (offset === 1) {
+        // Right Card (Angled inward towards center)
+        card.style.transform = `translateX(${spacing}px) translateZ(0px) rotateY(-26deg) scale(0.88)`;
+        card.style.zIndex = '20';
+        card.style.opacity = '0.65';
+        card.style.filter = 'brightness(0.7)';
+        card.classList.remove('active');
+      } else {
+        // Cards further in background
+        const dir = offset < 0 ? -1 : 1;
+        card.style.transform = `translateX(${dir * (spacing + 80)}px) translateZ(-80px) rotateY(${dir * -35}deg) scale(0.75)`;
+        card.style.zIndex = '10';
+        card.style.opacity = '0.25';
+        card.style.filter = 'brightness(0.4)';
+        card.classList.remove('active');
+      }
+    });
+
+    // Update pagination dots
     dots.forEach((dot, i) => {
       dot.classList.toggle('active', i === currentIndex);
     });
   }
 
+  function goToCard(index) {
+    if (index < 0) {
+      currentIndex = total - 1;
+    } else if (index >= total) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+    updateCoverflow();
+  }
+
+  // Click on background card directly focuses it
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      if (currentIndex !== i) {
+        stopAutoplay();
+        goToCard(i);
+        startAutoplay();
+      }
+    });
+  });
+
   function startAutoplay() {
     stopAutoplay();
     autoplayTimer = setInterval(() => {
-      goToSlide(currentIndex + 1);
+      goToCard(currentIndex + 1);
     }, 4500);
   }
 
@@ -53,17 +110,19 @@ function initCarousel() {
   }
 
   if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       stopAutoplay();
-      goToSlide(currentIndex - 1);
+      goToCard(currentIndex - 1);
       startAutoplay();
     });
   }
 
   if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       stopAutoplay();
-      goToSlide(currentIndex + 1);
+      goToCard(currentIndex + 1);
       startAutoplay();
     });
   }
@@ -71,37 +130,40 @@ function initCarousel() {
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
       stopAutoplay();
-      goToSlide(i);
+      goToCard(i);
       startAutoplay();
     });
   });
 
-  // Touch Swipe for Mobile
-  let startX = 0;
-  let endX = 0;
+  // Touch & Swipe Support for mobile devices
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-  track.addEventListener('touchstart', (e) => {
+  stage.addEventListener('touchstart', (e) => {
     stopAutoplay();
-    startX = e.changedTouches[0].screenX;
+    touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
 
-  track.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].screenX;
-    if (startX - endX > 40) {
-      goToSlide(currentIndex + 1);
-    } else if (endX - startX > 40) {
-      goToSlide(currentIndex - 1);
+  stage.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 40) {
+      goToCard(currentIndex + 1);
+    } else if (touchEndX - touchStartX > 40) {
+      goToCard(currentIndex - 1);
     }
     startAutoplay();
   }, { passive: true });
 
-  // Pause on hover
-  const container = document.getElementById('b2bCarouselContainer');
   if (container) {
     container.addEventListener('mouseenter', stopAutoplay);
     container.addEventListener('mouseleave', startAutoplay);
   }
 
+  // Resize listener to adapt spacing dynamically
+  window.addEventListener('resize', updateCoverflow);
+
+  // Initialize view
+  updateCoverflow();
   startAutoplay();
 }
 
