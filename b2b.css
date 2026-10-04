@@ -1140,10 +1140,40 @@ body {
 }
 
 @media (max-width: 480px) {
+  .b2b-marquee-viewport {
+    height: 480px;
+  }
   .b2b-marquee-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
   }
   .b2b-marquee-col:nth-child(2) {
-    display: none;
+    display: flex !important;
+  }
+  .b2b-review-card {
+    padding: 10px !important;
+  }
+  .b2b-review-stars {
+    font-size: 9.5px !important;
+    margin-bottom: 5px !important;
+  }
+  .b2b-review-text {
+    font-size: 10.5px !important;
+    line-height: 1.42 !important;
+    margin-bottom: 8px !important;
+  }
+  .b2b-author-name {
+    font-size: 10.5px !important;
+  }
+  .b2b-author-sub {
+    font-size: 9px !important;
+  }
+  .b2b-verified-badge {
+    padding: 1px 5px !important;
+    font-size: 8.5px !important;
+  }
+  .b2b-verified-badge .badge-dot {
+    width: 4px !important;
+    height: 4px !important;
   }
 }

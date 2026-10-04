@@ -123,8 +123,7 @@ function initB2bForm() {
   const nameInput = document.getElementById('consultantName');
   const mobileInput = document.getElementById('consultantMobile');
   const emailInput = document.getElementById('consultantEmail');
-  const expSelect = document.getElementById('consultantExperience');
-  const cityInput = document.getElementById('consultantCity');
+  const expSelect = document.getElementById('consultantExpertise');
   const phoneWrap = document.getElementById('phoneWrap');
 
   if (!form) return;
@@ -137,11 +136,11 @@ function initB2bForm() {
     if (err) err.style.display = 'none';
   });
 
-  [nameInput, emailInput, cityInput, expSelect].forEach(input => {
+  [nameInput, emailInput, expSelect].forEach(input => {
     if (!input) return;
     input.addEventListener('input', () => {
       input.classList.remove('has-error');
-      const err = input.parentElement.querySelector('.b2b-error-msg');
+      const err = input.parentElement?.querySelector('.b2b-error-msg');
       if (err) err.style.display = 'none';
     });
   });
@@ -181,14 +180,6 @@ function initB2bForm() {
       isValid = false;
     }
 
-    // Validate City
-    if (!cityInput.value.trim()) {
-      document.getElementById('cityErr').style.display = 'block';
-      cityInput.classList.add('has-error');
-      if (!firstInvalid) firstInvalid = cityInput;
-      isValid = false;
-    }
-
     if (!isValid) {
       if (firstInvalid) firstInvalid.focus();
       return;
@@ -198,9 +189,9 @@ function initB2bForm() {
     consultantState.name = nameInput.value.trim();
     consultantState.mobile = mob;
     consultantState.email = email;
-    consultantState.expertise = document.getElementById('consultantExpertise')?.value || 'Vastu Shastra';
-    consultantState.experience = expSelect.value || '2-5 Years';
-    consultantState.city = cityInput.value.trim();
+    consultantState.expertise = expSelect?.value || 'Vastu Shastra';
+    consultantState.experience = '3-7 Years';
+    consultantState.city = 'India';
     consultantState.bookingId = 'EXP-' + Math.floor(10000 + Math.random() * 90000);
 
     // Save lead to local storage immediately
@@ -257,7 +248,7 @@ window.simulateB2bPayment = function(provider) {
     // 3. Set up prefilled WhatsApp link
     const waPhone = '919999999999'; // Call Astro Partner Onboarding WhatsApp
     const message = encodeURIComponent(
-      `Namaste Call Astro Team! My name is ${consultantState.name}. I am a Vastu Consultant from ${consultantState.city}. ` +
+      `Namaste Call Astro Team! My name is ${consultantState.name}. I am a ${consultantState.expertise} Consultant. ` +
       `I have paid ₹9 for my 7-Day Free Consultant App Trial (Registration ID: #${consultantState.bookingId}). ` +
       `Please activate my expert panel account and share the app download link.`
     );

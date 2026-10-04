@@ -1201,11 +1201,41 @@ input:focus, select:focus {
 }
 
 @media (max-width: 480px) {
+  .consumer-marquee-viewport {
+    height: 480px;
+  }
   .consumer-marquee-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
   }
   .consumer-marquee-col:nth-child(2) {
-    display: none;
+    display: flex !important;
+  }
+  .consumer-review-card {
+    padding: 10px !important;
+  }
+  .card-stars {
+    font-size: 10px !important;
+    margin-bottom: 5px !important;
+  }
+  .card-text {
+    font-size: 10.5px !important;
+    line-height: 1.42 !important;
+    margin-bottom: 8px !important;
+  }
+  .card-name {
+    font-size: 11px !important;
+  }
+  .card-loc {
+    font-size: 9px !important;
+  }
+  .card-badge {
+    padding: 1px 5px !important;
+    font-size: 8.5px !important;
+  }
+  .card-badge .badge-dot {
+    width: 4px !important;
+    height: 4px !important;
   }
 }
 
