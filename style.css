@@ -1007,7 +1007,7 @@ input:focus, select:focus {
 }
 
 /* ==========================================================================
-   Nova-Style Wall of Love Section (Consumer Landing Page)
+   Nova-Style Wall of Love Section (Consumer Landing Page - Exact Nova Theme)
    ========================================================================== */
 .consumer-reviews-section {
   margin-top: 40px;
@@ -1023,11 +1023,12 @@ input:focus, select:focus {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #FEF3C7;
-  color: #B45309;
+  background: rgba(255, 210, 31, 0.12);
+  color: #D97706;
+  border: 1px solid rgba(255, 210, 31, 0.25);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   padding: 4px 12px;
   border-radius: var(--radius-full);
   margin-bottom: 8px;
@@ -1056,10 +1057,11 @@ input:focus, select:focus {
 
 .consumer-marquee-viewport {
   position: relative;
-  height: 460px;
+  height: 520px;
   overflow: hidden;
   border-radius: var(--radius-md);
   padding: 4px 0;
+  background: #1A030A;
 }
 
 .mask-marquee-vertical {
@@ -1072,32 +1074,33 @@ input:focus, select:focus {
   position: absolute;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 52px;
   z-index: 20;
 }
 
 .consumer-fade-overlay.top {
   top: 0;
-  background: linear-gradient(to bottom, var(--bg-body), transparent);
+  background: linear-gradient(to bottom, #1A030A, rgba(26, 3, 10, 0.8) 60%, transparent);
 }
 
 .consumer-fade-overlay.bottom {
   bottom: 0;
-  background: linear-gradient(to top, var(--bg-body), transparent);
+  background: linear-gradient(to top, #1A030A, rgba(26, 3, 10, 0.8) 60%, transparent);
 }
 
 .consumer-marquee-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 12px;
   height: 100%;
+  padding: 0 8px;
   align-items: start;
 }
 
 .consumer-marquee-col {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   will-change: transform;
 }
 
@@ -1112,47 +1115,41 @@ input:focus, select:focus {
 }
 
 .animate-marquee-up-slow {
-  animation: consumer-marquee-up 32s linear infinite;
+  animation: consumer-marquee-up 34s linear infinite;
 }
 
 .animate-marquee-down-slow {
-  animation: consumer-marquee-down 36s linear infinite;
+  animation: consumer-marquee-down 38s linear infinite;
 }
 
 .pause-hover:hover {
   animation-play-state: paused;
 }
 
+/* Nova card styling from screenshot */
 .consumer-review-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  box-shadow: 0 4px 14px rgba(26, 46, 81, 0.05);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(180deg, #2D0712 0%, #24050E 50%, #1A030A 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .consumer-review-card:hover {
-  border-color: #FCD34D;
-  box-shadow: 0 8px 20px -4px rgba(242, 159, 5, 0.15);
-}
-
-.card-stars {
-  color: #F59E0B;
-  font-size: 12px;
-  display: flex;
-  gap: 2px;
-  margin-bottom: 8px;
+  border-color: rgba(255, 210, 31, 0.4);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.6);
 }
 
 .card-text {
-  font-size: 12.5px;
-  color: #334155;
-  line-height: 1.55;
-  margin-bottom: 14px;
+  font-size: 11.5px;
+  color: #E4E4E7; /* text-zinc-200 */
+  line-height: 1.5;
+  margin-bottom: 12px;
+  font-weight: 400;
 }
 
 .card-footer {
@@ -1160,44 +1157,51 @@ input:focus, select:focus {
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
-  border-top: 1px solid #F1F5F9;
-  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 4px;
 }
 
 .card-name {
   display: block;
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 700;
-  color: var(--primary-navy);
+  color: #FFFFFF;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-loc {
   display: block;
-  font-size: 11px;
-  color: var(--text-muted);
+  font-size: 10px;
+  color: #A1A1AA; /* text-zinc-400 */
   margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-badge {
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: var(--radius-full);
-  background: #F0FDF4;
-  border: 1px solid #DCFCE7;
-  font-size: 10px;
-  font-weight: 700;
-  color: #16A34A;
-  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 9.5px;
+  font-family: monospace;
+  color: #A1A1AA;
 }
 
 .card-badge .badge-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #16A34A;
+  background: #34D399; /* emerald-400 */
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
 }
 
 @media (max-width: 480px) {
@@ -1207,20 +1211,18 @@ input:focus, select:focus {
   .consumer-marquee-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
+    padding: 0 4px !important;
   }
   .consumer-marquee-col:nth-child(2) {
     display: flex !important;
   }
   .consumer-review-card {
-    padding: 10px !important;
-  }
-  .card-stars {
-    font-size: 10px !important;
-    margin-bottom: 5px !important;
+    padding: 11px 9px !important;
+    border-radius: 12px !important;
   }
   .card-text {
-    font-size: 10.5px !important;
-    line-height: 1.42 !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
     margin-bottom: 8px !important;
   }
   .card-name {

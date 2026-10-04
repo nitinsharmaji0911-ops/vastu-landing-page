@@ -906,7 +906,7 @@ body {
 }
 
 /* ==========================================================================
-   Nova-Style Wall of Love / Testimonials Section
+   Nova-Style Wall of Love / Testimonials Section (Exact Nova Theme)
    ========================================================================== */
 .b2b-reviews-section {
   margin-top: 28px;
@@ -922,11 +922,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #FEF3C7;
-  color: #B45309;
+  background: rgba(255, 210, 31, 0.12);
+  color: #D97706;
+  border: 1px solid rgba(255, 210, 31, 0.25);
   font-size: 10px;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   padding: 4px 10px;
   border-radius: var(--radius-full);
   margin-bottom: 8px;
@@ -956,10 +957,11 @@ body {
 /* Viewport with Top & Bottom Fade Mask */
 .b2b-marquee-viewport {
   position: relative;
-  height: 440px;
+  height: 520px;
   overflow: hidden;
   border-radius: var(--radius-md);
   padding: 4px 0;
+  background: #1A030A;
 }
 
 .mask-marquee-vertical {
@@ -972,26 +974,27 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  height: 48px;
+  height: 52px;
   z-index: 20;
 }
 
 .b2b-fade-overlay.top {
   top: 0;
-  background: linear-gradient(to bottom, var(--bg-slate), transparent);
+  background: linear-gradient(to bottom, #1A030A, rgba(26, 3, 10, 0.8) 60%, transparent);
 }
 
 .b2b-fade-overlay.bottom {
   bottom: 0;
-  background: linear-gradient(to top, var(--bg-slate), transparent);
+  background: linear-gradient(to top, #1A030A, rgba(26, 3, 10, 0.8) 60%, transparent);
 }
 
-/* 2-Column Marquee Grid */
+/* 2-Column Marquee Grid matching Nova */
 .b2b-marquee-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   height: 100%;
+  padding: 0 8px;
   align-items: start;
 }
 
@@ -1014,48 +1017,41 @@ body {
 }
 
 .animate-marquee-up-slow {
-  animation: b2b-marquee-up 32s linear infinite;
+  animation: b2b-marquee-up 34s linear infinite;
 }
 
 .animate-marquee-down-slow {
-  animation: b2b-marquee-down 36s linear infinite;
+  animation: b2b-marquee-down 38s linear infinite;
 }
 
 .pause-hover:hover {
   animation-play-state: paused;
 }
 
-/* Review Card Styling */
+/* Review Card Styling - Exactly matching Nova screenshot */
 .b2b-review-card {
-  background: #FFFFFF;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #2D0712 0%, #24050E 50%, #1A030A 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   padding: 14px;
-  box-shadow: 0 4px 12px -2px rgba(26, 46, 81, 0.06);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .b2b-review-card:hover {
-  border-color: #FCD34D;
-  box-shadow: 0 8px 18px -4px rgba(245, 158, 11, 0.15);
-}
-
-.b2b-review-stars {
-  color: #F59E0B;
-  font-size: 11px;
-  display: flex;
-  gap: 2px;
-  margin-bottom: 8px;
+  border-color: rgba(255, 210, 31, 0.4);
+  box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.6);
 }
 
 .b2b-review-text {
   font-size: 11.5px;
-  color: #334155;
+  color: #E4E4E7; /* text-zinc-200 */
   line-height: 1.5;
   margin-bottom: 12px;
+  font-weight: 400;
 }
 
 .b2b-review-footer {
@@ -1063,8 +1059,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 10px;
-  border-top: 1px solid #F1F5F9;
-  gap: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 4px;
 }
 
 .b2b-review-author {
@@ -1076,14 +1072,17 @@ body {
   display: block;
   font-size: 12px;
   font-weight: 700;
-  color: var(--primary-navy);
+  color: #FFFFFF;
   line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .b2b-author-sub {
   display: block;
   font-size: 10px;
-  color: #64748B;
+  color: #A1A1AA; /* text-zinc-400 */
   margin-top: 2px;
   white-space: nowrap;
   overflow: hidden;
@@ -1097,18 +1096,19 @@ body {
   gap: 4px;
   padding: 2px 7px;
   border-radius: var(--radius-full);
-  background: #F0FDF4;
-  border: 1px solid #DCFCE7;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   font-size: 9.5px;
-  font-weight: 700;
-  color: #16A34A;
+  font-family: monospace;
+  color: #A1A1AA;
 }
 
 .b2b-verified-badge .badge-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #16A34A;
+  background: #34D399; /* emerald-400 */
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
 }
 
 /* Quick review CTA */
@@ -1146,24 +1146,22 @@ body {
   .b2b-marquee-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 8px !important;
+    padding: 0 4px !important;
   }
   .b2b-marquee-col:nth-child(2) {
     display: flex !important;
   }
   .b2b-review-card {
-    padding: 10px !important;
-  }
-  .b2b-review-stars {
-    font-size: 9.5px !important;
-    margin-bottom: 5px !important;
+    padding: 11px 9px !important;
+    border-radius: 12px !important;
   }
   .b2b-review-text {
-    font-size: 10.5px !important;
-    line-height: 1.42 !important;
+    font-size: 11px !important;
+    line-height: 1.45 !important;
     margin-bottom: 8px !important;
   }
   .b2b-author-name {
-    font-size: 10.5px !important;
+    font-size: 11px !important;
   }
   .b2b-author-sub {
     font-size: 9px !important;
