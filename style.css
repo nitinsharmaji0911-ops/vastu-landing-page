@@ -1006,4 +1006,207 @@ input:focus, select:focus {
   gap: 6px;
 }
 
+/* ==========================================================================
+   Nova-Style Wall of Love Section (Consumer Landing Page)
+   ========================================================================== */
+.consumer-reviews-section {
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
+.consumer-reviews-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.consumer-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3C7;
+  color: #B45309;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.consumer-reviews-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.consumer-reviews-title span {
+  color: var(--brand-saffron);
+}
+
+.consumer-reviews-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.consumer-marquee-viewport {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  padding: 4px 0;
+}
+
+.mask-marquee-vertical {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.consumer-fade-overlay {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50px;
+  z-index: 20;
+}
+
+.consumer-fade-overlay.top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg-body), transparent);
+}
+
+.consumer-fade-overlay.bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg-body), transparent);
+}
+
+.consumer-marquee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  height: 100%;
+  align-items: start;
+}
+
+.consumer-marquee-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  will-change: transform;
+}
+
+@keyframes consumer-marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes consumer-marquee-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-marquee-up-slow {
+  animation: consumer-marquee-up 32s linear infinite;
+}
+
+.animate-marquee-down-slow {
+  animation: consumer-marquee-down 36s linear infinite;
+}
+
+.pause-hover:hover {
+  animation-play-state: paused;
+}
+
+.consumer-review-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(26, 46, 81, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.consumer-review-card:hover {
+  border-color: #FCD34D;
+  box-shadow: 0 8px 20px -4px rgba(242, 159, 5, 0.15);
+}
+
+.card-stars {
+  color: #F59E0B;
+  font-size: 12px;
+  display: flex;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #F1F5F9;
+  gap: 6px;
+}
+
+.card-name {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  line-height: 1.2;
+}
+
+.card-loc {
+  display: block;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: #F0FDF4;
+  border: 1px solid #DCFCE7;
+  font-size: 10px;
+  font-weight: 700;
+  color: #16A34A;
+  flex-shrink: 0;
+}
+
+.card-badge .badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #16A34A;
+}
+
+@media (max-width: 480px) {
+  .consumer-marquee-grid {
+    grid-template-columns: 1fr;
+  }
+  .consumer-marquee-col:nth-child(2) {
+    display: none;
+  }
+}
+
 

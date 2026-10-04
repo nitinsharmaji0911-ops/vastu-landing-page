@@ -904,3 +904,246 @@ body {
   border-top: 1px solid var(--border-subtle);
   background: #FFFFFF;
 }
+
+/* ==========================================================================
+   Nova-Style Wall of Love / Testimonials Section
+   ========================================================================== */
+.b2b-reviews-section {
+  margin-top: 28px;
+  margin-bottom: 24px;
+}
+
+.b2b-reviews-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.b2b-reviews-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3C7;
+  color: #B45309;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.b2b-reviews-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.b2b-reviews-title span {
+  color: #D97706;
+}
+
+.b2b-reviews-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+/* Viewport with Top & Bottom Fade Mask */
+.b2b-marquee-viewport {
+  position: relative;
+  height: 440px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  padding: 4px 0;
+}
+
+.mask-marquee-vertical {
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.b2b-fade-overlay {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 20;
+}
+
+.b2b-fade-overlay.top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg-slate), transparent);
+}
+
+.b2b-fade-overlay.bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg-slate), transparent);
+}
+
+/* 2-Column Marquee Grid */
+.b2b-marquee-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  height: 100%;
+  align-items: start;
+}
+
+.b2b-marquee-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  will-change: transform;
+}
+
+/* Animations matching Nova */
+@keyframes b2b-marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes b2b-marquee-down {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-marquee-up-slow {
+  animation: b2b-marquee-up 32s linear infinite;
+}
+
+.animate-marquee-down-slow {
+  animation: b2b-marquee-down 36s linear infinite;
+}
+
+.pause-hover:hover {
+  animation-play-state: paused;
+}
+
+/* Review Card Styling */
+.b2b-review-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  box-shadow: 0 4px 12px -2px rgba(26, 46, 81, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.b2b-review-card:hover {
+  border-color: #FCD34D;
+  box-shadow: 0 8px 18px -4px rgba(245, 158, 11, 0.15);
+}
+
+.b2b-review-stars {
+  color: #F59E0B;
+  font-size: 11px;
+  display: flex;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.b2b-review-text {
+  font-size: 11.5px;
+  color: #334155;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.b2b-review-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid #F1F5F9;
+  gap: 6px;
+}
+
+.b2b-review-author {
+  min-width: 0;
+  flex: 1;
+}
+
+.b2b-author-name {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  line-height: 1.2;
+}
+
+.b2b-author-sub {
+  display: block;
+  font-size: 10px;
+  color: #64748B;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.b2b-verified-badge {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: #F0FDF4;
+  border: 1px solid #DCFCE7;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #16A34A;
+}
+
+.b2b-verified-badge .badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #16A34A;
+}
+
+/* Quick review CTA */
+.b2b-reviews-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F1F5F9;
+  border: 1px dashed #CBD5E1;
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--primary-navy);
+  font-weight: 600;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn-review-cta {
+  color: #B45309;
+  font-weight: 700;
+  font-size: 11.5px;
+  text-decoration: none;
+}
+
+.btn-review-cta:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .b2b-marquee-grid {
+    grid-template-columns: 1fr;
+  }
+  .b2b-marquee-col:nth-child(2) {
+    display: none;
+  }
+}
