@@ -1,0 +1,905 @@
+/* ==========================================================================
+   Call Astro - B2B Vastu Consultant Landing Page Stylesheet
+   Brand Colors: Navy (#1A2E51), Gold/Saffron (#F29F05), Forest Green (#16A34A)
+   ========================================================================== */
+
+:root {
+  --primary-navy: #1A2E51;
+  --navy-dark: #0F1D36;
+  --navy-light: #2A436D;
+  --brand-saffron: #F29F05;
+  --saffron-light: #FDE68A;
+  --saffron-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  --success-green: #16A34A;
+  --bg-slate: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --border-subtle: #E2E8F0;
+  --border-gold: #FCD34D;
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(26, 46, 81, 0.1);
+  --shadow-lg: 0 20px 35px -8px rgba(26, 46, 81, 0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-slate);
+  color: var(--text-main);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+.b2b-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.b2b-header {
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.b2b-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.b2b-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.b2b-brand-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.b2b-brand-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  letter-spacing: 0.5px;
+}
+
+.b2b-brand-name span {
+  color: var(--brand-saffron);
+}
+
+.b2b-badge-partner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3C7;
+  color: #B45309;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.b2b-hero {
+  padding: 26px 0 18px;
+  text-align: center;
+}
+
+.b2b-top-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #E0E7FF;
+  color: #3730A3;
+  font-size: 12px;
+  font-weight: 750;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+
+.b2b-hero-title {
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  line-height: 1.28;
+  margin-bottom: 12px;
+}
+
+.b2b-hero-title span {
+  color: var(--brand-saffron);
+  position: relative;
+}
+
+.b2b-hero-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Video & Features Card
+   -------------------------------------------------------------------------- */
+.b2b-video-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 30px;
+}
+
+.b2b-video-player-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #0F1D36 0%, #1A2E51 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.b2b-video-overlay-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, rgba(15, 29, 54, 0.85) 80%);
+}
+
+.b2b-video-play-btn {
+  width: 68px;
+  height: 68px;
+  background: var(--brand-saffron);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-size: 24px;
+  box-shadow: 0 0 0 10px rgba(245, 158, 11, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.b2b-video-player-box:hover .b2b-video-play-btn {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 14px rgba(245, 158, 11, 0.4), 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.b2b-video-caption-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(15, 29, 54, 0.95), transparent);
+  padding: 24px 16px 12px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.b2b-video-caption-bar strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.b2b-video-caption-bar span {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Features Grid */
+.b2b-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 20px;
+  background: #FFFFFF;
+}
+
+@media (max-width: 480px) {
+  .b2b-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.b2b-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px;
+  background: #F8FAFC;
+  border-radius: var(--radius-md);
+  border: 1px solid #EEF2F6;
+}
+
+.b2b-feat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #FEF3C7;
+  color: #B45309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.b2b-feat-text strong {
+  display: block;
+  font-size: 13px;
+  color: var(--primary-navy);
+  margin-bottom: 2px;
+}
+
+.b2b-feat-text p {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   Photos Carousel Section
+   -------------------------------------------------------------------------- */
+.b2b-carousel-section {
+  margin-bottom: 34px;
+}
+
+.b2b-section-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.b2b-section-title {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 4px;
+}
+
+.b2b-section-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.b2b-carousel-container {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border-gold);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.b2b-carousel-track-wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.b2b-carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  width: 100%;
+}
+
+.b2b-carousel-slide {
+  min-width: 100%;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mockup UI Screens inside Slides */
+.app-screen-mockup {
+  background: #0F172A;
+  border-radius: var(--radius-md);
+  padding: 18px 16px;
+  color: #FFFFFF;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 16px;
+  border: 1px solid #334155;
+}
+
+.mockup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.mockup-header-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #F8FAFC;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mockup-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #22C55E;
+  background: rgba(34, 197, 94, 0.15);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+.mockup-live-indicator::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px #22C55E;
+}
+
+.mockup-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mockup-item {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mockup-item-left strong {
+  display: block;
+  font-size: 12px;
+  color: #F8FAFC;
+}
+
+.mockup-item-left span {
+  font-size: 11px;
+  color: #94A3B8;
+}
+
+.mockup-badge-fee {
+  background: #FEF3C7;
+  color: #92400E;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.mockup-badge-action {
+  background: var(--brand-saffron);
+  color: #1A2E51;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.slide-caption {
+  text-align: center;
+}
+
+.slide-caption h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 4px;
+}
+
+.slide-caption p {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Carousel Nav Controls */
+.b2b-carousel-prev,
+.b2b-carousel-next {
+  position: absolute;
+  top: 42%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border-subtle);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-navy);
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.b2b-carousel-prev:hover,
+.b2b-carousel-next:hover {
+  background: var(--brand-saffron);
+  color: #FFFFFF;
+}
+
+.b2b-carousel-prev { left: 10px; }
+.b2b-carousel-next { right: 10px; }
+
+.b2b-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 0 16px;
+  background: #FFFFFF;
+}
+
+.b2b-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #CBD5E1;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.b2b-dot.active {
+  width: 22px;
+  border-radius: 10px;
+  background: var(--brand-saffron);
+}
+
+/* --------------------------------------------------------------------------
+   Registration & ₹9 Payment Form Card
+   -------------------------------------------------------------------------- */
+.b2b-form-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--brand-saffron);
+  padding: 28px 22px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 34px;
+  position: relative;
+}
+
+.b2b-form-badge-ribbon {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #1A2E51 0%, #0F1D36 100%);
+  color: #FBBF24;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid #FCD34D;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+
+.b2b-form-header {
+  text-align: center;
+  margin: 10px 0 20px;
+}
+
+.b2b-form-header h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--primary-navy);
+  margin-bottom: 6px;
+}
+
+.b2b-form-header p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.b2b-form-group {
+  margin-bottom: 14px;
+}
+
+.b2b-form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  margin-bottom: 5px;
+}
+
+.b2b-form-group input,
+.b2b-form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  color: var(--text-main);
+  background: #FFFFFF;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.b2b-form-group input:focus,
+.b2b-form-group select:focus {
+  border-color: var(--brand-saffron);
+  box-shadow: 0 0 0 3px rgba(242, 159, 5, 0.15);
+}
+
+.b2b-form-group input.has-error,
+.b2b-form-group select.has-error {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2 !important;
+}
+
+.b2b-error-msg {
+  display: none;
+  font-size: 11px;
+  color: #DC2626;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.b2b-phone-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.b2b-phone-input-wrap.has-error {
+  border-color: #EF4444 !important;
+  background-color: #FEF2F2 !important;
+}
+
+.b2b-prefix {
+  padding: 12px 14px;
+  background: #F1F5F9;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-navy);
+  border-right: 1px solid var(--border-subtle);
+}
+
+.b2b-phone-input-wrap input {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.b2b-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 520px) {
+  .b2b-form-row {
+    flex-direction: row;
+  }
+  .b2b-form-row .flex-1 {
+    flex: 1;
+  }
+}
+
+/* Price Box */
+.b2b-pricing-banner {
+  background: #FFFBEB;
+  border: 1.5px dashed #FCD34D;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0 18px;
+}
+
+.b2b-price-left strong {
+  display: block;
+  font-size: 13px;
+  color: #92400E;
+}
+
+.b2b-price-left span {
+  font-size: 11px;
+  color: #B45309;
+}
+
+.b2b-price-right {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.b2b-price-right del {
+  font-size: 13px;
+  color: #94A3B8;
+}
+
+.b2b-price-right .price-large {
+  font-size: 24px;
+  font-weight: 800;
+  color: #B45309;
+}
+
+.btn-b2b-submit {
+  width: 100%;
+  padding: 15px 20px;
+  background: var(--saffron-gradient);
+  color: #1A2E51;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-b2b-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.5);
+}
+
+.b2b-trust-bullets {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 14px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.b2b-trust-bullets span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   Payment Modal & WhatsApp Transition
+   -------------------------------------------------------------------------- */
+.b2b-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.b2b-modal-overlay.active {
+  display: flex;
+}
+
+.b2b-modal-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 440px;
+  width: 100%;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalScaleUp 0.25s ease-out;
+}
+
+@keyframes modalScaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.b2b-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #94A3B8;
+  cursor: pointer;
+}
+
+.b2b-modal-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.b2b-modal-header h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--primary-navy);
+}
+
+.b2b-modal-header p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.b2b-modal-upi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.b2b-upi-box {
+  background: #F8FAFC;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 6px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.b2b-upi-box:hover {
+  border-color: var(--brand-saffron);
+  background: #FFFBEB;
+  transform: translateY(-2px);
+}
+
+.b2b-upi-box i {
+  font-size: 22px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.b2b-upi-box span {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--primary-navy);
+}
+
+.btn-modal-pay {
+  width: 100%;
+  padding: 14px;
+  background: var(--saffron-gradient);
+  color: #1A2E51;
+  font-size: 15px;
+  font-weight: 800;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Success & WhatsApp Transition View */
+.b2b-success-card {
+  text-align: center;
+  display: none;
+}
+
+.b2b-success-card.active {
+  display: block;
+}
+
+.b2b-check-ring {
+  width: 64px;
+  height: 64px;
+  background: #DCFCE7;
+  color: #16A34A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin: 0 auto 16px;
+  animation: pulseGreen 1.5s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+  70% { box-shadow: 0 0 0 14px rgba(22, 163, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+.b2b-redirect-counter {
+  font-size: 13px;
+  color: #0369A1;
+  background: #E0F2FE;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin: 12px 0 18px;
+  font-weight: 700;
+}
+
+.btn-whatsapp-redirect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  background: #25D366;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+}
+
+.btn-app-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: #1A2E51;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.b2b-footer {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-subtle);
+  background: #FFFFFF;
+}
