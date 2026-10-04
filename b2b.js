@@ -258,7 +258,7 @@ window.simulateB2bPayment = function(provider) {
     const waPhone = '919999999999'; // Call Astro Partner Onboarding WhatsApp
     const message = encodeURIComponent(
       `Namaste Call Astro Team! My name is ${consultantState.name}. I am a Vastu Consultant from ${consultantState.city}. ` +
-      `I have paid ₹9 for my 2-Day Consultant App Trial (Registration ID: #${consultantState.bookingId}). ` +
+      `I have paid ₹9 for my 7-Day Free Consultant App Trial (Registration ID: #${consultantState.bookingId}). ` +
       `Please activate my expert panel account and share the app download link.`
     );
     const whatsappUrl = `https://wa.me/${waPhone}?text=${message}`;
