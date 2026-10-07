@@ -1,391 +1,293 @@
 /**
- * Call Astro - B2B Vastu Consultant Landing Page Application
- * Handles Photo Carousel, Consultant Lead Capture, ₹9 Payment, & Auto-Redirect to WhatsApp
+ * CA VASTU - Consultant Landing Page Interactions
+ * Handles:
+ * 1. Video Player with View Counter & Sound Controls
+ * 2. Before -> After Image Comparison Slider
+ * 3. FAQ Accordion
+ * 4. Lead Capture Form with ₹9 Payment Simulation & Automatic WhatsApp Redirect
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCarousel();
-  initB2bForm();
-  initB2bPayment();
+  initVideoPlayer();
+  initBeforeAfterSlider();
+  initFaqAccordion();
+  initTrialForm();
 });
 
 /* --------------------------------------------------------------------------
-   1. 3D COVERFLOW DECK CAROUSEL (App Screens)
+   1. VIDEO PLAYER (Thumb + Video + Live View Count)
    -------------------------------------------------------------------------- */
-function initCarousel() {
-  const stage = document.getElementById('coverflowStage');
-  const cards = document.querySelectorAll('.coverflow-card');
-  const prevBtn = document.getElementById('cfPrev');
-  const nextBtn = document.getElementById('cfNext');
-  const dots = document.querySelectorAll('.cf-dot');
-  const container = document.getElementById('coverflowContainer');
+function initVideoPlayer() {
+  const video = document.getElementById('vastuDemoVideo');
+  const overlay = document.getElementById('videoPlayOverlay');
+  const muteBtn = document.getElementById('videoMuteToggle');
+  const muteIcon = document.getElementById('muteIcon');
+  const muteLabel = document.getElementById('muteLabel');
+  const viewCountEl = document.getElementById('videoViewCount');
 
-  if (!stage || cards.length === 0) return;
+  if (!video) return;
 
-  let currentIndex = 0;
-  const total = cards.length;
-  let autoplayTimer = null;
+  // Simulate dynamic view count updates
+  let baseViews = 14820;
+  setInterval(() => {
+    baseViews += Math.floor(Math.random() * 3) + 1;
+    if (viewCountEl) {
+      viewCountEl.innerHTML = `<i class="fa-solid fa-eye"></i> ${baseViews.toLocaleString('en-IN')} Consultants Watching`;
+    }
+  }, 4000);
 
-  function updateCoverflow() {
-    cards.forEach((card, index) => {
-      // Calculate signed distance from active index (-2, -1, 0, 1, 2, ...)
-      let offset = index - currentIndex;
-      
-      // Wrap around for circular loop feel
-      if (offset > total / 2) offset -= total;
-      if (offset < -total / 2) offset += total;
-
-      const isMobile = window.innerWidth <= 480;
-      const spacing = isMobile ? 135 : 185;
-
-      if (offset === 0) {
-        // Active Center Card (Elevated, fully visible, facing straight)
-        card.style.transform = `translateX(0px) translateZ(140px) rotateY(0deg) scale(1)`;
-        card.style.zIndex = '30';
-        card.style.opacity = '1';
-        card.style.filter = 'brightness(1)';
-        card.classList.add('active');
-      } else if (offset === -1) {
-        // Left Card (Angled inward towards center)
-        card.style.transform = `translateX(-${spacing}px) translateZ(0px) rotateY(26deg) scale(0.88)`;
-        card.style.zIndex = '20';
-        card.style.opacity = '0.65';
-        card.style.filter = 'brightness(0.7)';
-        card.classList.remove('active');
-      } else if (offset === 1) {
-        // Right Card (Angled inward towards center)
-        card.style.transform = `translateX(${spacing}px) translateZ(0px) rotateY(-26deg) scale(0.88)`;
-        card.style.zIndex = '20';
-        card.style.opacity = '0.65';
-        card.style.filter = 'brightness(0.7)';
-        card.classList.remove('active');
-      } else {
-        // Cards further in background
-        const dir = offset < 0 ? -1 : 1;
-        card.style.transform = `translateX(${dir * (spacing + 80)}px) translateZ(-80px) rotateY(${dir * -35}deg) scale(0.75)`;
-        card.style.zIndex = '10';
-        card.style.opacity = '0.25';
-        card.style.filter = 'brightness(0.4)';
-        card.classList.remove('active');
-      }
-    });
-
-    // Update pagination dots
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentIndex);
-    });
-  }
-
-  function goToCard(index) {
-    if (index < 0) {
-      currentIndex = total - 1;
-    } else if (index >= total) {
-      currentIndex = 0;
+  function togglePlay() {
+    if (video.paused) {
+      video.muted = false; // Start with sound enabled
+      video.volume = 1.0;
+      video.play().then(() => {
+        if (overlay) overlay.style.display = 'none';
+        if (muteBtn) muteBtn.style.display = 'inline-flex';
+        updateMuteState(false);
+      }).catch(err => {
+        console.warn('Autoplay with audio blocked, fallback to muted:', err);
+        video.muted = true;
+        video.play();
+        if (overlay) overlay.style.display = 'none';
+        if (muteBtn) muteBtn.style.display = 'inline-flex';
+        updateMuteState(true);
+      });
     } else {
-      currentIndex = index;
+      video.pause();
+      if (overlay) overlay.style.display = 'flex';
     }
-    updateCoverflow();
   }
 
-  // Click on background card directly focuses it
-  cards.forEach((card, i) => {
-    card.addEventListener('click', () => {
-      if (currentIndex !== i) {
-        stopAutoplay();
-        goToCard(i);
-        startAutoplay();
-      }
-    });
-  });
-
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = setInterval(() => {
-      goToCard(currentIndex + 1);
-    }, 4500);
-  }
-
-  function stopAutoplay() {
-    if (autoplayTimer) clearInterval(autoplayTimer);
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      stopAutoplay();
-      goToCard(currentIndex - 1);
-      startAutoplay();
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      stopAutoplay();
-      goToCard(currentIndex + 1);
-      startAutoplay();
-    });
-  }
-
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      stopAutoplay();
-      goToCard(i);
-      startAutoplay();
-    });
-  });
-
-  // Touch & Swipe Support for mobile devices
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  stage.addEventListener('touchstart', (e) => {
-    stopAutoplay();
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  stage.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    if (touchStartX - touchEndX > 40) {
-      goToCard(currentIndex + 1);
-    } else if (touchEndX - touchStartX > 40) {
-      goToCard(currentIndex - 1);
+  function updateMuteState(isMuted) {
+    if (!muteIcon || !muteLabel) return;
+    if (isMuted) {
+      muteIcon.className = 'fa-solid fa-volume-xmark';
+      muteIcon.style.color = '#F87171';
+      muteLabel.textContent = 'Unmute';
+    } else {
+      muteIcon.className = 'fa-solid fa-volume-high';
+      muteIcon.style.color = '#4ADE80';
+      muteLabel.textContent = 'Sound On';
     }
-    startAutoplay();
-  }, { passive: true });
-
-  if (container) {
-    container.addEventListener('mouseenter', stopAutoplay);
-    container.addEventListener('mouseleave', startAutoplay);
   }
 
-  // Resize listener to adapt spacing dynamically
-  window.addEventListener('resize', updateCoverflow);
+  if (overlay) overlay.addEventListener('click', togglePlay);
+  video.addEventListener('click', togglePlay);
 
-  // Initialize view
-  updateCoverflow();
-  startAutoplay();
+  if (muteBtn) {
+    muteBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      video.muted = !video.muted;
+      updateMuteState(video.muted);
+    });
+  }
 }
 
 /* --------------------------------------------------------------------------
-   2. CONSULTANT REGISTRATION FORM
+   2. IMAGE BEFORE -> AFTER SLIDER
+   -------------------------------------------------------------------------- */
+function initBeforeAfterSlider() {
+  const slider = document.getElementById('baSlider');
+  const overlay = document.getElementById('baOverlay');
+  const handle = document.getElementById('baHandle');
+
+  if (!slider || !overlay || !handle) return;
+
+  function updatePosition(val) {
+    overlay.style.width = `${val}%`;
+    handle.style.left = `${val}%`;
+  }
+
+  slider.addEventListener('input', (e) => {
+    updatePosition(e.target.value);
+  });
+
+  // Touch and mouse dragging
+  updatePosition(slider.value || 50);
+}
+
+/* --------------------------------------------------------------------------
+   3. FAQ ACCORDION (Google Review App style)
+   -------------------------------------------------------------------------- */
+function initFaqAccordion() {
+  const items = document.querySelectorAll('.neo-faq-item');
+
+  items.forEach(item => {
+    const trigger = item.querySelector('.neo-faq-trigger');
+    if (!trigger) return;
+
+    trigger.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      
+      // Close all items
+      items.forEach(other => other.classList.remove('active'));
+
+      // Toggle current
+      if (!isActive) {
+        item.classList.add('active');
+      }
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   4. CONSULTANT LEAD CAPTURE & ₹9 PAYMENT
    -------------------------------------------------------------------------- */
 const consultantState = {
   name: '',
   mobile: '',
   email: '',
-  expertise: '',
-  experience: '',
-  city: '',
-  bookingId: ''
+  practice: '',
+  refId: ''
 };
 
-function initB2bForm() {
-  const form = document.getElementById('b2bRegisterForm');
+function initTrialForm() {
+  const form = document.getElementById('caVastuTrialForm');
   const nameInput = document.getElementById('consultantName');
   const mobileInput = document.getElementById('consultantMobile');
   const emailInput = document.getElementById('consultantEmail');
-  const expSelect = document.getElementById('consultantExpertise');
-  const phoneWrap = document.getElementById('phoneWrap');
+  const practiceSelect = document.getElementById('consultantPractice');
+  const modal = document.getElementById('paymentModal');
+  const closeModalBtn = document.getElementById('closePaymentModal');
 
   if (!form) return;
 
-  // Format mobile to 10 digits
-  mobileInput.addEventListener('input', (e) => {
-    e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
-    phoneWrap.classList.remove('has-error');
-    const err = document.getElementById('mobileErr');
-    if (err) err.style.display = 'none';
-  });
-
-  [nameInput, emailInput, expSelect].forEach(input => {
-    if (!input) return;
-    input.addEventListener('input', () => {
-      input.classList.remove('has-error');
-      const err = input.parentElement?.querySelector('.b2b-error-msg');
-      if (err) err.style.display = 'none';
+  // Sanitize mobile input (digits only, max 10)
+  if (mobileInput) {
+    mobileInput.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
     });
-  });
+  }
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    let isValid = true;
-    let firstInvalid = null;
 
-    // Reset errors
-    document.querySelectorAll('.b2b-error-msg').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.has-error').forEach(el => el.classList.remove('has-error'));
-
-    // Validate Name
-    if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
-      document.getElementById('nameErr').style.display = 'block';
-      nameInput.classList.add('has-error');
-      if (!firstInvalid) firstInvalid = nameInput;
-      isValid = false;
-    }
-
-    // Validate Mobile
+    const name = nameInput.value.trim();
     const mob = mobileInput.value.trim();
-    if (!/^\d{10}$/.test(mob)) {
-      document.getElementById('mobileErr').style.display = 'block';
-      phoneWrap.classList.add('has-error');
-      if (!firstInvalid) firstInvalid = mobileInput;
-      isValid = false;
-    }
-
-    // Validate Email
     const email = emailInput.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      document.getElementById('emailErr').style.display = 'block';
-      emailInput.classList.add('has-error');
-      if (!firstInvalid) firstInvalid = emailInput;
-      isValid = false;
-    }
 
-    if (!isValid) {
-      if (firstInvalid) firstInvalid.focus();
+    if (!name || name.length < 2) {
+      alert('Please enter your full name.');
+      nameInput.focus();
       return;
     }
 
-    // Store state
-    consultantState.name = nameInput.value.trim();
+    if (!/^\d{10}$/.test(mob)) {
+      alert('Please enter a valid 10-digit mobile number.');
+      mobileInput.focus();
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      emailInput.focus();
+      return;
+    }
+
+    // Save state
+    consultantState.name = name;
     consultantState.mobile = mob;
     consultantState.email = email;
-    consultantState.expertise = expSelect?.value || 'Vastu Shastra';
-    consultantState.experience = '3-7 Years';
-    consultantState.city = 'India';
-    consultantState.bookingId = 'EXP-' + Math.floor(10000 + Math.random() * 90000);
+    consultantState.practice = practiceSelect ? practiceSelect.value : 'Residential Vastu';
+    consultantState.refId = 'CAV-' + Math.floor(10000 + Math.random() * 90000);
 
-    // Save lead to local storage immediately
-    saveConsultantLead(consultantState, false);
+    // Save lead to local storage
+    persistLead(consultantState, false);
 
-    // Open Payment Modal
+    // Open Modal
     openPaymentModal();
   });
-}
 
-function openPaymentModal() {
-  const modal = document.getElementById('b2bPaymentModal');
-  const clientNameEl = document.getElementById('modalConsultantName');
-  const clientPhoneEl = document.getElementById('modalConsultantPhone');
-
-  if (clientNameEl) clientNameEl.textContent = consultantState.name;
-  if (clientPhoneEl) clientPhoneEl.textContent = '+91 ' + consultantState.mobile;
-
-  if (modal) modal.classList.add('active');
-}
-
-/* --------------------------------------------------------------------------
-   3. PAYMENT PROCESSING & AUTO REDIRECT TO WHATSAPP
-   -------------------------------------------------------------------------- */
-function initB2bPayment() {
-  const closeBtn = document.getElementById('closeB2bModal');
-  const modal = document.getElementById('b2bPaymentModal');
-
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', () => {
+  if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => {
       modal.classList.remove('active');
     });
   }
 }
 
-window.simulateB2bPayment = function(provider) {
-  const payBtn = document.getElementById('btnPay9Consultant');
+function openPaymentModal() {
+  const modal = document.getElementById('paymentModal');
+  const nameDisplay = document.getElementById('modalConsultantDisplay');
+  const phoneDisplay = document.getElementById('modalPhoneDisplay');
+
+  if (nameDisplay) nameDisplay.textContent = consultantState.name;
+  if (phoneDisplay) phoneDisplay.textContent = '+91 ' + consultantState.mobile;
+
+  if (modal) modal.classList.add('active');
+}
+
+window.executeTrialPayment = function(methodName) {
+  const payBtn = document.getElementById('btnPayInstantUpi');
   if (payBtn) {
-    payBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing ₹9 via ${provider}...`;
+    payBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing ₹9 via ${methodName}...`;
     payBtn.disabled = true;
   }
 
   setTimeout(() => {
-    // 1. Mark as paid & persist
-    saveConsultantLead(consultantState, true);
+    // 1. Mark as paid
+    persistLead(consultantState, true);
 
-    // 2. Hide payment view in modal, show success card
-    const payContent = document.getElementById('b2bPaymentContent');
-    const successCard = document.getElementById('b2bSuccessCard');
+    // 2. Hide checkout view, show success view
+    const checkoutView = document.getElementById('modalCheckoutView');
+    const successView = document.getElementById('modalSuccessView');
+    const refDisplay = document.getElementById('activationRefDisplay');
 
-    if (payContent) payContent.style.display = 'none';
-    if (successCard) successCard.classList.add('active');
+    if (checkoutView) checkoutView.style.display = 'none';
+    if (successView) successView.style.display = 'block';
+    if (refDisplay) refDisplay.textContent = '#' + consultantState.refId;
 
-    // 3. Set up prefilled WhatsApp link
-    const waPhone = '919999999999'; // Call Astro Partner Onboarding WhatsApp
+    // 3. Construct WhatsApp Message and Link
+    const waNumber = '919999999999'; // Support / Onboarding number
     const message = encodeURIComponent(
-      `Namaste Call Astro Team! My name is ${consultantState.name}. I am a ${consultantState.expertise} Consultant. ` +
-      `I have paid ₹9 for my 7-Day Free Consultant App Trial (Registration ID: #${consultantState.bookingId}). ` +
-      `Please activate my expert panel account and share the app download link.`
+      `Hello CA Vastu Team! I have started my 7-Day Free Trial for ₹9.\n\n` +
+      `• Consultant Name: ${consultantState.name}\n` +
+      `• Mobile: ${consultantState.mobile}\n` +
+      `• Focus: ${consultantState.practice}\n` +
+      `• Activation Ref: #${consultantState.refId}\n\n` +
+      `Please share my CA Vastu App login credentials and download link.`
     );
-    const whatsappUrl = `https://wa.me/${waPhone}?text=${message}`;
+    const waUrl = `https://wa.me/${waNumber}?text=${message}`;
 
-    const waBtn = document.getElementById('btnWhatsappRedirect');
-    if (waBtn) waBtn.href = whatsappUrl;
+    const waBtn = document.getElementById('directWhatsappBtn');
+    if (waBtn) waBtn.href = waUrl;
 
-    const bookingIdEl = document.getElementById('successBookingId');
-    if (bookingIdEl) bookingIdEl.textContent = '#' + consultantState.bookingId;
-
-    // 4. Auto-redirect countdown (3 seconds)
+    // 4. Auto-Redirect countdown (3 seconds)
     let secondsLeft = 3;
-    const countdownEl = document.getElementById('redirectCountdown');
+    const countEl = document.getElementById('countdownSeconds');
 
-    const interval = setInterval(() => {
+    const countdownTimer = setInterval(() => {
       secondsLeft--;
-      if (countdownEl) countdownEl.textContent = secondsLeft;
+      if (countEl) countEl.textContent = secondsLeft;
       if (secondsLeft <= 0) {
-        clearInterval(interval);
-        // Automatic redirection to WhatsApp
-        window.location.href = whatsappUrl;
+        clearInterval(countdownTimer);
+        window.location.href = waUrl;
       }
     }, 1000);
 
   }, 1200);
 };
 
-function saveConsultantLead(consultant, isPaid) {
+function persistLead(data, isPaid) {
   try {
-    const key = 'callastro_b2b_consultants_v1';
-    const raw = localStorage.getItem(key);
-    const list = raw ? JSON.parse(raw) : [];
+    const key = 'cavastu_consultant_trials';
+    const existing = localStorage.getItem(key);
+    const list = existing ? JSON.parse(existing) : [];
 
     const record = {
-      ...consultant,
+      ...data,
       paid: isPaid,
-      timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      created: new Date().toISOString()
     };
 
-    const existingIdx = list.findIndex(c => c.bookingId === record.bookingId);
-    if (existingIdx >= 0) {
-      list[existingIdx] = record;
+    const idx = list.findIndex(item => item.refId === record.refId);
+    if (idx >= 0) {
+      list[idx] = record;
     } else {
       list.unshift(record);
     }
 
     localStorage.setItem(key, JSON.stringify(list));
-  } catch (err) {
-    console.error('Storage error:', err);
+  } catch (e) {
+    console.error('Storage error:', e);
   }
 }
-
-// Video play modal or simulation
-window.playConsultantVideo = function() {
-  const box = document.getElementById('videoPlayerBox');
-  if (box) {
-    box.innerHTML = `
-      <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0F1D36; padding: 20px; text-align: center;">
-        <i class="fa-solid fa-circle-check text-gold" style="font-size: 40px; color: #F29F05; margin-bottom: 12px;"></i>
-        <h4 style="color: #FFFFFF; font-size: 16px; margin-bottom: 6px;">How Call Astro Delivers 20+ Vastu Clients / Week</h4>
-        <p style="color: #94A3B8; font-size: 12px; max-width: 420px; margin-bottom: 14px;">Clients request audits directly through the Call Astro user app. Verified consultants accept instant audio/video sessions and receive daily direct bank payouts.</p>
-        <button type="button" class="btn-primary" style="padding: 8px 18px; font-size: 13px; max-width: 240px;" onclick="scrollToForm()">
-          Claim ₹9 Trial Access <i class="fa-solid fa-arrow-down"></i>
-        </button>
-      </div>
-    `;
-  }
-};
-
-window.scrollToForm = function() {
-  const form = document.getElementById('b2bFormCard');
-  if (form) {
-    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    const nameInput = document.getElementById('consultantName');
-    if (nameInput) setTimeout(() => nameInput.focus(), 400);
-  }
-};
