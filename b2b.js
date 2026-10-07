@@ -7,12 +7,56 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initCountdownTimer();
   initVideoPlayer();
   initStepCarousel();
   initBeforeAfterSlider();
   initFaqAccordion();
   initLeadModalForm();
 });
+
+/* --------------------------------------------------------------------------
+   48-HOUR REAL-TIME COUNTDOWN TIMER
+   -------------------------------------------------------------------------- */
+function initCountdownTimer() {
+  const hoursEl = document.getElementById('cdHours');
+  const minutesEl = document.getElementById('cdMinutes');
+  const secondsEl = document.getElementById('cdSeconds');
+
+  if (!hoursEl || !minutesEl || !secondsEl) return;
+
+  const storageKey = 'ca_vastu_offer_endtime_v1';
+  let endTime = localStorage.getItem(storageKey);
+
+  // Set 48 hours deadline from first visit
+  if (!endTime) {
+    endTime = Date.now() + (47 * 3600 + 59 * 60 + 50) * 1000;
+    localStorage.setItem(storageKey, endTime.toString());
+  } else {
+    endTime = parseInt(endTime, 10);
+    // If expired, reset to fresh 48 hrs for recurring conversions
+    if (Date.now() >= endTime) {
+      endTime = Date.now() + (47 * 3600 + 59 * 60 + 50) * 1000;
+      localStorage.setItem(storageKey, endTime.toString());
+    }
+  }
+
+  function tick() {
+    const now = Date.now();
+    let diff = Math.max(0, endTime - now);
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minutesEl.textContent = String(minutes).padStart(2, '0');
+    secondsEl.textContent = String(seconds).padStart(2, '0');
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
 
 /* --------------------------------------------------------------------------
    0. 3-STEP LUXURY CAROUSEL (Interactive Gallery Card Showcase)

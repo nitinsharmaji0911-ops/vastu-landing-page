@@ -108,10 +108,21 @@
             </div>
           </div>
 
-          <!-- Button Stack (Exact match to Green Pill + White Demo Pill) -->
+          <!-- 48-Hour Limited Offer Countdown -->
+          <div class="ca-countdown-badge">
+            <span class="ca-countdown-pulse"></span>
+            <span class="ca-countdown-label"><i class="fa-solid fa-clock"></i> Offer ends in:</span>
+            <div class="ca-countdown-digits" id="heroCountdown">
+              <span class="ca-time-box" id="cdHours">47</span>h :
+              <span class="ca-time-box" id="cdMinutes">59</span>m :
+              <span class="ca-time-box" id="cdSeconds">38</span>s
+            </div>
+          </div>
+
+          <!-- Button Stack (Exact match with buy button animation) -->
           <div class="pattern-btn-stack">
-            <!-- Button 1: Green Pill with Chevron Dropdown -->
-            <button type="button" class="btn-pattern-green" onclick="openLeadModal()">
+            <!-- Button 1: Primary Pill with Pulse & Shimmer Animation -->
+            <button type="button" class="btn-pattern-green btn-buy-animated" onclick="openLeadModal()">
               <span>Get this at 9 Rs</span>
               <i class="fa-solid fa-chevron-down" style="font-size: 13px;"></i>
             </button>
@@ -274,71 +285,155 @@
 
     <!-- 
       ========================================================================
-      ALL FEATURES
+      ALL FEATURES (Clean Square Card Format)
       ========================================================================
     -->
     <section class="ca-section" id="features">
       <div class="ca-container">
         
         <div class="ca-section-header">
-          <div class="ca-section-pill">All Features</div>
-          <h2 class="ca-section-title">All Features</h2>
+          <div class="ca-section-pill">Core Tools</div>
+          <h2 class="ca-section-title">All In One Vastu Toolkit</h2>
+          <p class="ca-section-sub">Engineered specifically for practicing Vedic & Mahavastu consultants</p>
         </div>
 
-        <div class="ca-bento-grid">
+        <!-- CLEAN SQUARE FEATURE CARDS -->
+        <div class="ca-square-features-grid">
           
-          <div class="ca-bento-tile">
-            <div class="ca-bento-icon"><i class="fa-solid fa-compass"></i></div>
-            <h3 class="ca-bento-title">16 Mahavastu Zones & Shakti Chakra</h3>
-            <ul class="ca-bento-bullets">
-              <li><i class="fa-solid fa-check"></i> <span>Automated Shakti Chakra overlay</span></li>
-              <li><i class="fa-solid fa-check"></i> <span>Exact degree compass with True North</span></li>
-            </ul>
+          <div class="ca-square-feature-card">
+            <div class="ca-square-card-top">
+              <div class="ca-square-icon"><i class="fa-solid fa-compass"></i></div>
+              <span class="ca-square-badge">ZONAL ENGINE</span>
+            </div>
+            <h3 class="ca-square-name">16 Mahavastu Zones & Chakra</h3>
+            <p class="ca-square-text">Auto-projects exact Shakti Chakra with 0.1° digital sensor compass. Pinpoint true Brahmasthan and direction cuts in 30 seconds.</p>
           </div>
 
-          <div class="ca-bento-tile">
-            <div class="ca-bento-icon"><i class="fa-solid fa-chart-column"></i></div>
-            <h3 class="ca-bento-title">Elemental Bar Chart Calculator</h3>
-            <ul class="ca-bento-bullets">
-              <li><i class="fa-solid fa-check"></i> <span>Auto area computation per direction</span></li>
-              <li><i class="fa-solid fa-check"></i> <span>Highlight zone extensions & cut areas</span></li>
-            </ul>
+          <div class="ca-square-feature-card">
+            <div class="ca-square-card-top">
+              <div class="ca-square-icon"><i class="fa-solid fa-chart-column"></i></div>
+              <span class="ca-square-badge">ENERGY CALC</span>
+            </div>
+            <h3 class="ca-square-name">Elemental Bar Chart Calculator</h3>
+            <p class="ca-square-text">Precise square-meter energy balance algorithm. Flags cut, extended, and depleted element zones across Water, Air, Fire, Earth & Space.</p>
           </div>
 
-          <div class="ca-bento-tile">
-            <div class="ca-bento-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-            <h3 class="ca-bento-title">Non-Demolition Remedy Engine</h3>
-            <ul class="ca-bento-bullets">
-              <li><i class="fa-solid fa-check"></i> <span>Metal strips (Brass, Copper, SS)</span></li>
-              <li><i class="fa-solid fa-check"></i> <span>Color therapy & pyramid placements</span></li>
-            </ul>
+          <div class="ca-square-feature-card">
+            <div class="ca-square-card-top">
+              <div class="ca-square-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <span class="ca-square-badge">REMEDIES</span>
+            </div>
+            <h3 class="ca-square-name">Non-Demolition Remedy Library</h3>
+            <p class="ca-square-text">Recommend instant Vedic cures without breaking walls: Brass, Copper, Aluminum & SS elemental strips, color therapy, and pyramid blocking.</p>
           </div>
 
-          <div class="ca-bento-tile">
-            <div class="ca-bento-icon"><i class="fa-solid fa-building-wheat"></i></div>
-            <h3 class="ca-bento-title">Residential & Commercial Presets</h3>
-            <ul class="ca-bento-bullets">
-              <li><i class="fa-solid fa-check"></i> <span>Flats, duplexes, farmhouses & villas</span></li>
-              <li><i class="fa-solid fa-check"></i> <span>Offices, factories & retail shops</span></li>
-            </ul>
+          <div class="ca-square-feature-card">
+            <div class="ca-square-card-top">
+              <div class="ca-square-icon"><i class="fa-solid fa-file-pdf"></i></div>
+              <span class="ca-square-badge">WHITE-LABEL</span>
+            </div>
+            <h3 class="ca-square-name">1-Click Custom Branded PDF</h3>
+            <p class="ca-square-text">Generate comprehensive 12-page audit reports with your own firm logo, phone number, and signatures. Direct 1-tap WhatsApp sharing.</p>
           </div>
 
-          <div class="ca-bento-tile">
-            <div class="ca-bento-icon"><i class="fa-solid fa-file-pdf"></i></div>
-            <h3 class="ca-bento-title">Custom Branded PDF Reports</h3>
-            <ul class="ca-bento-bullets">
-              <li><i class="fa-solid fa-check"></i> <span>White-label with your name & logo</span></li>
-              <li><i class="fa-solid fa-check"></i> <span>Instant WhatsApp PDF export</span></li>
-            </ul>
+          <div class="ca-square-feature-card">
+            <div class="ca-square-card-top">
+              <div class="ca-square-icon"><i class="fa-solid fa-building-wheat"></i></div>
+              <span class="ca-square-badge">PRESETS</span>
+            </div>
+            <h3 class="ca-square-name">Commercial & Residential Modes</h3>
+            <p class="ca-square-text">Built-in templates for 1BHK-5BHK apartments, independent villas, corporate offices, industrial factories, and retail shops.</p>
           </div>
 
-          <div class="ca-bento-tile">
-            <div class="ca-bento-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-            <h3 class="ca-bento-title">Offline Mobile App Access</h3>
-            <ul class="ca-bento-bullets">
-              <li><i class="fa-solid fa-check"></i> <span>Works on site without internet</span></li>
-              <li><i class="fa-solid fa-check"></i> <span>Android & iOS phone friendly</span></li>
-            </ul>
+          <div class="ca-square-feature-card">
+            <div class="ca-square-card-top">
+              <div class="ca-square-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <span class="ca-square-badge">ON-SITE APP</span>
+            </div>
+            <h3 class="ca-square-name">100% Offline On-Site Operation</h3>
+            <p class="ca-square-text">Analyze remote sites without cellular reception. Seamless cloud sync automatically activates once connected to Wi-Fi.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 
+      ========================================================================
+      CONSULTANT REVIEWS & TESTIMONIALS
+      ========================================================================
+    -->
+    <section class="ca-section" id="reviews">
+      <div class="ca-container">
+        
+        <div class="ca-section-header">
+          <div class="ca-section-pill">Trusted by 2,400+ Experts</div>
+          <h2 class="ca-section-title">What Top Vastu Consultants Say</h2>
+          <div class="ca-review-rating-summary">
+            <div class="ca-stars-row">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span><strong>4.9 / 5.0</strong> rating across verified practitioners</span>
+          </div>
+        </div>
+
+        <div class="ca-reviews-grid">
+          
+          <!-- REVIEW 1 -->
+          <div class="ca-review-card">
+            <div class="ca-review-header">
+              <div class="ca-review-avatar">RS</div>
+              <div class="ca-review-author">
+                <h4>Acharya Rajesh Sharma</h4>
+                <p>Senior Vastu Consultant, Delhi NCR</p>
+              </div>
+              <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
+            </div>
+            <div class="ca-review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="ca-review-comment">
+              "Earlier, manual gridding and plotting 45 Devtas used to take 2-3 hours per client. With CA Vastu, I complete on-site analysis in 15 minutes and hand over a branded PDF before leaving the client's home!"
+            </p>
+          </div>
+
+          <!-- REVIEW 2 -->
+          <div class="ca-review-card">
+            <div class="ca-review-avatar" style="background: #D97706;">VK</div>
+            <div class="ca-review-author">
+              <h4>Dr. Vikramaditya Kulkarni</h4>
+              <p>MahaVastu Specialist & Architect, Pune</p>
+            </div>
+            <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+            <div class="ca-review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="ca-review-comment">
+              "The Bar Chart calculator and zone cut detector are exceptionally accurate. My clients are impressed with the neat visual charts instead of handwritten blueprints. Worth every rupee."
+            </p>
+          </div>
+
+          <!-- REVIEW 3 -->
+          <div class="ca-review-card">
+            <div class="ca-review-avatar" style="background: #1E293B;">PJ</div>
+            <div class="ca-review-author">
+              <h4>Pooja Jaishankar</h4>
+              <p>Commercial Energy Healer, Bengaluru</p>
+            </div>
+            <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
+          </div>
+            <div class="ca-review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="ca-review-comment">
+              "Non-demolition elemental remedies are categorized clearly with metal strips, colors, and directions. It has helped me scale from 4 clients a month to over 20 clients effortlessly."
+            </p>
           </div>
 
         </div>
