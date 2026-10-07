@@ -1,21 +1,20 @@
 /**
- * CA VASTU - Consultant Landing Page Interactions
- * Handles:
- * 1. Video Player with View Counter & Sound Controls
- * 2. Before -> After Image Comparison Slider
- * 3. FAQ Accordion
- * 4. Lead Capture Form with ₹9 Payment Simulation & Automatic WhatsApp Redirect
+ * Call Astro - B2B Vastu Consultant Interactions
+ * - Video Player with Live Watching Count & Sound Controls
+ * - Before -> After Image Slider
+ * - FAQ Accordion
+ * - Lead Capture Popup Modal & Automatic WhatsApp Redirect
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initVideoPlayer();
   initBeforeAfterSlider();
   initFaqAccordion();
-  initTrialForm();
+  initLeadModalForm();
 });
 
 /* --------------------------------------------------------------------------
-   1. VIDEO PLAYER (Thumb + Video + Live View Count)
+   1. VIDEO PLAYER
    -------------------------------------------------------------------------- */
 function initVideoPlayer() {
   const video = document.getElementById('vastuDemoVideo');
@@ -27,30 +26,29 @@ function initVideoPlayer() {
 
   if (!video) return;
 
-  // Simulate dynamic view count updates
+  // View count increment simulator
   let baseViews = 14820;
   setInterval(() => {
     baseViews += Math.floor(Math.random() * 3) + 1;
     if (viewCountEl) {
-      viewCountEl.innerHTML = `<i class="fa-solid fa-eye"></i> ${baseViews.toLocaleString('en-IN')} Consultants Watching`;
+      viewCountEl.innerHTML = `<i class="fa-solid fa-eye"></i> ${baseViews.toLocaleString('en-IN')} Watching`;
     }
   }, 4000);
 
   function togglePlay() {
     if (video.paused) {
-      video.muted = false; // Start with sound enabled
+      video.muted = false;
       video.volume = 1.0;
       video.play().then(() => {
         if (overlay) overlay.style.display = 'none';
         if (muteBtn) muteBtn.style.display = 'inline-flex';
-        updateMuteState(false);
-      }).catch(err => {
-        console.warn('Autoplay with audio blocked, fallback to muted:', err);
+        updateMute(false);
+      }).catch(() => {
         video.muted = true;
         video.play();
         if (overlay) overlay.style.display = 'none';
         if (muteBtn) muteBtn.style.display = 'inline-flex';
-        updateMuteState(true);
+        updateMute(true);
       });
     } else {
       video.pause();
@@ -58,7 +56,7 @@ function initVideoPlayer() {
     }
   }
 
-  function updateMuteState(isMuted) {
+  function updateMute(isMuted) {
     if (!muteIcon || !muteLabel) return;
     if (isMuted) {
       muteIcon.className = 'fa-solid fa-volume-xmark';
@@ -78,7 +76,7 @@ function initVideoPlayer() {
     muteBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       video.muted = !video.muted;
-      updateMuteState(video.muted);
+      updateMute(video.muted);
     });
   }
 }
@@ -93,71 +91,86 @@ function initBeforeAfterSlider() {
 
   if (!slider || !overlay || !handle) return;
 
-  function updatePosition(val) {
+  function setPos(val) {
     overlay.style.width = `${val}%`;
     handle.style.left = `${val}%`;
   }
 
-  slider.addEventListener('input', (e) => {
-    updatePosition(e.target.value);
-  });
-
-  // Touch and mouse dragging
-  updatePosition(slider.value || 50);
+  slider.addEventListener('input', (e) => setPos(e.target.value));
+  setPos(slider.value || 50);
 }
 
 /* --------------------------------------------------------------------------
-   3. FAQ ACCORDION (Google Review App style)
+   3. FAQ ACCORDION
    -------------------------------------------------------------------------- */
 function initFaqAccordion() {
-  const items = document.querySelectorAll('.neo-faq-item');
+  const items = document.querySelectorAll('.ca-faq-item');
 
   items.forEach(item => {
-    const trigger = item.querySelector('.neo-faq-trigger');
+    const trigger = item.querySelector('.ca-faq-trigger');
     if (!trigger) return;
 
     trigger.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
-      
-      // Close all items
       items.forEach(other => other.classList.remove('active'));
-
-      // Toggle current
-      if (!isActive) {
-        item.classList.add('active');
-      }
+      if (!isActive) item.classList.add('active');
     });
   });
 }
 
 /* --------------------------------------------------------------------------
-   4. CONSULTANT LEAD CAPTURE & ₹9 PAYMENT
+   4. MODAL POPUP & LEAD FORM (Opens when clicking any CTA button)
    -------------------------------------------------------------------------- */
 const consultantState = {
   name: '',
   mobile: '',
   email: '',
-  practice: '',
+  focus: '',
   refId: ''
 };
 
-function initTrialForm() {
-  const form = document.getElementById('caVastuTrialForm');
-  const nameInput = document.getElementById('consultantName');
-  const mobileInput = document.getElementById('consultantMobile');
-  const emailInput = document.getElementById('consultantEmail');
-  const practiceSelect = document.getElementById('consultantPractice');
-  const modal = document.getElementById('paymentModal');
-  const closeModalBtn = document.getElementById('closePaymentModal');
+window.openLeadModal = function() {
+  const modal = document.getElementById('leadModalOverlay');
+  const formStep = document.getElementById('modalFormStep');
+  const payStep = document.getElementById('modalPaymentStep');
+  const successStep = document.getElementById('modalSuccessStep');
 
-  if (!form) return;
+  if (formStep) formStep.style.display = 'block';
+  if (payStep) payStep.style.display = 'none';
+  if (successStep) successStep.style.display = 'none';
 
-  // Sanitize mobile input (digits only, max 10)
+  if (modal) modal.classList.add('active');
+  const nameInput = document.getElementById('popupName');
+  if (nameInput) setTimeout(() => nameInput.focus(), 300);
+};
+
+window.closeLeadModal = function() {
+  const modal = document.getElementById('leadModalOverlay');
+  if (modal) modal.classList.remove('active');
+};
+
+function initLeadModalForm() {
+  const form = document.getElementById('popupTrialForm');
+  const nameInput = document.getElementById('popupName');
+  const mobileInput = document.getElementById('popupMobile');
+  const emailInput = document.getElementById('popupEmail');
+  const focusSelect = document.getElementById('popupFocus');
+  const modal = document.getElementById('leadModalOverlay');
+
+  // Close when clicking outside modal card
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeLeadModal();
+    });
+  }
+
   if (mobileInput) {
     mobileInput.addEventListener('input', (e) => {
       e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
     });
   }
+
+  if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -167,7 +180,7 @@ function initTrialForm() {
     const email = emailInput.value.trim();
 
     if (!name || name.length < 2) {
-      alert('Please enter your full name.');
+      alert('Please enter your name.');
       nameInput.focus();
       return;
     }
@@ -184,94 +197,83 @@ function initTrialForm() {
       return;
     }
 
-    // Save state
     consultantState.name = name;
     consultantState.mobile = mob;
     consultantState.email = email;
-    consultantState.practice = practiceSelect ? practiceSelect.value : 'Residential Vastu';
+    consultantState.focus = focusSelect ? focusSelect.value : 'Residential Vastu';
     consultantState.refId = 'CAV-' + Math.floor(10000 + Math.random() * 90000);
 
-    // Save lead to local storage
+    // Save lead record
     persistLead(consultantState, false);
 
-    // Open Modal
-    openPaymentModal();
+    // Switch to payment options
+    const formStep = document.getElementById('modalFormStep');
+    const payStep = document.getElementById('modalPaymentStep');
+    const summaryName = document.getElementById('summaryName');
+    const summaryPhone = document.getElementById('summaryPhone');
+
+    if (summaryName) summaryName.textContent = consultantState.name;
+    if (summaryPhone) summaryPhone.textContent = '+91 ' + consultantState.mobile;
+
+    if (formStep) formStep.style.display = 'none';
+    if (payStep) payStep.style.display = 'block';
   });
-
-  if (closeModalBtn && modal) {
-    closeModalBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
-  }
 }
 
-function openPaymentModal() {
-  const modal = document.getElementById('paymentModal');
-  const nameDisplay = document.getElementById('modalConsultantDisplay');
-  const phoneDisplay = document.getElementById('modalPhoneDisplay');
-
-  if (nameDisplay) nameDisplay.textContent = consultantState.name;
-  if (phoneDisplay) phoneDisplay.textContent = '+91 ' + consultantState.mobile;
-
-  if (modal) modal.classList.add('active');
-}
-
-window.executeTrialPayment = function(methodName) {
-  const payBtn = document.getElementById('btnPayInstantUpi');
+window.executeTrialPayment = function(providerName) {
+  const payBtn = document.getElementById('btnPayNow');
   if (payBtn) {
-    payBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing ₹9 via ${methodName}...`;
+    payBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Processing ₹9 via ${providerName}...`;
     payBtn.disabled = true;
   }
 
   setTimeout(() => {
-    // 1. Mark as paid
     persistLead(consultantState, true);
 
-    // 2. Hide checkout view, show success view
-    const checkoutView = document.getElementById('modalCheckoutView');
-    const successView = document.getElementById('modalSuccessView');
-    const refDisplay = document.getElementById('activationRefDisplay');
+    const payStep = document.getElementById('modalPaymentStep');
+    const successStep = document.getElementById('modalSuccessStep');
+    const refEl = document.getElementById('successRef');
 
-    if (checkoutView) checkoutView.style.display = 'none';
-    if (successView) successView.style.display = 'block';
-    if (refDisplay) refDisplay.textContent = '#' + consultantState.refId;
+    if (payStep) payStep.style.display = 'none';
+    if (successStep) successStep.style.display = 'block';
+    if (refEl) refEl.textContent = '#' + consultantState.refId;
 
-    // 3. Construct WhatsApp Message and Link
-    const waNumber = '919999999999'; // Support / Onboarding number
+    // Prefilled WhatsApp message
+    const waNumber = '919999999999';
     const message = encodeURIComponent(
-      `Hello CA Vastu Team! I have started my 7-Day Free Trial for ₹9.\n\n` +
-      `• Consultant Name: ${consultantState.name}\n` +
+      `Hello Call Astro Team! I have paid ₹9 for my 7-Day Vastu Software Trial.\n\n` +
+      `• Consultant: ${consultantState.name}\n` +
       `• Mobile: ${consultantState.mobile}\n` +
-      `• Focus: ${consultantState.practice}\n` +
-      `• Activation Ref: #${consultantState.refId}\n\n` +
-      `Please share my CA Vastu App login credentials and download link.`
+      `• Focus: ${consultantState.focus}\n` +
+      `• Ref ID: #${consultantState.refId}\n\n` +
+      `Please send my consultant login credentials and app download link.`
     );
     const waUrl = `https://wa.me/${waNumber}?text=${message}`;
 
     const waBtn = document.getElementById('directWhatsappBtn');
     if (waBtn) waBtn.href = waUrl;
 
-    // 4. Auto-Redirect countdown (3 seconds)
-    let secondsLeft = 3;
+    // Countdown 3s to auto-redirect
+    let count = 3;
     const countEl = document.getElementById('countdownSeconds');
 
-    const countdownTimer = setInterval(() => {
-      secondsLeft--;
-      if (countEl) countEl.textContent = secondsLeft;
-      if (secondsLeft <= 0) {
-        clearInterval(countdownTimer);
+    const timer = setInterval(() => {
+      count--;
+      if (countEl) countEl.textContent = count;
+      if (count <= 0) {
+        clearInterval(timer);
         window.location.href = waUrl;
       }
     }, 1000);
 
-  }, 1200);
+  }, 1100);
 };
 
 function persistLead(data, isPaid) {
   try {
-    const key = 'cavastu_consultant_trials';
-    const existing = localStorage.getItem(key);
-    const list = existing ? JSON.parse(existing) : [];
+    const key = 'callastro_vastu_consultant_leads';
+    const raw = localStorage.getItem(key);
+    const list = raw ? JSON.parse(raw) : [];
 
     const record = {
       ...data,
@@ -279,7 +281,7 @@ function persistLead(data, isPaid) {
       created: new Date().toISOString()
     };
 
-    const idx = list.findIndex(item => item.refId === record.refId);
+    const idx = list.findIndex(i => i.refId === record.refId);
     if (idx >= 0) {
       list[idx] = record;
     } else {
@@ -287,7 +289,7 @@ function persistLead(data, isPaid) {
     }
 
     localStorage.setItem(key, JSON.stringify(list));
-  } catch (e) {
-    console.error('Storage error:', e);
+  } catch (err) {
+    console.error('Storage error:', err);
   }
 }

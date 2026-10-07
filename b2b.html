@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Call Astro - All In One Vastu Analysis Software For Consultants</title>
   <meta name="description" content="All In One Vastu Analysis Software For Consultants. Analyze homes, offices, shops and commercial properties with one app. Start 7-Day trial for ₹9." />
   
@@ -21,23 +21,7 @@
 </head>
 <body class="ca-canvas-bg">
 
-  <!-- 
-    ========================================================================
-    CALL ASTRO TOP HEADER BAR & NAVBAR
-    ========================================================================
-  -->
-  <div class="ca-topbar">
-    <div class="ca-container ca-topbar-inner">
-      <div class="ca-topbar-left">
-        <span class="ca-topbar-badge"><i class="fa-solid fa-certificate"></i> Official Consultant App</span>
-        <span>India's Premier Astrologer & Vastu Network</span>
-      </div>
-      <div>
-        <span><i class="fa-solid fa-phone" style="color: var(--ca-saffron); margin-right: 4px;"></i> Support: +91 99999 99999</span>
-      </div>
-    </div>
-  </div>
-
+  <!-- NAVBAR -->
   <div class="ca-nav-wrap">
     <div class="ca-container">
       <header class="ca-navbar">
@@ -51,22 +35,10 @@
           </div>
         </a>
 
-        <nav>
-          <ul class="ca-nav-links">
-            <li><a href="#how-it-works" class="ca-nav-link">How It Works</a></li>
-            <li><a href="#features" class="ca-nav-link">All Features</a></li>
-            <li><a href="#before-after" class="ca-nav-link">Case Study</a></li>
-            <li><a href="#pricing" class="ca-nav-link">Trial (₹9)</a></li>
-            <li><a href="#faq" class="ca-nav-link">FAQ</a></li>
-          </ul>
-        </nav>
-
-        <div class="ca-nav-actions">
-          <a href="#pricing" class="btn-nav-trial">
-            <span>Start Trial for ₹9</span>
-            <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
+        <button type="button" class="btn-nav-trial" onclick="openLeadModal()">
+          <span>Start Trial for ₹9</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </header>
     </div>
   </div>
@@ -100,14 +72,10 @@
             </p>
 
             <div class="ca-hero-ctas">
-              <a href="#pricing" class="btn-ca-primary" id="heroTrialBtn">
+              <button type="button" class="btn-ca-primary" onclick="openLeadModal()">
                 <span>Start Trial for 9Rs</span>
                 <i class="fa-solid fa-arrow-right"></i>
-              </a>
-              <a href="#how-it-works" class="btn-ca-secondary">
-                <i class="fa-solid fa-play" style="color: var(--ca-saffron);"></i>
-                <span>Explore 3 Steps</span>
-              </a>
+              </button>
             </div>
 
             <!-- Trust Pills -->
@@ -129,23 +97,13 @@
 
           <!-- RIGHT COLUMN: Image Thumbnail plus video ( Video view count ) -->
           <div class="ca-video-col">
-            
-            <!-- Video Mockup Frame -->
             <div class="ca-phone-frame">
               <div class="ca-phone-screen">
                 
-                <!-- Dynamic Island -->
-                <div class="ca-island">
-                  <div class="ca-island-pill">
-                    <div class="ca-island-lens"></div>
-                    <div class="ca-island-dot"></div>
-                  </div>
-                </div>
-
                 <!-- Live Video View Count Pill (User Requirement) -->
                 <div class="ca-view-counter">
                   <span class="live-dot"></span>
-                  <span id="videoViewCount"><i class="fa-solid fa-eye"></i> 14,820 Consultants Watching</span>
+                  <span id="videoViewCount"><i class="fa-solid fa-eye"></i> 14,820 Watching</span>
                 </div>
 
                 <!-- Video Element -->
@@ -165,7 +123,7 @@
                     <i class="fa-solid fa-play"></i>
                   </div>
                   <span class="ca-video-badge">
-                    <i class="fa-solid fa-volume-high"></i> Watch Live App Analysis
+                    <i class="fa-solid fa-volume-high"></i> Watch Live App Demo
                   </span>
                 </div>
 
@@ -177,16 +135,6 @@
 
               </div>
             </div>
-
-            <!-- Satellite Floating Badge -->
-            <div class="ca-satellite-card">
-              <i class="fa-solid fa-compass-drafting"></i>
-              <div>
-                <div class="ca-satellite-title">Instant Floorplan Grid</div>
-                <div class="ca-satellite-sub">Degrees, Bar-Chart & 45 Devtas</div>
-              </div>
-            </div>
-
           </div>
 
         </div>
@@ -204,14 +152,11 @@
         
         <div class="ca-section-header">
           <div class="ca-section-pill">
-            <i class="fa-solid fa-arrows-split-up-and-left"></i> Simple 3-Step Workflow
+            <i class="fa-solid fa-arrows-split-up-and-left"></i> Simple 3 Steps
           </div>
           <h2 class="ca-section-title">
             From Site Visit to client report, in three simple steps
           </h2>
-          <p class="ca-section-sub">
-            Say goodbye to manual compass drawings, tracing paper, and hours wasted on formatting PDFs.
-          </p>
         </div>
 
         <!-- Square | Square | Square Grid -->
@@ -223,12 +168,12 @@
               <div class="ca-step-num">1</div>
               <h3 class="ca-square-title">Site Visit & Degree Capture</h3>
               <p class="ca-square-desc">
-                Step inside any residential or commercial property. Capture exact North degrees with the digital sensor and snap photos of all rooms in seconds.
+                Capture exact North degrees with the digital sensor and snap photos of all rooms.
               </p>
             </div>
             <div class="ca-square-visual">
-              <img src="vastu_before.jpg" alt="Vastu Site Visit & Degree Capture" loading="lazy" />
-              <span class="ca-visual-badge">Step 1 • On-Site Scanning</span>
+              <img src="vastu_before.jpg" alt="Vastu Site Visit" loading="lazy" />
+              <span class="ca-visual-badge">Step 1 • On-Site</span>
             </div>
           </div>
 
@@ -238,12 +183,12 @@
               <div class="ca-step-num">2</div>
               <h3 class="ca-square-title">Auto-Gridding & Bar Chart</h3>
               <p class="ca-square-desc">
-                Upload the floor plan. The app automatically calculates center, aligns 16 Mahavastu zones, 45 Devtas, and flags element cuts or extensions.
+                App auto-maps 16 Mahavastu zones, 45 Devtas, and flags element cuts or extensions.
               </p>
             </div>
             <div class="ca-square-visual">
-              <img src="vastu_before_scary.jpg" alt="Floorplan Zone Gridding & Element Bar Chart" loading="lazy" />
-              <span class="ca-visual-badge">Step 2 • Energy Calculation</span>
+              <img src="vastu_before_scary.jpg" alt="Floorplan Gridding" loading="lazy" />
+              <span class="ca-visual-badge">Step 2 • Energy Calc</span>
             </div>
           </div>
 
@@ -253,12 +198,12 @@
               <div class="ca-step-num">3</div>
               <h3 class="ca-square-title">1-Click Branded PDF Report</h3>
               <p class="ca-square-desc">
-                Generate an executive client report with your consultant branding, remedy recommendations (metal strips, colors, pyramids), and share on WhatsApp.
+                Generate an executive client report with remedies and share directly on WhatsApp.
               </p>
             </div>
             <div class="ca-square-visual">
-              <img src="vastu_after.jpg" alt="1-Click Client Vastu Report PDF" loading="lazy" />
-              <span class="ca-visual-badge">Step 3 • Client Ready Report</span>
+              <img src="vastu_after.jpg" alt="Client Vastu Report" loading="lazy" />
+              <span class="ca-visual-badge">Step 3 • PDF Report</span>
             </div>
           </div>
 
@@ -269,7 +214,7 @@
 
     <!-- 
       ========================================================================
-      ALL FEATURES (Bento Grid of Specialized Tools)
+      ALL FEATURES
       ========================================================================
     -->
     <section class="ca-section" id="features">
@@ -277,106 +222,67 @@
         
         <div class="ca-section-header">
           <div class="ca-section-pill">
-            <i class="fa-solid fa-layer-group"></i> Everything In One App
+            <i class="fa-solid fa-layer-group"></i> All Features
           </div>
           <h2 class="ca-section-title">
-            All Features Built for Modern Vastu Consultants
+            All Features
           </h2>
-          <p class="ca-section-sub">
-            Precision tools designed specifically for practicing consultants, architects, and Vedic astrologers.
-          </p>
         </div>
 
         <div class="ca-bento-grid">
           
-          <!-- Tile 1 -->
           <div class="ca-bento-tile">
-            <div>
-              <div class="ca-bento-icon">
-                <i class="fa-solid fa-compass"></i>
-              </div>
-              <h3 class="ca-bento-title">16 Mahavastu Zones & Shakti Chakra</h3>
-              <ul class="ca-bento-bullets">
-                <li><i class="fa-solid fa-check"></i> <span>Automated Shakti Chakra overlay</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Exact degree compass with True North</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Elemental balance (Water, Air, Fire, Earth, Space)</span></li>
-              </ul>
-            </div>
+            <div class="ca-bento-icon"><i class="fa-solid fa-compass"></i></div>
+            <h3 class="ca-bento-title">16 Mahavastu Zones & Shakti Chakra</h3>
+            <ul class="ca-bento-bullets">
+              <li><i class="fa-solid fa-check"></i> <span>Automated Shakti Chakra overlay</span></li>
+              <li><i class="fa-solid fa-check"></i> <span>Exact degree compass with True North</span></li>
+            </ul>
           </div>
 
-          <!-- Tile 2 -->
           <div class="ca-bento-tile">
-            <div>
-              <div class="ca-bento-icon">
-                <i class="fa-solid fa-chart-column"></i>
-              </div>
-              <h3 class="ca-bento-title">Elemental Bar Chart Calculator</h3>
-              <ul class="ca-bento-bullets">
-                <li><i class="fa-solid fa-check"></i> <span>Auto area computation per direction</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Highlight zone extensions & cut areas</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Instant elemental strength diagnostics</span></li>
-              </ul>
-            </div>
+            <div class="ca-bento-icon"><i class="fa-solid fa-chart-column"></i></div>
+            <h3 class="ca-bento-title">Elemental Bar Chart Calculator</h3>
+            <ul class="ca-bento-bullets">
+              <li><i class="fa-solid fa-check"></i> <span>Auto area computation per direction</span></li>
+              <li><i class="fa-solid fa-check"></i> <span>Highlight zone extensions & cut areas</span></li>
+            </ul>
           </div>
 
-          <!-- Tile 3 -->
           <div class="ca-bento-tile">
-            <div>
-              <div class="ca-bento-icon">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-              </div>
-              <h3 class="ca-bento-title">Non-Demolition Remedy Engine</h3>
-              <ul class="ca-bento-bullets">
-                <li><i class="fa-solid fa-check"></i> <span>Metal tape & strip placements (Brass, Copper, SS)</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Color therapy & element cycle remedies</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Space energizing pyramid & crystal suggestions</span></li>
-              </ul>
-            </div>
+            <div class="ca-bento-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3 class="ca-bento-title">Non-Demolition Remedy Engine</h3>
+            <ul class="ca-bento-bullets">
+              <li><i class="fa-solid fa-check"></i> <span>Metal strips (Brass, Copper, SS)</span></li>
+              <li><i class="fa-solid fa-check"></i> <span>Color therapy & pyramid placements</span></li>
+            </ul>
           </div>
 
-          <!-- Tile 4 -->
           <div class="ca-bento-tile">
-            <div>
-              <div class="ca-bento-icon">
-                <i class="fa-solid fa-building-wheat"></i>
-              </div>
-              <h3 class="ca-bento-title">Residential & Commercial Presets</h3>
-              <ul class="ca-bento-bullets">
-                <li><i class="fa-solid fa-check"></i> <span>Flats, duplexes, farmhouses & villas</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Offices, factories, retail shops & hotels</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Multi-floor project management</span></li>
-              </ul>
-            </div>
+            <div class="ca-bento-icon"><i class="fa-solid fa-building-wheat"></i></div>
+            <h3 class="ca-bento-title">Residential & Commercial Presets</h3>
+            <ul class="ca-bento-bullets">
+              <li><i class="fa-solid fa-check"></i> <span>Flats, duplexes, farmhouses & villas</span></li>
+              <li><i class="fa-solid fa-check"></i> <span>Offices, factories & retail shops</span></li>
+            </ul>
           </div>
 
-          <!-- Tile 5 -->
           <div class="ca-bento-tile">
-            <div>
-              <div class="ca-bento-icon">
-                <i class="fa-solid fa-file-pdf"></i>
-              </div>
-              <h3 class="ca-bento-title">Custom Branded PDF Reports</h3>
-              <ul class="ca-bento-bullets">
-                <li><i class="fa-solid fa-check"></i> <span>Insert your name, logo & phone number</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>High-resolution export for printing or WhatsApp</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Professional look that commands higher consultation fees</span></li>
-              </ul>
-            </div>
+            <div class="ca-bento-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <h3 class="ca-bento-title">Custom Branded PDF Reports</h3>
+            <ul class="ca-bento-bullets">
+              <li><i class="fa-solid fa-check"></i> <span>White-label with your name & logo</span></li>
+              <li><i class="fa-solid fa-check"></i> <span>Instant WhatsApp PDF export</span></li>
+            </ul>
           </div>
 
-          <!-- Tile 6 -->
           <div class="ca-bento-tile">
-            <div>
-              <div class="ca-bento-icon">
-                <i class="fa-solid fa-mobile-screen-button"></i>
-              </div>
-              <h3 class="ca-bento-title">Offline Mobile App Access</h3>
-              <ul class="ca-bento-bullets">
-                <li><i class="fa-solid fa-check"></i> <span>Works on site even without mobile internet</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Syncs automatically when connected to Wi-Fi</span></li>
-                <li><i class="fa-solid fa-check"></i> <span>Android & iOS phone friendly</span></li>
-              </ul>
-            </div>
+            <div class="ca-bento-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3 class="ca-bento-title">Offline Mobile App Access</h3>
+            <ul class="ca-bento-bullets">
+              <li><i class="fa-solid fa-check"></i> <span>Works on site without internet</span></li>
+              <li><i class="fa-solid fa-check"></i> <span>Android & iOS phone friendly</span></li>
+            </ul>
           </div>
 
         </div>
@@ -386,8 +292,8 @@
 
     <!-- 
       ========================================================================
-      IMAGE BEFORE -> AFTER & QUOTE
-      "Spend less time organizing, spend more time consulting."
+      IMAGE BEFORE -> AFTER
+      Spend less time organizing, spend more time consulting.
       ========================================================================
     -->
     <section class="ca-section" id="before-after">
@@ -398,23 +304,20 @@
             <i class="fa-solid fa-code-compare"></i> Transformation
           </div>
           <h2 class="ca-section-title">
-            Image Before &rarr; After Analysis
+            Image Before &rarr; After
           </h2>
-          <p class="ca-section-sub">
-            Drag the slider to see how raw blueprints transform into clear, high-paying client audits.
-          </p>
         </div>
 
         <div class="ca-before-after-box">
           <div class="ca-ba-viewport" id="baViewport">
             <!-- Background: AFTER -->
             <img src="vastu_after.jpg" alt="Vastu Analysis After Report" class="ca-ba-img" />
-            <span class="ca-ba-badge after">AFTER: 1-Click Client Report</span>
+            <span class="ca-ba-badge after">AFTER</span>
 
             <!-- Clipped Overlay: BEFORE -->
             <div class="ca-ba-overlay" id="baOverlay">
-              <img src="vastu_before.jpg" alt="Vastu Analysis Before Site Blueprint" class="ca-ba-img" />
-              <span class="ca-ba-badge before">BEFORE: Raw Site Visit</span>
+              <img src="vastu_before.jpg" alt="Vastu Analysis Before Blueprint" class="ca-ba-img" />
+              <span class="ca-ba-badge before">BEFORE</span>
             </div>
 
             <!-- Central Handle -->
@@ -422,17 +325,12 @@
               <i class="fa-solid fa-arrows-left-right"></i>
             </div>
 
-            <!-- Invisible range input -->
-            <input type="range" min="0" max="100" value="50" class="ca-ba-slider" id="baSlider" aria-label="Before after comparison slider" />
+            <input type="range" min="0" max="100" value="50" class="ca-ba-slider" id="baSlider" aria-label="Before after slider" />
           </div>
 
-          <!-- User Requirement Quote -->
           <div class="ca-quote-banner">
             <p class="ca-quote-text">
               "Spend less time organizing, spend more time consulting."
-            </p>
-            <p class="ca-quote-sub">
-              Trusted by 1,200+ practicing consultants across India & abroad.
             </p>
           </div>
         </div>
@@ -449,54 +347,38 @@
       <div class="ca-container">
         
         <div class="ca-awards-wrap">
-          
-          <!-- Awarded by Image -->
           <div class="ca-award-image-box">
-            <img src="assets/images/award-badge.jpg" alt="Awarded by National Vastu Federation" class="ca-award-img" />
-            <span class="ca-award-label">
-              <i class="fa-solid fa-award"></i> Recognized Software
-            </span>
+            <img src="assets/images/award-badge.jpg" alt="Awarded by Vedic Institute" class="ca-award-img" />
+            <span class="ca-award-label"><i class="fa-solid fa-award"></i> Awarded By</span>
           </div>
 
-          <!-- Text & Trust Batches -->
           <div class="ca-awards-text">
-            <h3 class="ca-awards-title">
-              Awarded By Top Vedic & Architectural Institutions
-            </h3>
-            <p class="ca-awards-desc">
-              Celebrated as the most dependable mobile software for professional Vastu consultants, interior designers, and energy auditors.
-            </p>
+            <h3 class="ca-awards-title">Awarded by National Vastu Federation</h3>
+            <p class="ca-awards-desc">Recognized software for professional Vastu consultants and architects across India.</p>
 
-            <!-- Trust Batches -->
             <div class="ca-trust-badges-grid">
-              
               <div class="ca-badge-item">
                 <i class="fa-solid fa-shield-check"></i>
                 <strong>ISO 9001:2015</strong>
-                <span>Quality Certified</span>
+                <span>Certified</span>
               </div>
-
               <div class="ca-badge-item">
                 <i class="fa-solid fa-award"></i>
                 <strong>Vedic Council</strong>
-                <span>Approved Logic</span>
+                <span>Approved</span>
               </div>
-
               <div class="ca-badge-item">
                 <i class="fa-solid fa-lock"></i>
                 <strong>256-Bit SSL</strong>
-                <span>Client Data Privacy</span>
+                <span>Secure</span>
               </div>
-
               <div class="ca-badge-item">
                 <i class="fa-solid fa-star"></i>
-                <strong>4.9 / 5.0 Rating</strong>
-                <span>Over 1,200 Reviews</span>
+                <strong>4.9 Rating</strong>
+                <span>1,200+ Reviews</span>
               </div>
-
             </div>
           </div>
-
         </div>
 
       </div>
@@ -504,81 +386,38 @@
 
     <!-- 
       ========================================================================
-      TRY CA VASTU FOR 9 RS
-      Start your next property analysis with professional tools on your phone.
-      Start trial for 9 Rs
+      TRY CA VASTU FOR 9 RS (Clean Callout Card - No heavy on-page form)
       ========================================================================
     -->
     <section class="ca-section" id="pricing">
       <div class="ca-container">
         
-        <div class="ca-checkout-card" id="trialFormCard">
-          <div class="ca-checkout-ribbon">
-            <i class="fa-solid fa-bolt"></i> 7-Day Free App Trial
+        <div class="ca-trial-callout-card">
+          <span class="ca-callout-pill"><i class="fa-solid fa-bolt"></i> 7-Day Free App Trial</span>
+          
+          <h2 class="ca-callout-title">Try CA Vastu for 9 Rs</h2>
+          <p class="ca-callout-sub">
+            Start your next property analysis with professional tools on your phone.
+          </p>
+
+          <div class="ca-callout-pricing">
+            <span>7-Day Full Access:</span>
+            <del>₹499</del>
+            <span class="price-lg">₹9</span>
           </div>
 
-          <div class="ca-checkout-header">
-            <h2 class="ca-checkout-title">Try CA Vastu for 9 Rs</h2>
-            <p class="ca-checkout-sub">
-              Start your next property analysis with professional tools on your phone.
-            </p>
-          </div>
-
-          <form id="caVastuTrialForm" novalidate>
-            
-            <div class="ca-form-group">
-              <label for="consultantName" class="ca-form-label">Consultant Name</label>
-              <input type="text" id="consultantName" class="ca-input" placeholder="e.g. Acharya Rajesh Sharma" required />
-            </div>
-
-            <div class="ca-form-group">
-              <label for="consultantMobile" class="ca-form-label">WhatsApp Number</label>
-              <div class="ca-phone-wrap">
-                <span class="ca-prefix">+91</span>
-                <input type="tel" id="consultantMobile" class="ca-input" placeholder="10-digit mobile number" maxlength="10" required />
-              </div>
-            </div>
-
-            <div class="ca-form-group">
-              <label for="consultantEmail" class="ca-form-label">Email Address</label>
-              <input type="email" id="consultantEmail" class="ca-input" placeholder="name@yourdomain.com" required />
-            </div>
-
-            <div class="ca-form-group">
-              <label for="consultantPractice" class="ca-form-label">Practice Focus</label>
-              <select id="consultantPractice" class="ca-input">
-                <option value="Residential Vastu">Residential (Flats & Villas)</option>
-                <option value="Commercial & Office Vastu">Commercial & Office Vastu</option>
-                <option value="Industrial & Factory Vastu">Industrial & Factory Vastu</option>
-                <option value="Astro-Vastu & Numerology">Astro-Vastu & Numerology</option>
-              </select>
-            </div>
-
-            <!-- ₹9 Trial Banner -->
-            <div class="ca-pricing-box">
-              <div class="ca-pricing-left">
-                <strong>Full 7-Day Access to CA Vastu</strong>
-                <span>Unlimited Floorplans • PDF Reports • Remedy Generator</span>
-              </div>
-              <div class="ca-pricing-right">
-                <del>₹499</del>
-                <span class="price-highlight">₹9</span>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-submit-trial" id="btnSubmitTrial">
+          <div>
+            <button type="button" class="btn-ca-primary" onclick="openLeadModal()">
               <span>Start trial for 9 Rs</span>
               <i class="fa-solid fa-arrow-right"></i>
             </button>
+          </div>
 
-            <div class="ca-form-trust">
-              <span><i class="fa-solid fa-shield-halved" style="color: var(--ca-saffron);"></i> 100% Secure Checkout</span>
-              <span><i class="fa-brands fa-whatsapp" style="color: var(--ca-success);"></i> Instant WhatsApp Download Link</span>
-              <span><i class="fa-solid fa-ban" style="color: var(--ca-saffron);"></i> No Auto-Debit</span>
-            </div>
-
-          </form>
-
+          <div class="ca-callout-trust">
+            <span><i class="fa-solid fa-shield-halved" style="color: var(--ca-saffron);"></i> Secure Checkout</span>
+            <span><i class="fa-brands fa-whatsapp" style="color: var(--ca-success);"></i> WhatsApp Onboarding</span>
+            <span><i class="fa-solid fa-ban" style="color: var(--ca-saffron);"></i> No Auto-Debit</span>
+          </div>
         </div>
 
       </div>
@@ -593,71 +432,49 @@
       <div class="ca-container">
         
         <div class="ca-section-header">
-          <div class="ca-section-pill">
-            <i class="fa-solid fa-circle-question"></i> Got Questions?
-          </div>
-          <h2 class="ca-section-title">
-            Frequently Asked Questions
-          </h2>
-          <p class="ca-section-sub">
-            Everything you need to know about the CA Vastu Software and 7-day trial.
-          </p>
+          <div class="ca-section-pill"><i class="fa-solid fa-circle-question"></i> Questions?</div>
+          <h2 class="ca-section-title">FAQ</h2>
         </div>
 
         <div class="ca-faq-wrap">
           
-          <!-- FAQ 1 -->
           <div class="ca-faq-item active">
             <button type="button" class="ca-faq-trigger">
               <span>What is included in the ₹9 trial?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="ca-faq-content">
-              You get 7 full days of unrestricted access to the complete CA Vastu Software. This includes unlimited floor plan gridding, 16 Mahavastu zones & 45 Devtas mapping, elemental bar chart calculation, non-demolition remedy engine, and unlimited branded PDF exports.
+              7 full days of unrestricted access: unlimited floor plans, 16 Mahavastu zones & 45 Devtas, elemental bar chart, remedy generator, and branded PDF reports.
             </div>
           </div>
 
-          <!-- FAQ 2 -->
           <div class="ca-faq-item">
             <button type="button" class="ca-faq-trigger">
-              <span>Can I use CA Vastu directly on my mobile phone?</span>
+              <span>Can I use CA Vastu on my mobile phone?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="ca-faq-content">
-              Yes! CA Vastu is built for consultants on the move. You can run it on any Android or iOS smartphone, tablet, iPad, or desktop computer. The digital degree sensor connects directly to your phone's built-in compass.
+              Yes! Runs on Android and iOS smartphones, tablets, iPads, and desktop computers.
             </div>
           </div>
 
-          <!-- FAQ 3 -->
           <div class="ca-faq-item">
             <button type="button" class="ca-faq-trigger">
-              <span>Will my reports have my own brand name and contact details?</span>
+              <span>Will reports have my own brand name?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="ca-faq-content">
-              Absolutely. In your consultant profile settings, you can add your company name, logo, phone number, email, and disclaimer. All PDF reports generated for your clients are 100% white-labeled with your branding.
+              Yes, all PDF reports generated are 100% white-labeled with your name, company logo, and contact details.
             </div>
           </div>
 
-          <!-- FAQ 4 -->
           <div class="ca-faq-item">
             <button type="button" class="ca-faq-trigger">
-              <span>Will I be auto-charged after the 7 days?</span>
+              <span>Will I be auto-charged after 7 days?</span>
               <i class="fa-solid fa-chevron-down"></i>
             </button>
             <div class="ca-faq-content">
-              No. We strictly do not use recurring auto-debit. The ₹9 payment is a one-time verification token. At the end of your 7-day trial, you can choose if you wish to upgrade to an annual license.
-            </div>
-          </div>
-
-          <!-- FAQ 5 -->
-          <div class="ca-faq-item">
-            <button type="button" class="ca-faq-trigger">
-              <span>How soon do I receive access after paying ₹9?</span>
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-            <div class="ca-faq-content">
-              Immediately. As soon as the ₹9 payment is completed, you are redirected to WhatsApp where our team sends you your login credentials and instant app download link within 60 seconds.
+              No. Strictly zero auto-debit. The ₹9 is a one-time verification token.
             </div>
           </div>
 
@@ -668,21 +485,15 @@
 
   </main>
 
-  <!-- 
-    ========================================================================
-    MINIMAL FOOTER (Call Astro Deep Navy)
-    ========================================================================
-  -->
+  <!-- FOOTER -->
   <footer class="ca-footer">
     <div class="ca-container">
       <div class="ca-footer-inner">
         <div>
-          <p>© 2026 Call Astro (www.call-astro.com) • All In One Vastu Analysis Software For Consultants.</p>
+          <p>© 2026 Call Astro (www.call-astro.com) • Vastu Analysis Software For Consultants.</p>
         </div>
         <div class="ca-footer-links">
-          <a href="#how-it-works">How It Works</a>
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
+          <a href="javascript:void(0)" onclick="openLeadModal()">Start Trial</a>
           <a href="#faq">FAQ</a>
           <a href="index.html">Consumer Vastu Check</a>
         </div>
@@ -690,85 +501,129 @@
     </div>
   </footer>
 
-  <!-- 
-    ========================================================================
-    MOBILE STICKY BOTTOM ACTION BAR (Call Astro Gold Theme)
-    ========================================================================
-  -->
+  <!-- MOBILE STICKY BAR -->
   <div class="ca-sticky-bar">
     <div class="ca-sticky-left">
-      <del>₹499</del>
+      <del style="font-size: 10px; color: #94A3B8;">₹499</del>
       <strong>₹9 for 7 Days</strong>
-      <span>Full App Access</span>
+      <span>Full App Trial</span>
     </div>
-    <a href="#pricing" class="btn-sticky-cta">
+    <button type="button" class="btn-sticky-cta" onclick="openLeadModal()">
       <span>Start Trial for 9Rs</span>
       <i class="fa-solid fa-arrow-right"></i>
-    </a>
+    </button>
   </div>
 
   <!-- 
     ========================================================================
-    PAYMENT SIMULATION MODAL & AUTO WHATSAPP REDIRECT
+    POPUP LEAD CAPTURE & ₹9 PAYMENT MODAL (Appears on clicking ANY CTA)
     ========================================================================
   -->
-  <div class="ca-modal-overlay" id="paymentModal">
+  <div class="ca-modal-overlay" id="leadModalOverlay">
     <div class="ca-modal-card">
-      <button type="button" class="ca-modal-close" id="closePaymentModal">&times;</button>
+      <button type="button" class="ca-modal-close" onclick="closeLeadModal()">&times;</button>
       
-      <!-- Checkout View -->
-      <div id="modalCheckoutView">
-        <h3 style="font-size: 20px; font-weight: 900; color: #1A2E51; margin-bottom: 6px;">
-          Call Astro Vastu 7-Day Trial
-        </h3>
-        <p style="font-size: 13px; color: #64748B; margin-bottom: 16px;">
-          Pay ₹9 token to activate your consultant account
-        </p>
-
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px; margin-bottom: 18px; text-align: left; font-size: 12.5px;">
-          <div>Consultant: <strong id="modalConsultantDisplay" style="color: #1A2E51;">Acharya</strong></div>
-          <div>Mobile: <strong id="modalPhoneDisplay" style="color: #1A2E51;">+91</strong></div>
+      <!-- FORM STEP -->
+      <div id="modalFormStep">
+        <div class="ca-modal-header">
+          <h3 class="ca-modal-title">Try CA Vastu for 9 Rs</h3>
+          <p class="ca-modal-sub">Start your next property analysis on your phone</p>
         </div>
 
-        <!-- UPI Quick Grid -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px;">
-          <button type="button" onclick="executeTrialPayment('Google Pay')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 4px; font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <i class="fa-brands fa-google" style="color: #4285F4; font-size: 16px; display: block; margin-bottom: 4px;"></i> GPay
+        <div class="ca-modal-pricing-strip">
+          <div>
+            <strong>7-Day Consultant Pass</strong>
+            <span>Unlimited floor plans & PDF reports</span>
+          </div>
+          <div class="modal-price">₹9</div>
+        </div>
+
+        <form id="popupTrialForm" novalidate>
+          <div class="ca-form-group">
+            <label for="popupName" class="ca-form-label">Full Name</label>
+            <input type="text" id="popupName" class="ca-input" placeholder="e.g. Acharya Rajesh Sharma" required />
+          </div>
+
+          <div class="ca-form-group">
+            <label for="popupMobile" class="ca-form-label">WhatsApp Number</label>
+            <div class="ca-phone-wrap">
+              <span class="ca-prefix">+91</span>
+              <input type="tel" id="popupMobile" class="ca-input" placeholder="10-digit mobile number" maxlength="10" required />
+            </div>
+          </div>
+
+          <div class="ca-form-group">
+            <label for="popupEmail" class="ca-form-label">Email Address</label>
+            <input type="email" id="popupEmail" class="ca-input" placeholder="name@email.com" required />
+          </div>
+
+          <div class="ca-form-group" style="margin-bottom: 16px;">
+            <label for="popupFocus" class="ca-form-label">Practice Focus</label>
+            <select id="popupFocus" class="ca-input">
+              <option value="Residential Vastu">Residential (Flats & Villas)</option>
+              <option value="Commercial Vastu">Commercial & Offices</option>
+              <option value="Industrial Vastu">Industrial & Factories</option>
+              <option value="Astro-Vastu">Astro-Vastu & Numerology</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-modal-submit" id="btnProceedPayment">
+            <span>Proceed to Pay ₹9</span>
+            <i class="fa-solid fa-arrow-right"></i>
           </button>
-          <button type="button" onclick="executeTrialPayment('PhonePe')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 4px; font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <i class="fa-solid fa-mobile-screen-button" style="color: #5F259F; font-size: 16px; display: block; margin-bottom: 4px;"></i> PhonePe
+        </form>
+      </div>
+
+      <!-- PAYMENT METHODS STEP -->
+      <div id="modalPaymentStep" style="display: none;">
+        <div class="ca-modal-header">
+          <h3 class="ca-modal-title">Pay ₹9 Verification</h3>
+          <p class="ca-modal-sub">Choose instant UPI payment method</p>
+        </div>
+
+        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px; margin-bottom: 14px; font-size: 12px;">
+          <div>Consultant: <strong id="summaryName" style="color: #1A2E51;">Acharya</strong></div>
+          <div>WhatsApp: <strong id="summaryPhone" style="color: #1A2E51;">+91</strong></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px;">
+          <button type="button" onclick="executeTrialPayment('Google Pay')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 2px; font-size: 11px; font-weight: 800; cursor: pointer;">
+            <i class="fa-brands fa-google" style="color: #4285F4; font-size: 16px; display: block; margin-bottom: 3px;"></i> GPay
           </button>
-          <button type="button" onclick="executeTrialPayment('Paytm')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 4px; font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <i class="fa-solid fa-wallet" style="color: #00BAF2; font-size: 16px; display: block; margin-bottom: 4px;"></i> Paytm
+          <button type="button" onclick="executeTrialPayment('PhonePe')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 2px; font-size: 11px; font-weight: 800; cursor: pointer;">
+            <i class="fa-solid fa-mobile-screen-button" style="color: #5F259F; font-size: 16px; display: block; margin-bottom: 3px;"></i> PhonePe
           </button>
-          <button type="button" onclick="executeTrialPayment('UPI QR')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 10px; padding: 10px 4px; font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <i class="fa-solid fa-qrcode" style="color: #1A2E51; font-size: 16px; display: block; margin-bottom: 4px;"></i> QR
+          <button type="button" onclick="executeTrialPayment('Paytm')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 2px; font-size: 11px; font-weight: 800; cursor: pointer;">
+            <i class="fa-solid fa-wallet" style="color: #00BAF2; font-size: 16px; display: block; margin-bottom: 3px;"></i> Paytm
+          </button>
+          <button type="button" onclick="executeTrialPayment('UPI QR')" style="background: #fff; border: 1px solid #E2E8F0; border-radius: 8px; padding: 8px 2px; font-size: 11px; font-weight: 800; cursor: pointer;">
+            <i class="fa-solid fa-qrcode" style="color: #1A2E51; font-size: 16px; display: block; margin-bottom: 3px;"></i> QR
           </button>
         </div>
 
-        <button type="button" class="btn-submit-trial" id="btnPayInstantUpi" onclick="executeTrialPayment('Instant UPI')">
-          <span>Pay ₹9 & Get WhatsApp Access</span>
+        <button type="button" class="btn-modal-submit" id="btnPayNow" onclick="executeTrialPayment('Instant UPI')">
+          <span>Pay ₹9 & Connect WhatsApp</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
 
-      <!-- Success & WhatsApp Redirect View -->
-      <div id="modalSuccessView" style="display: none;">
-        <div style="width: 56px; height: 56px; border-radius: 50%; background: #DCFCE7; border: 1px solid #BBF7D0; color: #16A34A; display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 14px; box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);">
+      <!-- SUCCESS & WHATSAPP REDIRECT STEP -->
+      <div id="modalSuccessStep" style="display: none; text-align: center;">
+        <div style="width: 50px; height: 50px; border-radius: 50%; background: #DCFCE7; border: 1px solid #BBF7D0; color: #16A34A; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 12px;">
           <i class="fa-solid fa-check"></i>
         </div>
-        <h3 style="font-size: 22px; font-weight: 900; color: #1A2E51; margin-bottom: 6px;">
+        <h3 style="font-size: 19px; font-weight: 900; color: #1A2E51; margin-bottom: 4px;">
           Payment Successful!
         </h3>
-        <p style="font-size: 13px; color: #64748B; margin-bottom: 12px;">
-          Activation Ref: <strong id="activationRefDisplay">#CAV-84920</strong>
+        <p style="font-size: 12px; color: #64748B; margin-bottom: 12px;">
+          Activation Ref: <strong id="successRef">#CAV-84920</strong>
         </p>
 
-        <div style="background: #FFF5E5; border: 1px solid #FDE8B8; border-radius: 12px; padding: 10px; font-size: 12px; font-weight: 700; color: #B45309; margin-bottom: 16px;">
+        <div style="background: #FFF5E5; border: 1px solid #FDE8B8; border-radius: 10px; padding: 8px; font-size: 11.5px; font-weight: 700; color: #B45309; margin-bottom: 14px;">
           <i class="fa-solid fa-spinner fa-spin"></i> Redirecting to WhatsApp in <span id="countdownSeconds">3</span>s...
         </div>
 
-        <a href="#" id="directWhatsappBtn" target="_blank" rel="noopener" class="btn-submit-trial" style="text-decoration: none; background: #25D366; color: #FFFFFF; margin-bottom: 10px;">
+        <a href="#" id="directWhatsappBtn" target="_blank" rel="noopener" class="btn-modal-submit" style="text-decoration: none; background: #25D366; color: #FFFFFF;">
           <i class="fa-brands fa-whatsapp"></i> Open WhatsApp Now
         </a>
       </div>
