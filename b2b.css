@@ -31,10 +31,12 @@
   --btn-accent: #E65100;
 
   --border-black: #1A1412;
-  --shadow-neo-sm: 2px 2px 0px #1A1412;
-  --shadow-neo: 3px 3px 0px #1A1412;
-  --shadow-neo-md: 4px 4px 0px #1A1412;
-  --shadow-neo-lg: 6px 6px 0px #1A1412;
+  --shadow-neo-sm: none;
+  --shadow-neo: none;
+  --shadow-neo-md: none;
+  --shadow-neo-lg: none;
+  --shadow-soft: 0 4px 14px rgba(26, 20, 18, 0.06);
+  --shadow-soft-lg: 0 10px 25px rgba(26, 20, 18, 0.1);
 
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -148,10 +150,10 @@ body {
 .pattern-navbar {
   width: 100%;
   background: #FFFFFF;
-  border: 2.5px solid var(--border-black);
+  border: 1.5px solid var(--border-black);
   border-radius: var(--radius-full);
   padding: 8px 18px;
-  box-shadow: var(--shadow-neo-md);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -274,9 +276,9 @@ body {
   width: 100%;
   max-width: 460px;
   background: #FFFFFF;
-  border: 2px solid var(--border-black);
+  border: 1.5px solid var(--border-black);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-neo-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   padding: 12px 14px;
   display: flex;
   align-items: center;
@@ -288,17 +290,16 @@ body {
 
 .pattern-feature-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-neo-lg);
 }
 
 .pattern-card-thumb {
   width: 64px;
   height: 64px;
   border-radius: 12px;
-  border: 2px solid var(--border-black);
+  border: 1.5px solid var(--border-black);
   object-fit: cover;
   flex-shrink: 0;
-  box-shadow: var(--shadow-neo-sm);
+  box-shadow: none;
 }
 
 .pattern-card-info {
@@ -352,8 +353,8 @@ body {
   font-weight: 900;
   padding: 14px 20px;
   border-radius: var(--radius-full);
-  border: 2.5px solid var(--border-black);
-  box-shadow: var(--shadow-neo-md);
+  border: 2px solid var(--border-black);
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,8 +366,8 @@ body {
 
 .btn-pattern-green:hover {
   background: #C2410C;
-  transform: translate(-1px, -1px);
-  box-shadow: var(--shadow-neo-lg);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.25);
 }
 
 .btn-pattern-white {
@@ -377,8 +378,8 @@ body {
   font-weight: 900;
   padding: 13px 20px;
   border-radius: var(--radius-full);
-  border: 2.5px solid var(--border-black);
-  box-shadow: var(--shadow-neo-md);
+  border: 2px solid var(--border-black);
+  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -390,8 +391,7 @@ body {
 
 .btn-pattern-white:hover {
   background: #FFFBEB;
-  transform: translate(-1px, -1px);
-  box-shadow: var(--shadow-neo-lg);
+  transform: translateY(-1px);
 }
 
 .btn-pattern-white i {
@@ -412,7 +412,7 @@ body {
   padding: 8px;
   border-radius: 40px;
   border: 3px solid #000000;
-  box-shadow: var(--shadow-neo-lg);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
   position: relative;
   user-select: none;
 }
@@ -638,7 +638,7 @@ body {
   border: 2px solid #2A2F3D;
   border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), var(--shadow-neo-md);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -899,11 +899,11 @@ body {
 @keyframes ca-cta-pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: var(--shadow-neo-md);
+    box-shadow: none;
   }
   50% {
-    transform: scale(1.02);
-    box-shadow: 0 6px 16px rgba(230, 81, 0, 0.35), 4px 4px 0px #1A1412;
+    transform: scale(1.025);
+    box-shadow: 0 4px 18px rgba(230, 81, 0, 0.3);
   }
 }
 
