@@ -341,19 +341,19 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   background: var(--ca-gold-gradient);
   color: #FFFFFF;
   font-size: 14.5px;
   font-weight: 900;
-  padding: 13px 26px;
+  padding: 13px 24px;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-gold);
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
-  max-width: 320px;
+  max-width: 360px;
 }
 
 @media (min-width: 480px) {
@@ -365,7 +365,103 @@ body {
 .btn-ca-primary:hover {
   background: var(--ca-gold-gradient-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -4px rgba(242, 159, 5, 0.45);
+  box-shadow: 0 12px 28px -4px rgba(242, 159, 5, 0.5);
+}
+
+.btn-price-badge {
+  background: rgba(0, 0, 0, 0.22);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2.5px 8px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Pulsing Live Dot on Tag */
+.live-ping {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16A34A;
+  box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7);
+  animation: ca-ping 1.6s infinite;
+}
+
+@keyframes ca-ping {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(22, 163, 74, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+/* Social Proof Avatar Stack */
+.ca-hero-social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 880px) {
+  .ca-hero-social-proof {
+    justify-content: flex-start;
+  }
+}
+
+.ca-avatar-stack {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -7px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+}
+
+.avatar-circle:first-child { margin-left: 0; }
+.avatar-circle.av-1 { background: #1A2E51; }
+.avatar-circle.av-2 { background: #F29F05; }
+.avatar-circle.av-3 { background: #16A34A; }
+.avatar-circle.av-plus { background: #475569; font-size: 12px; font-weight: 900; }
+
+.ca-proof-text {
+  text-align: left;
+  line-height: 1.25;
+}
+
+.ca-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 2.5px;
+  font-size: 11px;
+  color: #F59E0B;
+}
+
+.ca-stars-row span {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--ca-navy);
+  margin-left: 4px;
+}
+
+.ca-proof-text span {
+  font-size: 11px;
+  color: var(--ca-text-muted);
+}
+
+.ca-proof-text strong {
+  color: var(--ca-navy);
 }
 
 .ca-trust-row {
@@ -401,12 +497,101 @@ body {
 }
 
 /* ==========================================================================
-   VIDEO CARD (Compact Mobile Mockup)
+   VIDEO CARD & FLOATING SATELLITE BADGES
    ========================================================================== */
 .ca-video-col {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Floating Satellite Badges (Desktop & Tablet) */
+.ca-hero-float-badge {
+  display: none;
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid var(--ca-border);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  box-shadow: 0 10px 25px -4px rgba(26, 46, 81, 0.15);
+  align-items: center;
+  gap: 10px;
+  z-index: 35;
+  animation: ca-float 4s ease-in-out infinite;
+}
+
+@media (min-width: 680px) {
+  .ca-hero-float-badge {
+    display: flex;
+  }
+}
+
+.ca-hero-float-badge.float-top-left {
+  top: 15px;
+  left: -20px;
+}
+
+@media (min-width: 992px) {
+  .ca-hero-float-badge.float-top-left {
+    top: 25px;
+    left: -35px;
+  }
+}
+
+.ca-hero-float-badge.float-bottom-right {
+  bottom: 25px;
+  right: -20px;
+  animation-delay: -2s;
+}
+
+@media (min-width: 992px) {
+  .ca-hero-float-badge.float-bottom-right {
+    bottom: 35px;
+    right: -30px;
+  }
+}
+
+@keyframes ca-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.badge-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.badge-icon-wrap.gold {
+  background: var(--ca-gold-cream);
+  color: var(--ca-saffron);
+  border: 1px solid var(--ca-gold-border);
+}
+
+.badge-icon-wrap.green {
+  background: #DCFCE7;
+  color: #16A34A;
+  border: 1px solid #BBF7D0;
+}
+
+.ca-hero-float-badge strong {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 850;
+  color: var(--ca-navy);
+  line-height: 1.15;
+}
+
+.ca-hero-float-badge span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ca-text-muted);
 }
 
 .ca-phone-frame {
@@ -416,9 +601,14 @@ body {
   padding: 8px;
   border-radius: 38px;
   border: 2.5px solid #1E293B;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 36px -4px rgba(26, 46, 81, 0.22);
   position: relative;
   user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.ca-phone-frame:hover {
+  transform: translateY(-4px);
 }
 
 .ca-phone-screen {
