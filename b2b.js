@@ -24,8 +24,7 @@ function initCountdownTimer() {
   const hoursEl = document.getElementById('cdHours');
   const minutesEl = document.getElementById('cdMinutes');
   const secondsEl = document.getElementById('cdSeconds');
-
-  if (!hoursEl || !minutesEl || !secondsEl) return;
+  const stickyDigitsEl = document.getElementById('stickyTimerDigits');
 
   const storageKey = 'ca_vastu_offer_endtime_v1';
   let endTime = localStorage.getItem(storageKey);
@@ -51,9 +50,17 @@ function initCountdownTimer() {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    hoursEl.textContent = String(hours).padStart(2, '0');
-    minutesEl.textContent = String(minutes).padStart(2, '0');
-    secondsEl.textContent = String(seconds).padStart(2, '0');
+    const hStr = String(hours).padStart(2, '0');
+    const mStr = String(minutes).padStart(2, '0');
+    const sStr = String(seconds).padStart(2, '0');
+
+    if (hoursEl) hoursEl.textContent = hStr;
+    if (minutesEl) minutesEl.textContent = mStr;
+    if (secondsEl) secondsEl.textContent = sStr;
+
+    if (stickyDigitsEl) {
+      stickyDigitsEl.textContent = `${hStr}:${mStr}:${sStr}`;
+    }
   }
 
   tick();
