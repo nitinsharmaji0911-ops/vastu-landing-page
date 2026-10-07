@@ -23,7 +23,29 @@
 
   <!-- 
     ========================================================================
-    1. FLOATING STADIUM PILL NAVBAR (Matches Screenshot Top Navbar Exactly)
+    1. TOP ANNOUNCEMENT STRIP (Positioned ABOVE Navbar / Logo)
+    ========================================================================
+  -->
+  <div class="ca-top-ticker" aria-hidden="true">
+    <div class="ca-ticker-track">
+      <span class="ca-ticker-item">★ 16 MAHAVASTU ZONES</span>
+      <span class="ca-ticker-item">★ BAR CHART CALCULATOR</span>
+      <span class="ca-ticker-item">★ 45 DEVTAS MAPPING</span>
+      <span class="ca-ticker-item">★ DEGREE COMPASS SENSOR</span>
+      <span class="ca-ticker-item">★ NON-DEMOLITION REMEDIES</span>
+      <span class="ca-ticker-item">★ 1-CLICK BRANDED PDF AUDIT</span>
+      <span class="ca-ticker-item">★ 16 MAHAVASTU ZONES</span>
+      <span class="ca-ticker-item">★ BAR CHART CALCULATOR</span>
+      <span class="ca-ticker-item">★ 45 DEVTAS MAPPING</span>
+      <span class="ca-ticker-item">★ DEGREE COMPASS SENSOR</span>
+      <span class="ca-ticker-item">★ NON-DEMOLITION REMEDIES</span>
+      <span class="ca-ticker-item">★ 1-CLICK BRANDED PDF AUDIT</span>
+    </div>
+  </div>
+
+  <!-- 
+    ========================================================================
+    2. FLOATING VASTU PILL NAVBAR
     ========================================================================
   -->
   <div class="pattern-nav-wrap">
@@ -40,28 +62,6 @@
         </button>
       </div>
     </header>
-  </div>
-
-  <!-- 
-    ========================================================================
-    TICKER STRIP
-    ========================================================================
-  -->
-  <div class="ca-ticker-wrapper" aria-hidden="true">
-    <div class="ca-ticker-track">
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> 16 MAHAVASTU ZONES</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> BAR CHART CALCULATOR</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> 45 DEVTAS MAPPING</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> DEGREE COMPASS SENSOR</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> NON-DEMOLITION REMEDIES</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> 1-CLICK BRANDED PDF</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> 16 MAHAVASTU ZONES</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> BAR CHART CALCULATOR</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> 45 DEVTAS MAPPING</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> DEGREE COMPASS SENSOR</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> NON-DEMOLITION REMEDIES</span>
-      <span class="ca-ticker-item"><i class="fa-solid fa-star"></i> 1-CLICK BRANDED PDF</span>
-    </div>
   </div>
 
   <!-- MAIN WRAPPER -->
@@ -168,7 +168,7 @@
     <!-- 
       ========================================================================
       FROM SITE VISIT TO CLIENT REPORT, IN THREE SIMPLE STEPS
-      (Square | Square | Square)
+      (Interactive Luxury 3-Step Carousel matching Art Gallery Card Format)
       ========================================================================
     -->
     <section class="ca-section" id="how-it-works">
@@ -177,46 +177,96 @@
         <div class="ca-section-header">
           <div class="ca-section-pill">Simple 3 Steps</div>
           <h2 class="ca-section-title">From Site Visit to client report, in three simple steps</h2>
+          <p class="ca-section-sub">Swipe or click to view the consultant workflow</p>
         </div>
 
-        <div class="ca-squares-grid">
-          
-          <div class="ca-square-card">
-            <div>
-              <div class="ca-step-num">1</div>
-              <h3 class="ca-square-title">Site Visit & Degree Capture</h3>
-              <p class="ca-square-desc">Capture exact North degrees with the digital sensor and snap photos of all rooms.</p>
+        <!-- 3-STEP CAROUSEL CONTAINER -->
+        <div class="vastu-carousel-wrap">
+          <div class="vastu-carousel-track" id="vastuStepTrack">
+            
+            <!-- STEP 1 CARD -->
+            <div class="vastu-card-slide is-active" data-step="0">
+              <div class="vastu-card-inner">
+                <div class="vastu-card-header">
+                  <span class="vastu-card-badge">STEP 01 • ON-SITE</span>
+                  <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                    <i class="fa-solid fa-eye"></i> DETAILS
+                  </button>
+                </div>
+                <div class="vastu-card-img-wrap">
+                  <img src="vastu_before.jpg" alt="Site Visit & Degree Capture" loading="lazy" />
+                  <div class="vastu-card-overlay-gradient"></div>
+                </div>
+                <div class="vastu-card-footer">
+                  <div class="vastu-card-meta">
+                    <h3 class="vastu-card-title">Site Visit & Degree Capture</h3>
+                    <p class="vastu-card-desc">Compass Sensor & Room Photo Tagging</p>
+                  </div>
+                  <button type="button" class="vastu-card-arrow-btn" onclick="nextStepSlide()" aria-label="Next Step">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
             </div>
-            <div class="ca-square-visual">
-              <img src="vastu_before.jpg" alt="Vastu Site Visit" loading="lazy" />
-              <span class="ca-visual-badge">Step 1 • On-Site</span>
+
+            <!-- STEP 2 CARD -->
+            <div class="vastu-card-slide" data-step="1">
+              <div class="vastu-card-inner">
+                <div class="vastu-card-header">
+                  <span class="vastu-card-badge">STEP 02 • ENERGY CALC</span>
+                  <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                    <i class="fa-solid fa-eye"></i> DETAILS
+                  </button>
+                </div>
+                <div class="vastu-card-img-wrap">
+                  <img src="vastu_before_scary.jpg" alt="Auto-Gridding & Bar Chart" loading="lazy" />
+                  <div class="vastu-card-overlay-gradient"></div>
+                </div>
+                <div class="vastu-card-footer">
+                  <div class="vastu-card-meta">
+                    <h3 class="vastu-card-title">Auto-Gridding & Bar Chart</h3>
+                    <p class="vastu-card-desc">16 Zones, 45 Devtas & Elemental Cuts</p>
+                  </div>
+                  <button type="button" class="vastu-card-arrow-btn" onclick="nextStepSlide()" aria-label="Next Step">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
             </div>
+
+            <!-- STEP 3 CARD -->
+            <div class="vastu-card-slide" data-step="2">
+              <div class="vastu-card-inner">
+                <div class="vastu-card-header">
+                  <span class="vastu-card-badge">STEP 03 • CLIENT AUDIT</span>
+                  <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                    <i class="fa-solid fa-eye"></i> DETAILS
+                  </button>
+                </div>
+                <div class="vastu-card-img-wrap">
+                  <img src="vastu_after.jpg" alt="1-Click Branded PDF Report" loading="lazy" />
+                  <div class="vastu-card-overlay-gradient"></div>
+                </div>
+                <div class="vastu-card-footer">
+                  <div class="vastu-card-meta">
+                    <h3 class="vastu-card-title">1-Click Branded PDF Report</h3>
+                    <p class="vastu-card-desc">Remedies & Instant WhatsApp Delivery</p>
+                  </div>
+                  <button type="button" class="vastu-card-arrow-btn" onclick="openLeadModal()" aria-label="Start Trial">
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="ca-square-card">
-            <div>
-              <div class="ca-step-num">2</div>
-              <h3 class="ca-square-title">Auto-Gridding & Bar Chart</h3>
-              <p class="ca-square-desc">App auto-maps 16 Mahavastu zones, 45 Devtas, and flags element cuts or extensions.</p>
-            </div>
-            <div class="ca-square-visual">
-              <img src="vastu_before_scary.jpg" alt="Floorplan Gridding" loading="lazy" />
-              <span class="ca-visual-badge">Step 2 • Energy Calc</span>
-            </div>
+          <!-- Carousel Controls & Pagination Dots -->
+          <div class="vastu-carousel-controls">
+            <button type="button" class="vastu-nav-dot is-active" onclick="goStepSlide(0)" aria-label="Step 1"></button>
+            <button type="button" class="vastu-nav-dot" onclick="goStepSlide(1)" aria-label="Step 2"></button>
+            <button type="button" class="vastu-nav-dot" onclick="goStepSlide(2)" aria-label="Step 3"></button>
           </div>
-
-          <div class="ca-square-card">
-            <div>
-              <div class="ca-step-num">3</div>
-              <h3 class="ca-square-title">1-Click Branded PDF Report</h3>
-              <p class="ca-square-desc">Generate an executive client report with remedies and share directly on WhatsApp.</p>
-            </div>
-            <div class="ca-square-visual">
-              <img src="vastu_after.jpg" alt="Client Vastu Report" loading="lazy" />
-              <span class="ca-visual-badge">Step 3 • PDF Report</span>
-            </div>
-          </div>
-
         </div>
 
       </div>

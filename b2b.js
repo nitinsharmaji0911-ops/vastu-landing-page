@@ -8,10 +8,86 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initVideoPlayer();
+  initStepCarousel();
   initBeforeAfterSlider();
   initFaqAccordion();
   initLeadModalForm();
 });
+
+/* --------------------------------------------------------------------------
+   0. 3-STEP LUXURY CAROUSEL (Interactive Gallery Card Showcase)
+   -------------------------------------------------------------------------- */
+let currentStepIndex = 0;
+const totalStepCards = 3;
+
+function updateStepCarousel() {
+  const slides = document.querySelectorAll('.vastu-card-slide');
+  const dots = document.querySelectorAll('.vastu-nav-dot');
+
+  slides.forEach((slide, idx) => {
+    slide.classList.remove('is-active', 'is-prev', 'is-next');
+    if (idx === currentStepIndex) {
+      slide.classList.add('is-active');
+    } else if (idx === (currentStepIndex - 1 + totalStepCards) % totalStepCards) {
+      slide.classList.add('is-prev');
+    } else {
+      slide.classList.add('is-next');
+    }
+  });
+
+  dots.forEach((dot, idx) => {
+    if (idx === currentStepIndex) {
+      dot.classList.add('is-active');
+    } else {
+      dot.classList.remove('is-active');
+    }
+  });
+}
+
+window.goStepSlide = function(index) {
+  currentStepIndex = (index + totalStepCards) % totalStepCards;
+  updateStepCarousel();
+};
+
+window.nextStepSlide = function() {
+  currentStepIndex = (currentStepIndex + 1) % totalStepCards;
+  updateStepCarousel();
+};
+
+function initStepCarousel() {
+  const slides = document.querySelectorAll('.vastu-card-slide');
+  slides.forEach((slide, idx) => {
+    slide.addEventListener('click', (e) => {
+      // Don't override modal button triggers
+      if (e.target.closest('.vastu-card-action-btn') || e.target.closest('.vastu-card-arrow-btn')) return;
+      if (idx !== currentStepIndex) {
+        goStepSlide(idx);
+      }
+    });
+  });
+
+  // Touch Swipe gestures for mobile
+  const track = document.getElementById('vastuStepTrack');
+  if (track) {
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 45) {
+        nextStepSlide();
+      } else if (touchEndX - touchStartX > 45) {
+        goStepSlide(currentStepIndex - 1);
+      }
+    }, { passive: true });
+  }
+
+  updateStepCarousel();
+}
 
 /* --------------------------------------------------------------------------
    1. VIDEO PLAYER
