@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBeforeAfterSlider();
   initFaqAccordion();
   initLeadModalForm();
+  initPurchaseToast();
 });
 
 /* --------------------------------------------------------------------------
@@ -641,3 +642,50 @@ function persistLead(data, isPaid) {
     console.error('Storage error:', err);
   }
 }
+
+/* --------------------------------------------------------------------------
+   LIVE SOCIAL PROOF PURCHASE TOAST (Shopify Just-Purchased Pattern)
+   -------------------------------------------------------------------------- */
+const purchaseEvents = [
+  { name: 'Acharya Rajesh Sharma', city: 'Delhi', product: 'Lifetime Access', time: '2 mins ago' },
+  { name: 'Dr. Vikramaditya Kulkarni', city: 'Pune', product: '16-Zone Suite', time: '4 mins ago' },
+  { name: 'Pooja Jaishankar', city: 'Bengaluru', product: 'Enterprise License', time: '6 mins ago' },
+  { name: 'Vastu Shastri Anand', city: 'Jaipur', product: 'Lifetime Access', time: '9 mins ago' },
+  { name: 'Architect Neha Kapoor', city: 'Mumbai', product: 'Vedic Toolkit', time: '12 mins ago' },
+  { name: 'Acharya Gaurav Trivedi', city: 'Ahmedabad', product: 'Lifetime Access', time: '15 mins ago' }
+];
+
+let purchaseToastIndex = 0;
+
+function initPurchaseToast() {
+  const toast = document.getElementById('caPurchaseToast');
+  if (!toast) return;
+
+  function showNextToast() {
+    const item = purchaseEvents[purchaseToastIndex];
+    purchaseToastIndex = (purchaseToastIndex + 1) % purchaseEvents.length;
+
+    const buyerEl = document.getElementById('toastBuyer');
+    const timeEl = document.getElementById('toastTime');
+
+    if (buyerEl) buyerEl.innerHTML = `<strong>${item.name}</strong> from ${item.city}`;
+    if (timeEl) timeEl.textContent = item.time;
+
+    toast.classList.add('is-visible');
+
+    setTimeout(() => {
+      toast.classList.remove('is-visible');
+    }, 4800);
+  }
+
+  // Initial trigger after 3s, then recurring cycle
+  setTimeout(() => {
+    showNextToast();
+    setInterval(showNextToast, 11000);
+  }, 3200);
+}
+
+window.closePurchaseToast = function() {
+  const toast = document.getElementById('caPurchaseToast');
+  if (toast) toast.classList.remove('is-visible');
+};
