@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
    -------------------------------------------------------------------------- */
 let currentStepIndex = 0;
 const totalStepCards = 3;
+let autoSlideTimer = null;
 
 function updateStepCarousel() {
   const slides = document.querySelectorAll('.vastu-card-slide');
@@ -47,18 +48,49 @@ function updateStepCarousel() {
 window.goStepSlide = function(index) {
   currentStepIndex = (index + totalStepCards) % totalStepCards;
   updateStepCarousel();
+  restartAutoSlide();
 };
 
 window.nextStepSlide = function() {
   currentStepIndex = (currentStepIndex + 1) % totalStepCards;
   updateStepCarousel();
+  restartAutoSlide();
 };
+
+window.prevStepSlide = function() {
+  currentStepIndex = (currentStepIndex - 1 + totalStepCards) % totalStepCards;
+  updateStepCarousel();
+  restartAutoSlide();
+};
+
+function startAutoSlide() {
+  stopAutoSlide();
+  autoSlideTimer = setInterval(() => {
+    currentStepIndex = (currentStepIndex + 1) % totalStepCards;
+    updateStepCarousel();
+  }, 4200);
+}
+
+function stopAutoSlide() {
+  if (autoSlideTimer) {
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = null;
+  }
+}
+
+function restartAutoSlide() {
+  stopAutoSlide();
+  startAutoSlide();
+}
 
 function initStepCarousel() {
   const slides = document.querySelectorAll('.vastu-card-slide');
+  const track = document.getElementById('vastuStepTrack');
+  const wrap = document.querySelector('.vastu-carousel-wrap');
+
   slides.forEach((slide, idx) => {
     slide.addEventListener('click', (e) => {
-      // Don't override modal button triggers
+      // Don't trigger if user clicked details or arrow buttons
       if (e.target.closest('.vastu-card-action-btn') || e.target.closest('.vastu-card-arrow-btn')) return;
       if (idx !== currentStepIndex) {
         goStepSlide(idx);
@@ -66,27 +98,49 @@ function initStepCarousel() {
     });
   });
 
-  // Touch Swipe gestures for mobile
-  const track = document.getElementById('vastuStepTrack');
+  // Pause auto-sliding on desktop hover or touch hold
+  if (wrap) {
+    wrap.addEventListener('mouseenter', stopAutoSlide);
+    wrap.addEventListener('mouseleave', startAutoSlide);
+  }
+
+  // Smooth touch swipe handling on mobile
   if (track) {
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
 
     track.addEventListener('touchstart', (e) => {
-      touchStartX = e.changedTouches[0].screenX;
+      stopAutoSlide();
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
     }, { passive: true });
 
-    track.addEventListener('touchend', (e) => {
-      touchEndX = e.changedTouches[0].screenX;
-      if (touchStartX - touchEndX > 45) {
-        nextStepSlide();
-      } else if (touchEndX - touchStartX > 45) {
-        goStepSlide(currentStepIndex - 1);
+    track.addEventListener('touchmove', (e) => {
+      touchEndX = e.touches[0].clientX;
+      touchEndY = e.touches[0].clientY;
+    }, { passive: true });
+
+    track.addEventListener('touchend', () => {
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      // Only trigger if horizontal swipe is intentional and greater than vertical scroll
+      if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          nextStepSlide();
+        } else {
+          prevStepSlide();
+        }
+      } else {
+        startAutoSlide();
       }
     }, { passive: true });
   }
 
   updateStepCarousel();
+  startAutoSlide();
 }
 
 /* --------------------------------------------------------------------------
