@@ -931,87 +931,212 @@ body {
 }
 
 /* ==========================================================================
-   CLEAN SQUARE FEATURES GRID (Non-fanky, balanced square layout)
+   CORE TOOLS - 3 BIFURCATED 3D LUXURY CAROUSEL DECKS
    ========================================================================== */
-.ca-square-features-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
-}
-
-@media (min-width: 580px) {
-  .ca-square-features-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 860px) {
-  .ca-square-features-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.ca-square-feature-card {
-  background: #FFFFFF;
-  border: 2px solid var(--border-black);
-  border-radius: var(--radius-md);
-  padding: 18px 16px;
-  box-shadow: var(--shadow-neo-md);
+.core-decks-tabs-wrap {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.ca-square-feature-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-neo-lg);
-}
-
-.ca-square-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.ca-square-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: #FEF3C7;
-  border: 1.5px solid var(--border-black);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 17px;
-  color: var(--vastu-saffron);
-  box-shadow: var(--shadow-neo-sm);
+  margin-bottom: 18px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
-.ca-square-badge {
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  background: #F1F5F9;
-  border: 1px solid var(--border-black);
-  color: #475569;
-  padding: 2px 7px;
+.core-decks-tabs-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.core-decks-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  background: #F4EFEA;
+  border: 1.5px solid var(--border-black);
   border-radius: var(--radius-full);
 }
 
-.ca-square-name {
-  font-size: 15px;
-  font-weight: 850;
+.core-deck-tab {
+  background: #FFFFFF;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-full);
+  padding: 7px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 11.5px;
+  font-weight: 800;
   color: var(--text-black);
-  margin-bottom: 6px;
-  line-height: 1.25;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
 }
 
-.ca-square-text {
-  font-size: 12px;
-  font-weight: 550;
-  color: var(--text-muted);
-  line-height: 1.45;
+.core-deck-tab:hover {
+  background: #FEF3C7;
+}
+
+.core-deck-tab.is-active {
+  background: #12151B;
+  color: #FDE68A;
+  border-color: #D97706;
+}
+
+.core-deck-tab-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #FEF3C7;
+  color: #B45309;
+  font-size: 9.5px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.core-deck-tab.is-active .core-deck-tab-badge {
+  background: var(--vastu-saffron);
+  color: #FFFFFF;
+}
+
+.core-deck-tab-count {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.75;
+  background: rgba(0, 0, 0, 0.06);
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+}
+
+.core-deck-tab.is-active .core-deck-tab-count {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+/* Individual Core Deck Container */
+.core-deck-container {
+  display: none;
+  animation: coreFadeIn 0.35s ease;
+}
+
+.core-deck-container.is-active {
+  display: block;
+}
+
+@keyframes coreFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.core-deck-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 480px;
+  margin: 0 auto 8px;
+  padding: 0 4px;
+  gap: 10px;
+}
+
+.core-deck-heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.core-deck-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  font-weight: 800;
+  color: #B45309;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.core-deck-name {
+  font-size: 13.5px;
+  font-weight: 850;
+  color: var(--text-black);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.core-deck-nav-btns {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-black);
+  border-radius: var(--radius-full);
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+
+.core-nav-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #F8FAFC;
+  border: 1px solid var(--border-black);
+  color: var(--text-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.core-nav-btn:hover {
+  background: var(--vastu-saffron);
+  color: #FFFFFF;
+}
+
+.core-deck-counter {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--text-black);
+  min-width: 44px;
+  text-align: center;
+  user-select: none;
+}
+
+/* Card Glowing Art Watermark Accent */
+.vastu-card-art-accent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(18, 21, 27, 0.72);
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FDE68A;
+  font-size: 24px;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+  pointer-events: none;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+  z-index: 15;
+}
+
+.vastu-card-slide.is-active:hover .vastu-card-art-accent {
+  transform: translate(-50%, -50%) scale(1.1);
+  border-color: #F59E0B;
 }
 
 /* ==========================================================================

@@ -262,68 +262,1073 @@
       <div class="ca-container">
         
         <div class="ca-section-header">
-          <div class="ca-section-pill">Core Tools</div>
+          <div class="ca-section-pill">Core Tools • 37 Professional Systems</div>
           <h2 class="ca-section-title">All In One Vastu Toolkit</h2>
-          <p class="ca-section-sub">Engineered specifically for practicing Vedic & Mahavastu consultants</p>
+          <p class="ca-section-sub">Engineered specifically for practicing Vedic &amp; MahaVastu consultants across 3 specialized suites</p>
         </div>
 
-        <!-- CLEAN SQUARE FEATURE CARDS -->
-        <div class="ca-square-features-grid">
-          
-          <div class="ca-square-feature-card">
-            <div class="ca-square-card-top">
-              <div class="ca-square-icon"><i class="fa-solid fa-compass"></i></div>
-              <span class="ca-square-badge">ZONAL ENGINE</span>
+        <!-- 3 CATEGORY TABS / SUITE SELECTOR -->
+        <div class="core-decks-tabs-wrap">
+          <div class="core-decks-tabs" role="tablist">
+            <button type="button" class="core-deck-tab is-active" id="deckTab0" onclick="switchCoreDeck(0)" role="tab" aria-selected="true">
+              <span class="core-deck-tab-badge">01</span>
+              <span class="core-deck-tab-title">Zonal &amp; Elements</span>
+              <span class="core-deck-tab-count">14 Tools</span>
+            </button>
+            <button type="button" class="core-deck-tab" id="deckTab1" onclick="switchCoreDeck(1)" role="tab" aria-selected="false">
+              <span class="core-deck-tab-badge">02</span>
+              <span class="core-deck-tab-title">Astro &amp; Chakras</span>
+              <span class="core-deck-tab-count">13 Tools</span>
+            </button>
+            <button type="button" class="core-deck-tab" id="deckTab2" onclick="switchCoreDeck(2)" role="tab" aria-selected="false">
+              <span class="core-deck-tab-badge">03</span>
+              <span class="core-deck-tab-title">Commercial &amp; Enterprise</span>
+              <span class="core-deck-tab-count">10 Tools</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             DECK 0: ZONAL ENERGY GRIDS & ELEMENTAL BALANCE (14 TOOLS)
+             ==================================================================== -->
+        <div class="core-deck-container is-active" id="coreDeck0">
+          <div class="core-deck-header-bar">
+            <div class="core-deck-heading">
+              <span class="core-deck-tag"><i class="fa-solid fa-shapes"></i> SUITE 01 • ZONAL ENERGIES</span>
+              <h3 class="core-deck-name">Zonal Calculations &amp; Elemental Grids</h3>
             </div>
-            <h3 class="ca-square-name">16 Mahavastu Zones & Chakra</h3>
-            <p class="ca-square-text">Auto-projects exact Shakti Chakra with 0.1° digital sensor compass. Pinpoint true Brahmasthan and direction cuts in 30 seconds.</p>
+            <div class="core-deck-nav-btns">
+              <button type="button" class="core-nav-btn" onclick="prevCoreSlide(0)" aria-label="Previous Tool">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <span class="core-deck-counter" id="coreCounter0">01 / 14</span>
+              <button type="button" class="core-nav-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="ca-square-feature-card">
-            <div class="ca-square-card-top">
-              <div class="ca-square-icon"><i class="fa-solid fa-chart-column"></i></div>
-              <span class="ca-square-badge">ENERGY CALC</span>
+          <div class="vastu-carousel-wrap">
+            <div class="vastu-carousel-track core-carousel-track" id="coreTrack0">
+              
+              <!-- 1. Zone 8 -->
+              <div class="vastu-card-slide is-active" data-deck="0" data-index="0">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">8-PAD • CARDINAL</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Zone 8" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-compass"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Zone 8</h3>
+                      <p class="vastu-card-desc">Ashta Dikpala cardinal &amp; ordinal grid</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Zone 16 -->
+              <div class="vastu-card-slide" data-deck="0" data-index="1">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">16-ZONE • MAHAVASTU</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Zone 16" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-dharmachakra"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Zone 16</h3>
+                      <p class="vastu-card-desc">22.5° angular division for 16 life attributes</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Zone 24 -->
+              <div class="vastu-card-slide" data-deck="0" data-index="2">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">24-ZONE • MICRO-ENERGY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Zone 24" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-circle-notch"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Zone 24</h3>
+                      <p class="vastu-card-desc">15° high-resolution boundary &amp; cut diagnostics</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Zone 32 -->
+              <div class="vastu-card-slide" data-deck="0" data-index="3">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">32-PAD • ENTRANCE</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Zone 32" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-door-open"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Zone 32</h3>
+                      <p class="vastu-card-desc">11.25° entrance threshold diagnostic grid</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Zone 64 -->
+              <div class="vastu-card-slide" data-deck="0" data-index="4">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">64-PADA • MANDUKA</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Zone 64" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-table-cells"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Zone 64</h3>
+                      <p class="vastu-card-desc">Sacred 8x8 cosmic grid for master plots</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Shakti Chakra -->
+              <div class="vastu-card-slide" data-deck="0" data-index="5">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">CENTROID • 360°</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Shakti Chakra" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-sun"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Shakti Chakra</h3>
+                      <p class="vastu-card-desc">Automated Brahmasthan concentric energy projection</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Colored Zone Colored -->
+              <div class="vastu-card-slide" data-deck="0" data-index="6">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">CHROMATIC MAP</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Colored Zone Colored" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-palette"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Colored Zone Colored</h3>
+                      <p class="vastu-card-desc">Vibrant 5-element color spectrum visualization</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Colored Zone Labeled -->
+              <div class="vastu-card-slide" data-deck="0" data-index="7">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">ANNOTATED ZONES</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Colored Zone Labeled" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-tags"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Colored Zone Labeled</h3>
+                      <p class="vastu-card-desc">Zonal text tags for health, wealth &amp; growth</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 9. Elemental Zone -->
+              <div class="vastu-card-slide" data-deck="0" data-index="8">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">PANCHATATTVA</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Elemental Zone" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Elemental Zone</h3>
+                      <p class="vastu-card-desc">Water, Air, Fire, Earth &amp; Space balance</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 10. Elemental Zone Vedic -->
+              <div class="vastu-card-slide" data-deck="0" data-index="9">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">VEDIC TATTVA</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Elemental Zone Vedic" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-chart-column"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Elemental Zone Vedic</h3>
+                      <p class="vastu-card-desc">Scriptural elemental cut &amp; bar chart metrics</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 11. Directions Vastu -->
+              <div class="vastu-card-slide" data-deck="0" data-index="10">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">CARDINAL HARMONY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Directions Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-arrows-to-dot"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Directions Vastu</h3>
+                      <p class="vastu-card-desc">North, South, East, West energy flow</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 12. Directional Vastu -->
+              <div class="vastu-card-slide" data-deck="0" data-index="11">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">ANGULAR TILTS</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Directional Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-location-crosshairs"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Directional Vastu</h3>
+                      <p class="vastu-card-desc">Plot magnetic tilt &amp; road facing orientation</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 13. Directional Domestic -->
+              <div class="vastu-card-slide" data-deck="0" data-index="12">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">RESIDENTIAL</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Directional Domestic" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-house-chimney"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Directional Domestic</h3>
+                      <p class="vastu-card-desc">Home kitchen, bedroom &amp; pooja layout zoning</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 14. Five Elements Fengshui -->
+              <div class="vastu-card-slide" data-deck="0" data-index="13">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">WU XING HARMONY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Five Elements Fengshui" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-wind"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Five Elements Fengshui</h3>
+                      <p class="vastu-card-desc">Comparative Feng Shui productive cycle audit</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(0)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <h3 class="ca-square-name">Elemental Bar Chart Calculator</h3>
-            <p class="ca-square-text">Precise square-meter energy balance algorithm. Flags cut, extended, and depleted element zones across Water, Air, Fire, Earth & Space.</p>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             DECK 1: VEDIC ASTROLOGICAL & BIO-ENERGETIC CHAKRAS (13 TOOLS)
+             ==================================================================== -->
+        <div class="core-deck-container" id="coreDeck1">
+          <div class="core-deck-header-bar">
+            <div class="core-deck-heading">
+              <span class="core-deck-tag"><i class="fa-solid fa-om"></i> SUITE 02 • ASTRO-CHAKRAS</span>
+              <h3 class="core-deck-name">Astrological &amp; Bio-Energetic Chakras</h3>
+            </div>
+            <div class="core-deck-nav-btns">
+              <button type="button" class="core-nav-btn" onclick="prevCoreSlide(1)" aria-label="Previous Tool">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <span class="core-deck-counter" id="coreCounter1">01 / 13</span>
+              <button type="button" class="core-nav-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="ca-square-feature-card">
-            <div class="ca-square-card-top">
-              <div class="ca-square-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-              <span class="ca-square-badge">REMEDIES</span>
+          <div class="vastu-carousel-wrap">
+            <div class="vastu-carousel-track core-carousel-track" id="coreTrack1">
+              
+              <!-- 1. Nakshatra Chakra -->
+              <div class="vastu-card-slide is-active" data-deck="1" data-index="0">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">27 NAKSHATRAS</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Nakshatra Chakra" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-star-and-crescent"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Nakshatra Chakra</h3>
+                      <p class="vastu-card-desc">27 Lunar mansion grid linked to occupant birth stars</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2. Nakshatra Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="1">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">STELLAR RESONANCE</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Nakshatra Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-star"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Nakshatra Vastu</h3>
+                      <p class="vastu-card-desc">Astro-vastu house energy matching client birth chart</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Modern Vastu Compass -->
+              <div class="vastu-card-slide" data-deck="1" data-index="2">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">DIGITAL SENSOR</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Modern Vastu Compass" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-compass-drafting"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Modern Vastu Compass</h3>
+                      <p class="vastu-card-desc">0.1° digital gyro-stabilized sensor compass</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 4. Vedic Compass -->
+              <div class="vastu-card-slide" data-deck="1" data-index="3">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">SURYA-SIDDHANTA</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Vedic Compass" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-certificate"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Vedic Compass</h3>
+                      <p class="vastu-card-desc">Solar shadow &amp; traditional Vedic directional grid</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Compass View Camera -->
+              <div class="vastu-card-slide" data-deck="1" data-index="4">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">AR OVERLAY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Compass View Camera" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-camera"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Compass View Camera</h3>
+                      <p class="vastu-card-desc">Live phone camera AR mapping zones on room walls</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Layout Compass Add -->
+              <div class="vastu-card-slide" data-deck="1" data-index="5">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">CAD BLUEPRINT</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Layout Compass Add" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-layer-group"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Layout Compass Add</h3>
+                      <p class="vastu-card-desc">1-Click compass insertion on architectural plans</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Entrance Analysis Chakra -->
+              <div class="vastu-card-slide" data-deck="1" data-index="6">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">32 DEVTA DOORS</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Entrance Analysis Chakra" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-door-closed"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Entrance Analysis Chakra</h3>
+                      <p class="vastu-card-desc">Instant positive/negative 32-gate door classifier</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Body Part Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="7">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">PURUSHA ANATOMY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Body Part Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-person"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Body Part Vastu</h3>
+                      <p class="vastu-card-desc">Relating directional defects to bodily ailments</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 9. Gender Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="8">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">MASCULINE / FEMININE</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Gender Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-venus-mars"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Gender Vastu</h3>
+                      <p class="vastu-card-desc">Shiva-Shakti spatial balance across occupants</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 10. Triguna Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="9">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">SATTVA • RAJAS • TAMAS</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Triguna Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-yin-yang"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Triguna Vastu</h3>
+                      <p class="vastu-card-desc">Purity, action &amp; rest spatial energy distribution</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 11. Triguna Vedic Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="10">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">VEDIC SCRIPTURES</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Triguna Vedic Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-om"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Triguna Vedic Vastu</h3>
+                      <p class="vastu-card-desc">Shastric remedies to balance subtle spiritual gunas</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 12. Tridosha Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="11">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">VATA • PITTA • KAPHA</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Tridosha Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-leaf"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Tridosha Vastu</h3>
+                      <p class="vastu-card-desc">Ayurvedic bio-energy harmony with building zones</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 13. Tridosha Vedic Vastu -->
+              <div class="vastu-card-slide" data-deck="1" data-index="12">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">AYURVEDIC CURES</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Tridosha Vedic Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-seedling"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Tridosha Vedic Vastu</h3>
+                      <p class="vastu-card-desc">Elemental stabilization cures for chronic doshas</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(1)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <h3 class="ca-square-name">Non-Demolition Remedy Library</h3>
-            <p class="ca-square-text">Recommend instant Vedic cures without breaking walls: Brass, Copper, Aluminum & SS elemental strips, color therapy, and pyramid blocking.</p>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             DECK 2: COMMERCIAL PREMISES & ENTERPRISE SUITE (10 TOOLS)
+             ==================================================================== -->
+        <div class="core-deck-container" id="coreDeck2">
+          <div class="core-deck-header-bar">
+            <div class="core-deck-heading">
+              <span class="core-deck-tag"><i class="fa-solid fa-building"></i> SUITE 03 • ENTERPRISE</span>
+              <h3 class="core-deck-name">Commercial Premises &amp; Enterprise Solutions</h3>
+            </div>
+            <div class="core-deck-nav-btns">
+              <button type="button" class="core-nav-btn" onclick="prevCoreSlide(2)" aria-label="Previous Tool">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <span class="core-deck-counter" id="coreCounter2">01 / 10</span>
+              <button type="button" class="core-nav-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+            </div>
           </div>
 
-          <div class="ca-square-feature-card">
-            <div class="ca-square-card-top">
-              <div class="ca-square-icon"><i class="fa-solid fa-file-pdf"></i></div>
-              <span class="ca-square-badge">WHITE-LABEL</span>
-            </div>
-            <h3 class="ca-square-name">1-Click Custom Branded PDF</h3>
-            <p class="ca-square-text">Generate comprehensive 12-page audit reports with your own firm logo, phone number, and signatures. Direct 1-tap WhatsApp sharing.</p>
-          </div>
+          <div class="vastu-carousel-wrap">
+            <div class="vastu-carousel-track core-carousel-track" id="coreTrack2">
+              
+              <!-- 1. Office Vastu -->
+              <div class="vastu-card-slide is-active" data-deck="2" data-index="0">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">CORPORATE SUITE</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Office Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-briefcase"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Office Vastu</h3>
+                      <p class="vastu-card-desc">CEO cabin, finance desk &amp; team seating alignment</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-          <div class="ca-square-feature-card">
-            <div class="ca-square-card-top">
-              <div class="ca-square-icon"><i class="fa-solid fa-building-wheat"></i></div>
-              <span class="ca-square-badge">PRESETS</span>
-            </div>
-            <h3 class="ca-square-name">Commercial & Residential Modes</h3>
-            <p class="ca-square-text">Built-in templates for 1BHK-5BHK apartments, independent villas, corporate offices, industrial factories, and retail shops.</p>
-          </div>
+              <!-- 2. Commercial Vastu -->
+              <div class="vastu-card-slide" data-deck="2" data-index="1">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">RETAIL COMPLEX</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Commercial Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-shop"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Commercial Vastu</h3>
+                      <p class="vastu-card-desc">Footfall attraction, cash locker &amp; sales booster</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-          <div class="ca-square-feature-card">
-            <div class="ca-square-card-top">
-              <div class="ca-square-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
-              <span class="ca-square-badge">ON-SITE APP</span>
-            </div>
-            <h3 class="ca-square-name">100% Offline On-Site Operation</h3>
-            <p class="ca-square-text">Analyze remote sites without cellular reception. Seamless cloud sync automatically activates once connected to Wi-Fi.</p>
-          </div>
+              <!-- 3. Industrial Vastu -->
+              <div class="vastu-card-slide" data-deck="2" data-index="2">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">HEAVY INDUSTRY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Industrial Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-industry"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Industrial Vastu</h3>
+                      <p class="vastu-card-desc">Transformers, boilers &amp; heavy machinery zones</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
 
+              <!-- 4. Factory Vastu -->
+              <div class="vastu-card-slide" data-deck="2" data-index="3">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">MANUFACTURING FLOW</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Factory Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-gears"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Factory Vastu</h3>
+                      <p class="vastu-card-desc">Clockwise raw-to-finish production flow layout</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 5. Hospital Vastu -->
+              <div class="vastu-card-slide" data-deck="2" data-index="4">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">HEALTHCARE FACILITY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="Hospital Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-hospital"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Hospital Vastu</h3>
+                      <p class="vastu-card-desc">ICU, surgical theater &amp; healing bed orientation</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 6. Academic Vastu -->
+              <div class="vastu-card-slide" data-deck="2" data-index="5">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">INSTITUTES &amp; SCHOOLS</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Academic Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-graduation-cap"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Academic Vastu</h3>
+                      <p class="vastu-card-desc">Saraswati quadrant, classrooms &amp; library focus</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 7. Grocery Store Vastu -->
+              <div class="vastu-card-slide" data-deck="2" data-index="6">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">FMCG &amp; GROCERY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before_scary.jpg" alt="Grocery Store Vastu" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-cart-shopping"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Grocery Store Vastu</h3>
+                      <p class="vastu-card-desc">POS billing counter, inventory &amp; customer aisles</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 8. Knowledge Center -->
+              <div class="vastu-card-slide" data-deck="2" data-index="7">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">VEDIC LIBRARY</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Knowledge Center" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-book-open-reader"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Knowledge Center</h3>
+                      <p class="vastu-card-desc">500+ shastric remedies &amp; non-demolition cures</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 9. PDF Reports -->
+              <div class="vastu-card-slide" data-deck="2" data-index="8">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">1-CLICK WHITE-LABEL</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_before.jpg" alt="PDF Reports" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-file-pdf"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">PDF Reports</h3>
+                      <p class="vastu-card-desc">12-Page customized client report with your logo</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="nextCoreSlide(2)" aria-label="Next Tool">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 10. Priority Support -->
+              <div class="vastu-card-slide" data-deck="2" data-index="9">
+                <div class="vastu-card-inner">
+                  <div class="vastu-card-header">
+                    <span class="vastu-card-badge">VIP CONCIERGE</span>
+                    <button type="button" class="vastu-card-action-btn" onclick="openLeadModal()">
+                      <i class="fa-solid fa-eye"></i> AUDIT
+                    </button>
+                  </div>
+                  <div class="vastu-card-img-wrap">
+                    <img src="vastu_after.jpg" alt="Priority Support" loading="lazy" />
+                    <div class="vastu-card-overlay-gradient"></div>
+                    <div class="vastu-card-art-accent"><i class="fa-solid fa-headset"></i></div>
+                  </div>
+                  <div class="vastu-card-footer">
+                    <div class="vastu-card-meta">
+                      <h3 class="vastu-card-title">Priority Support</h3>
+                      <p class="vastu-card-desc">Dedicated WhatsApp astrologer desk &amp; 24/7 help</p>
+                    </div>
+                    <button type="button" class="vastu-card-arrow-btn" onclick="openLeadModal()" aria-label="Contact Concierge">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
 
       </div>
@@ -374,13 +1379,14 @@
 
           <!-- REVIEW 2 -->
           <div class="ca-review-card">
-            <div class="ca-review-avatar" style="background: #D97706;">VK</div>
-            <div class="ca-review-author">
-              <h4>Dr. Vikramaditya Kulkarni</h4>
-              <p>MahaVastu Specialist & Architect, Pune</p>
+            <div class="ca-review-header">
+              <div class="ca-review-avatar" style="background: #D97706;">VK</div>
+              <div class="ca-review-author">
+                <h4>Dr. Vikramaditya Kulkarni</h4>
+                <p>MahaVastu Specialist & Architect, Pune</p>
+              </div>
+              <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
             </div>
-            <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
-          </div>
             <div class="ca-review-stars">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>
@@ -391,13 +1397,14 @@
 
           <!-- REVIEW 3 -->
           <div class="ca-review-card">
-            <div class="ca-review-avatar" style="background: #1E293B;">PJ</div>
-            <div class="ca-review-author">
-              <h4>Pooja Jaishankar</h4>
-              <p>Commercial Energy Healer, Bengaluru</p>
+            <div class="ca-review-header">
+              <div class="ca-review-avatar" style="background: #1E293B;">PJ</div>
+              <div class="ca-review-author">
+                <h4>Pooja Jaishankar</h4>
+                <p>Commercial Energy Healer, Bengaluru</p>
+              </div>
+              <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
             </div>
-            <div class="ca-verified-pill"><i class="fa-solid fa-circle-check"></i> Verified</div>
-          </div>
             <div class="ca-review-stars">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
             </div>

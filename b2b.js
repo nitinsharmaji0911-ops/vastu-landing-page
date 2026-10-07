@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdownTimer();
   initVideoPlayer();
   initStepCarousel();
+  initCoreToolsCarousels();
   initBeforeAfterSlider();
   initFaqAccordion();
   initLeadModalForm();
@@ -66,8 +67,10 @@ const totalStepCards = 3;
 let autoSlideTimer = null;
 
 function updateStepCarousel() {
-  const slides = document.querySelectorAll('.vastu-card-slide');
-  const dots = document.querySelectorAll('.vastu-nav-dot');
+  const track = document.getElementById('vastuStepTrack');
+  if (!track) return;
+  const slides = track.querySelectorAll('.vastu-card-slide');
+  const dots = document.querySelectorAll('#how-it-works .vastu-nav-dot');
 
   slides.forEach((slide, idx) => {
     slide.classList.remove('is-active', 'is-prev', 'is-next');
@@ -128,13 +131,13 @@ function restartAutoSlide() {
 }
 
 function initStepCarousel() {
-  const slides = document.querySelectorAll('.vastu-card-slide');
   const track = document.getElementById('vastuStepTrack');
-  const wrap = document.querySelector('.vastu-carousel-wrap');
+  if (!track) return;
+  const slides = track.querySelectorAll('.vastu-card-slide');
+  const wrap = track.closest('.vastu-carousel-wrap');
 
   slides.forEach((slide, idx) => {
     slide.addEventListener('click', (e) => {
-      // Don't trigger if user clicked details or arrow buttons
       if (e.target.closest('.vastu-card-action-btn') || e.target.closest('.vastu-card-arrow-btn')) return;
       if (idx !== currentStepIndex) {
         goStepSlide(idx);
@@ -142,21 +145,192 @@ function initStepCarousel() {
     });
   });
 
-  // Pause auto-sliding on desktop hover or touch hold
   if (wrap) {
     wrap.addEventListener('mouseenter', stopAutoSlide);
     wrap.addEventListener('mouseleave', startAutoSlide);
   }
 
-  // Smooth touch swipe handling on mobile
-  if (track) {
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+
+  track.addEventListener('touchstart', (e) => {
+    stopAutoSlide();
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  track.addEventListener('touchmove', (e) => {
+    touchEndX = e.touches[0].clientX;
+    touchEndY = e.touches[0].clientY;
+  }, { passive: true });
+
+  track.addEventListener('touchend', () => {
+    const diffX = touchStartX - touchEndX;
+    const diffY = touchStartY - touchEndY;
+
+    if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
+        nextStepSlide();
+      } else {
+        prevStepSlide();
+      }
+    } else {
+      startAutoSlide();
+    }
+  }, { passive: true });
+
+  updateStepCarousel();
+  startAutoSlide();
+}
+
+/* --------------------------------------------------------------------------
+   0B. CORE TOOLS 3-BIFURCATED 3D LUXURY CAROUSEL DECKS (37 Tools Total)
+   -------------------------------------------------------------------------- */
+const coreDecks = [
+  { id: 0, currentIndex: 0, total: 14, trackId: 'coreTrack0', counterId: 'coreCounter0', timer: null },
+  { id: 1, currentIndex: 0, total: 13, trackId: 'coreTrack1', counterId: 'coreCounter1', timer: null },
+  { id: 2, currentIndex: 0, total: 10, trackId: 'coreTrack2', counterId: 'coreCounter2', timer: null }
+];
+let activeCoreDeckId = 0;
+
+function updateCoreCarousel(deckId) {
+  const deck = coreDecks[deckId];
+  if (!deck) return;
+  const track = document.getElementById(deck.trackId);
+  const counterEl = document.getElementById(deck.counterId);
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.vastu-card-slide');
+  const total = deck.total;
+
+  slides.forEach((slide) => {
+    const idx = parseInt(slide.getAttribute('data-index'), 10);
+    slide.classList.remove('is-active', 'is-prev', 'is-next');
+    if (idx === deck.currentIndex) {
+      slide.classList.add('is-active');
+    } else if (idx === (deck.currentIndex - 1 + total) % total) {
+      slide.classList.add('is-prev');
+    } else if (idx === (deck.currentIndex + 1) % total) {
+      slide.classList.add('is-next');
+    }
+  });
+
+  if (counterEl) {
+    const currStr = String(deck.currentIndex + 1).padStart(2, '0');
+    const totStr = String(total).padStart(2, '0');
+    counterEl.textContent = `${currStr} / ${totStr}`;
+  }
+}
+
+window.switchCoreDeck = function(deckId) {
+  activeCoreDeckId = deckId;
+
+  for (let i = 0; i < 3; i++) {
+    const tab = document.getElementById(`deckTab${i}`);
+    const container = document.getElementById(`coreDeck${i}`);
+    if (tab) {
+      if (i === deckId) {
+        tab.classList.add('is-active');
+        tab.setAttribute('aria-selected', 'true');
+      } else {
+        tab.classList.remove('is-active');
+        tab.setAttribute('aria-selected', 'false');
+      }
+    }
+    if (container) {
+      if (i === deckId) {
+        container.classList.add('is-active');
+      } else {
+        container.classList.remove('is-active');
+      }
+    }
+  }
+
+  updateCoreCarousel(deckId);
+  startCoreAutoSlide(deckId);
+};
+
+window.nextCoreSlide = function(deckId) {
+  const deck = coreDecks[deckId];
+  if (!deck) return;
+  deck.currentIndex = (deck.currentIndex + 1) % deck.total;
+  updateCoreCarousel(deckId);
+  restartCoreAutoSlide(deckId);
+};
+
+window.prevCoreSlide = function(deckId) {
+  const deck = coreDecks[deckId];
+  if (!deck) return;
+  deck.currentIndex = (deck.currentIndex - 1 + deck.total) % deck.total;
+  updateCoreCarousel(deckId);
+  restartCoreAutoSlide(deckId);
+};
+
+window.goCoreSlide = function(deckId, slideIndex) {
+  const deck = coreDecks[deckId];
+  if (!deck) return;
+  deck.currentIndex = (slideIndex + deck.total) % deck.total;
+  updateCoreCarousel(deckId);
+  restartCoreAutoSlide(deckId);
+};
+
+function startCoreAutoSlide(deckId) {
+  stopCoreAutoSlide(deckId);
+  const deck = coreDecks[deckId];
+  if (!deck) return;
+
+  deck.timer = setInterval(() => {
+    if (activeCoreDeckId === deckId) {
+      deck.currentIndex = (deck.currentIndex + 1) % deck.total;
+      updateCoreCarousel(deckId);
+    }
+  }, 4600);
+}
+
+function stopCoreAutoSlide(deckId) {
+  const deck = coreDecks[deckId];
+  if (deck && deck.timer) {
+    clearInterval(deck.timer);
+    deck.timer = null;
+  }
+}
+
+function restartCoreAutoSlide(deckId) {
+  stopCoreAutoSlide(deckId);
+  startCoreAutoSlide(deckId);
+}
+
+function initCoreToolsCarousels() {
+  coreDecks.forEach((deck) => {
+    const track = document.getElementById(deck.trackId);
+    if (!track) return;
+    const slides = track.querySelectorAll('.vastu-card-slide');
+    const wrap = track.closest('.vastu-carousel-wrap');
+
+    slides.forEach((slide) => {
+      slide.addEventListener('click', (e) => {
+        if (e.target.closest('.vastu-card-action-btn') || e.target.closest('.vastu-card-arrow-btn')) return;
+        const idx = parseInt(slide.getAttribute('data-index'), 10);
+        if (!isNaN(idx) && idx !== deck.currentIndex) {
+          goCoreSlide(deck.id, idx);
+        }
+      });
+    });
+
+    if (wrap) {
+      wrap.addEventListener('mouseenter', () => stopCoreAutoSlide(deck.id));
+      wrap.addEventListener('mouseleave', () => startCoreAutoSlide(deck.id));
+    }
+
     let touchStartX = 0;
     let touchStartY = 0;
     let touchEndX = 0;
     let touchEndY = 0;
 
     track.addEventListener('touchstart', (e) => {
-      stopAutoSlide();
+      stopCoreAutoSlide(deck.id);
       touchStartX = e.touches[0].clientX;
       touchStartY = e.touches[0].clientY;
     }, { passive: true });
@@ -170,21 +344,21 @@ function initStepCarousel() {
       const diffX = touchStartX - touchEndX;
       const diffY = touchStartY - touchEndY;
 
-      // Only trigger if horizontal swipe is intentional and greater than vertical scroll
       if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
         if (diffX > 0) {
-          nextStepSlide();
+          nextCoreSlide(deck.id);
         } else {
-          prevStepSlide();
+          prevCoreSlide(deck.id);
         }
       } else {
-        startAutoSlide();
+        restartCoreAutoSlide(deck.id);
       }
     }, { passive: true });
-  }
 
-  updateStepCarousel();
-  startAutoSlide();
+    updateCoreCarousel(deck.id);
+  });
+
+  startCoreAutoSlide(0);
 }
 
 /* --------------------------------------------------------------------------
