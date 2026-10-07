@@ -969,109 +969,179 @@ body {
   padding: 0 10px;
 }
 
-.ca-featured-box {
-  background: #FFFFFF;
-  border: 1.5px solid var(--border-black);
-  border-radius: var(--radius-lg);
-  padding: 16px 20px;
+/* ==========================================================================
+   FEATURED IN STADIUM PILL BAR MARQUEE (Exact from User Screenshot)
+   ========================================================================== */
+.ca-featured-wrap {
   text-align: center;
-  max-width: 620px;
+  max-width: 960px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .ca-featured-title {
   display: block;
-  font-size: 9.5px;
+  font-size: 11px;
   font-weight: 900;
-  letter-spacing: 0.12em;
-  color: #94A3B8;
+  letter-spacing: 0.16em;
+  color: var(--text-black);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.ca-featured-logos {
+.ca-featured-pill-track {
+  background: #FFFFFF;
+  border: 1.5px solid var(--border-black);
+  border-radius: var(--radius-full);
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 16px 26px;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
 }
 
-.ca-press-logo {
-  font-family: var(--font-main);
-  font-weight: 800;
-  font-size: 13.5px;
-  color: #1E293B;
+.ca-marquee-inner {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  white-space: nowrap;
+  animation: caPressMarquee 26s linear infinite;
+  padding-left: 16px;
+  will-change: transform;
+}
+
+.ca-featured-pill-track:hover .ca-marquee-inner {
+  animation-play-state: paused;
+}
+
+@keyframes caPressMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ca-press-item {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  letter-spacing: -0.02em;
-  opacity: 0.9;
+  gap: 5px;
+  flex-shrink: 0;
   user-select: none;
 }
 
-.logo-moneycontrol {
-  font-weight: 900;
+/* 1. THE HINDU */
+.logo-thehindu {
+  font-family: Georgia, 'Times New Roman', serif;
   color: #0F172A;
+  font-size: 13.5px;
+  letter-spacing: 0.05em;
 }
-
-.mc-icon {
-  background: #0284C7;
-  color: #FFFFFF;
-  font-size: 9.5px;
+.hindu-the {
+  font-size: 9px;
   font-weight: 900;
-  padding: 2px 4px;
-  border-radius: 4px;
-  margin-right: 2px;
-  line-height: 1;
+}
+.hindu-crest {
+  font-size: 11px;
+  margin: 0 2px;
+  color: #334155;
+}
+.hindu-name {
+  font-weight: 900;
+  letter-spacing: 0.08em;
 }
 
-.logo-etcio {
-  font-weight: 800;
+/* 2. ThePrint */
+.logo-theprint {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 900;
+  color: #C2410C;
+  font-size: 15.5px;
+  letter-spacing: -0.02em;
+}
+
+/* 3. moneycontrol */
+.logo-moneycontrol {
+  font-family: var(--font-main);
+  font-weight: 900;
+  color: #0369A1;
+  font-size: 13px;
   letter-spacing: -0.01em;
 }
-
-.et-red {
-  background: #DC2626;
+.mc-icon {
+  background: #16A34A;
   color: #FFFFFF;
+  font-size: 8px;
   font-weight: 900;
-  font-size: 9.5px;
-  padding: 2px 4px;
-  border-radius: 2px;
+  padding: 1px 3.5px;
+  border-radius: 3px;
   margin-right: 2px;
-  line-height: 1;
-}
-
-.cio-text {
-  font-weight: 850;
-  color: #0F172A;
-}
-
-.logo-yourstory {
-  color: #DC2626;
-  font-weight: 900;
-  letter-spacing: 0.04em;
-}
-
-.logo-insights {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
   line-height: 1.1;
 }
 
-.et-serif {
-  font-size: 11px;
+/* 4. ET CIO.com */
+.logo-etcio {
+  font-family: var(--font-main);
+  font-weight: 900;
+  color: #0F172A;
+  font-size: 13px;
+}
+.et-badge {
+  background: #DC2626;
+  color: #FFFFFF;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 2px 4px;
+  border-radius: 2px;
+  line-height: 1;
+}
+.cio-name {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+.cio-dot {
+  color: #64748B;
   font-weight: 700;
-  color: #334155;
-  font-family: Georgia, serif;
 }
 
-.insights-sub {
-  font-size: 8px;
-  font-weight: 900;
-  letter-spacing: 0.1em;
+/* 5. YOURSTORY */
+.logo-yourstory {
+  font-family: var(--font-main);
+  font-weight: 950;
   color: #DC2626;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* 6. ET INSIGHTS */
+.logo-etinsights {
+  font-family: var(--font-main);
+  font-weight: 900;
+  color: #0F172A;
+  font-size: 12.5px;
+}
+.insights-name {
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  color: #0F172A;
+}
+
+/* 7. Forbes INDIA */
+.logo-forbes {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 900;
+  color: #000000;
+  font-size: 15.5px;
+  letter-spacing: -0.02em;
+}
+.forbes-sub {
+  font-family: var(--font-main);
+  font-size: 7.5px;
+  font-weight: 900;
+  color: #DC2626;
+  letter-spacing: 0.06em;
+  margin-left: 2px;
+  vertical-align: super;
 }
 
 /* ==========================================================================
