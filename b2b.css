@@ -174,10 +174,10 @@ body {
 }
 
 .pattern-brand-logo {
-  height: 42px;
-  max-width: 170px;
-  width: auto;
-  object-fit: contain;
+  height: 38px;
+  width: 38px;
+  object-fit: cover;
+  border-radius: 9px;
   display: block;
 }
 
@@ -2984,10 +2984,10 @@ body {
 }
 
 .ca-footer-logo {
-  height: 48px;
-  max-width: 190px;
-  width: auto;
-  object-fit: contain;
+  height: 38px;
+  width: 38px;
+  object-fit: cover;
+  border-radius: 9px;
 }
 
 .ca-footer-brand-text {
