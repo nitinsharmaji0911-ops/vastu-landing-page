@@ -833,6 +833,85 @@ body {
   }
 }
 
+/* ==========================================================================
+   WORKFLOW CAROUSEL - 9:16 PHONE SCREEN FORMAT
+   ========================================================================== */
+.vastu-carousel-wrap.workflow-916 {
+  max-width: 520px;
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-carousel-track {
+  height: 520px;
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-slide {
+  width: 275px;
+  max-width: 78vw;
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-slide.is-prev {
+  transform: translate3d(-102%, 0, -40px) scale(0.86);
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-slide.is-next {
+  transform: translate3d(2%, 0, -40px) scale(0.86);
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-slide.is-active {
+  transform: translate3d(-50%, 0, 0) scale(1);
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-inner {
+  border-radius: 26px;
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-img-wrap {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  max-height: 440px;
+  background: #000000;
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-overlay-gradient {
+  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 25%, rgba(18,21,27,0.85) 85%, rgba(18,21,27,0.98) 100%);
+}
+
+.vastu-carousel-wrap.workflow-916 .vastu-card-footer {
+  padding: 10px 14px 12px;
+}
+
+@media (max-width: 480px) {
+  .vastu-carousel-wrap.workflow-916 .vastu-carousel-track {
+    height: 480px;
+  }
+  .vastu-carousel-wrap.workflow-916 .vastu-card-slide {
+    width: 255px;
+  }
+  .vastu-carousel-wrap.workflow-916 .vastu-card-img-wrap {
+    max-height: 410px;
+  }
+}
+
+@media (max-width: 380px) {
+  .vastu-carousel-wrap.workflow-916 .vastu-carousel-track {
+    height: 440px;
+  }
+  .vastu-carousel-wrap.workflow-916 .vastu-card-slide {
+    width: 235px;
+  }
+  .vastu-carousel-wrap.workflow-916 .vastu-card-img-wrap {
+    max-height: 375px;
+  }
+}
+
 .ca-square-visual img {
   width: 100%;
   height: 100%;
