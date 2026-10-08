@@ -1673,16 +1673,16 @@ body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 10px 0 20px;
+  padding: 10px 0 24px;
   mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
 }
 
 .ca-reviews-marquee-track {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   width: max-content;
-  animation: caReviewsScroll 35s linear infinite;
+  animation: caReviewsScroll 40s linear infinite;
   will-change: transform;
 }
 
@@ -1693,50 +1693,51 @@ body {
 
 @keyframes caReviewsScroll {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .ca-review-card {
-  width: 320px;
-  max-width: 85vw;
+  width: 380px;
+  max-width: 86vw;
   flex-shrink: 0;
   background: #FFFFFF;
-  border: 2px solid var(--border-black);
-  border-radius: var(--radius-md);
-  padding: 18px 16px;
-  box-shadow: var(--shadow-neo-md);
+  border: 2px solid #0F172A;
+  border-radius: 26px;
+  padding: 24px 22px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 12px;
   user-select: none;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
 }
 
 .ca-review-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-neo-lg);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
 }
 
 .ca-review-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 2px;
 }
 
 .ca-review-avatar {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--vastu-saffron);
-  border: 1.5px solid var(--border-black);
+  border: 1.5px solid #0F172A;
   color: #FFFFFF;
   font-weight: 900;
-  font-size: 13px;
+  font-size: 14.5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1749,50 +1750,51 @@ body {
 }
 
 .ca-review-author h4 {
-  font-size: 13px;
+  font-size: 14.5px;
   font-weight: 850;
-  color: var(--text-black);
+  color: #0F172A;
+  line-height: 1.25;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .ca-review-author p {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--text-muted);
+  color: #64748B;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .ca-verified-pill {
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 800;
   color: #15803D;
   background: #DCFCE7;
-  border: 1px solid var(--border-black);
-  padding: 2px 6px;
+  border: 1.5px solid #0F172A;
+  padding: 3px 9px;
   border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 4px;
   flex-shrink: 0;
 }
 
 .ca-review-stars {
   color: #F59E0B;
   display: flex;
-  gap: 2px;
-  font-size: 11px;
-  margin-bottom: 8px;
+  gap: 3px;
+  font-size: 13px;
+  margin-bottom: 2px;
 }
 
 .ca-review-comment {
-  font-size: 12px;
-  font-weight: 550;
+  font-size: 13px;
+  font-weight: 600;
   color: #334155;
-  line-height: 1.45;
+  line-height: 1.55;
   font-style: italic;
 }
 
