@@ -654,12 +654,12 @@ function persistLead(data, isPaid) {
    LIVE SOCIAL PROOF PURCHASE TOAST (Shopify Just-Purchased Pattern)
    -------------------------------------------------------------------------- */
 const purchaseEvents = [
-  { name: 'Acharya Rajesh Sharma', city: 'Delhi', product: 'Lifetime Access', time: '2 mins ago' },
-  { name: 'Dr. Vikramaditya Kulkarni', city: 'Pune', product: '16-Zone Suite', time: '4 mins ago' },
-  { name: 'Pooja Jaishankar', city: 'Bengaluru', product: 'Enterprise License', time: '6 mins ago' },
-  { name: 'Vastu Shastri Anand', city: 'Jaipur', product: 'Lifetime Access', time: '9 mins ago' },
-  { name: 'Architect Neha Kapoor', city: 'Mumbai', product: 'Vedic Toolkit', time: '12 mins ago' },
-  { name: 'Acharya Gaurav Trivedi', city: 'Ahmedabad', product: 'Lifetime Access', time: '15 mins ago' }
+  { name: 'Acharya Rajesh Sharma', city: 'Delhi', product: '7-Day Access', time: '2 mins ago' },
+  { name: 'Dr. Vikramaditya Kulkarni', city: 'Pune', product: '7-Day Access', time: '4 mins ago' },
+  { name: 'Pooja Jaishankar', city: 'Bengaluru', product: '7-Day Access', time: '6 mins ago' },
+  { name: 'Vastu Shastri Anand', city: 'Jaipur', product: '7-Day Access', time: '9 mins ago' },
+  { name: 'Architect Neha Kapoor', city: 'Mumbai', product: '7-Day Access', time: '12 mins ago' },
+  { name: 'Acharya Gaurav Trivedi', city: 'Ahmedabad', product: '7-Day Access', time: '15 mins ago' }
 ];
 
 let purchaseToastIndex = 0;
@@ -674,8 +674,10 @@ function initPurchaseToast() {
 
     const buyerEl = document.getElementById('toastBuyer');
     const timeEl = document.getElementById('toastTime');
+    const productEl = document.getElementById('toastProduct');
 
     if (buyerEl) buyerEl.innerHTML = `<strong>${item.name}</strong> from ${item.city}`;
+    if (productEl) productEl.textContent = item.product;
     if (timeEl) timeEl.textContent = item.time;
 
     toast.classList.add('is-visible');
