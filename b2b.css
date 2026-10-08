@@ -1690,15 +1690,15 @@ body {
   }
 }
 
-/* Gradient Fade Top & Bottom */
+/* Gradient Fade Top & Bottom (Matching warm ivory/parchment background) */
 .ca-reviews-fade-top {
   pointer-events: none;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 90px;
-  background: linear-gradient(to bottom, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 40%, transparent 100%);
+  height: 95px;
+  background: linear-gradient(to bottom, #FAF8F5 0%, rgba(250, 248, 245, 0.88) 45%, transparent 100%);
   z-index: 10;
 }
 
@@ -1708,8 +1708,8 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 90px;
-  background: linear-gradient(to top, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 40%, transparent 100%);
+  height: 95px;
+  background: linear-gradient(to top, #FAF8F5 0%, rgba(250, 248, 245, 0.88) 45%, transparent 100%);
   z-index: 10;
 }
 
@@ -1791,47 +1791,48 @@ body {
   animation-play-state: paused;
 }
 
-/* Review Cards - Dark Theme aesthetic matching user's Caliber's Nova screenshot */
+/* Review Cards - Styled in clean Vedic warm theme matching the website */
 .ca-review-card {
   width: 100%;
-  background: #111418;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(26, 20, 18, 0.12);
   border-radius: 20px;
   padding: 18px 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 12px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 18px rgba(26, 20, 18, 0.05);
   user-select: none;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 @media (min-width: 640px) {
   .ca-review-card {
-    border-radius: 24px;
+    border-radius: 22px;
     padding: 22px 18px;
     gap: 14px;
   }
 }
 
 .ca-review-card:hover {
-  border-color: rgba(255, 115, 0, 0.5);
-  transform: translateY(-2px);
+  border-color: var(--vastu-saffron);
+  box-shadow: 0 10px 26px rgba(230, 81, 0, 0.12);
+  transform: translateY(-3px);
 }
 
 .ca-review-comment {
   font-size: 12.5px;
-  font-weight: 450;
-  color: #E2E8F0;
-  line-height: 1.55;
+  font-weight: 500;
+  color: #2D2421;
+  line-height: 1.6;
   margin: 0;
 }
 
 @media (min-width: 640px) {
   .ca-review-comment {
     font-size: 13.5px;
-    line-height: 1.6;
+    line-height: 1.62;
   }
 }
 
@@ -1840,8 +1841,8 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+  border-top: 1px solid rgba(26, 20, 18, 0.08);
 }
 
 .ca-review-author-info {
@@ -1851,8 +1852,8 @@ body {
 
 .ca-review-author-name {
   font-size: 13px;
-  font-weight: 750;
-  color: #FFFFFF;
+  font-weight: 800;
+  color: var(--text-black);
   line-height: 1.25;
   white-space: nowrap;
   overflow: hidden;
@@ -1867,8 +1868,8 @@ body {
 
 .ca-review-author-role {
   font-size: 10.5px;
-  font-weight: 500;
-  color: #94A3B8;
+  font-weight: 600;
+  color: var(--text-muted);
   line-height: 1.3;
   margin-top: 2px;
   white-space: nowrap;
@@ -1882,11 +1883,11 @@ body {
   gap: 5px;
   padding: 3px 8px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #94A3B8;
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  color: #065F46;
   font-size: 9.5px;
-  font-weight: 600;
+  font-weight: 750;
   flex-shrink: 0;
 }
 
@@ -1894,8 +1895,8 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #34D399;
-  box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
 }
 
 /* Before After Slider */
