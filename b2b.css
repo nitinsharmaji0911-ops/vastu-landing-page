@@ -2783,6 +2783,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 3px;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -3072,7 +3073,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 @media (min-width: 640px) {
