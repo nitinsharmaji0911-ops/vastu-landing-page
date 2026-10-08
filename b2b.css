@@ -2375,17 +2375,17 @@ body {
 .ca-toolkit-box {
   background: #FFFFFF;
   border: 2px solid var(--border-black);
-  border-radius: 24px;
-  padding: 32px 28px;
+  border-radius: 28px;
+  padding: 36px 32px;
   box-shadow: var(--shadow-neo-lg);
-  max-width: 980px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
 @media (max-width: 640px) {
   .ca-toolkit-box {
-    padding: 22px 16px;
-    border-radius: 20px;
+    padding: 24px 18px;
+    border-radius: 22px;
   }
 }
 
@@ -2394,78 +2394,74 @@ body {
 }
 
 .ca-toolkit-title {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 900;
   color: #0F172A;
-  letter-spacing: -0.02em;
-  margin-bottom: 6px;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
 }
 
 .ca-toolkit-sub {
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   color: #64748B;
-  line-height: 1.5;
+  line-height: 1.55;
+  max-width: 640px;
 }
 
 .ca-toolkit-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 24px;
 }
 
 @media (min-width: 640px) {
   .ca-toolkit-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 960px) {
-  .ca-toolkit-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
 }
 
 .ca-toolkit-item {
   background: #F8FAFC;
   border: 1.5px solid #E2E8F0;
-  border-radius: 14px;
+  border-radius: 16px;
   padding: 14px 16px;
   display: flex;
   align-items: center;
   gap: 14px;
-  transition: all 0.2s ease;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ca-toolkit-item:hover {
   background: #FFFFFF;
-  border-color: var(--border-black);
-  box-shadow: var(--shadow-neo-sm);
+  border-color: #0F172A;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
   transform: translateY(-2px);
 }
 
 .ca-toolkit-ring-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #0B132B;
-  border: 2px solid #00C49F;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border: 1.5px solid rgba(0, 196, 159, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  position: relative;
+  color: #00C49F;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  transition: all 0.22s ease;
 }
 
-.ca-toolkit-ring-icon::after {
-  content: '';
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2.5px solid #00C49F;
-  background: transparent;
+.ca-toolkit-item:hover .ca-toolkit-ring-icon {
+  background: #00C49F;
+  color: #0B132B;
+  border-color: #00C49F;
+  transform: scale(1.05);
 }
 
 .ca-toolkit-info {
@@ -2474,17 +2470,19 @@ body {
 }
 
 .ca-toolkit-item-title {
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 850;
   color: #0F172A;
-  margin-bottom: 2px;
+  line-height: 1.25;
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
 }
 
 .ca-toolkit-item-desc {
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 550;
   color: #64748B;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .ca-toolkit-bottom-bar {
