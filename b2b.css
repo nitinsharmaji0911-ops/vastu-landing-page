@@ -1664,6 +1664,69 @@ body {
 }
 
 /* ==========================================================================
+   CORE 37 DECKS: SOLID COLOR SYSTEM (NO EXTERNAL IMAGES NEEDED)
+   ========================================================================== */
+.core-carousel-track .vastu-card-img-wrap {
+  background: #0E1424;
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.core-carousel-track .vastu-card-img-wrap img {
+  display: none !important;
+}
+
+/* Suite 01: Zonal Energies & Elements - Solid Deep Midnight Navy */
+#coreTrack0 .vastu-card-img-wrap {
+  background: #0D1527;
+}
+
+/* Suite 02: Astro & Chakras - Solid Deep Cosmic Indigo */
+#coreTrack1 .vastu-card-img-wrap {
+  background: #150E28;
+}
+
+/* Suite 03: Commercial & Enterprise - Solid Deep Executive Emerald Slate */
+#coreTrack2 .vastu-card-img-wrap {
+  background: #0A1917;
+}
+
+/* Concentric sacred geometry energy gradient overlay */
+.core-carousel-track .vastu-card-overlay-gradient {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, rgba(0, 0, 0, 0.45) 70%, rgba(18, 21, 27, 0.95) 100%);
+  pointer-events: none;
+}
+
+#coreTrack1 .vastu-card-overlay-gradient {
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.08) 0%, rgba(0, 0, 0, 0.45) 70%, rgba(18, 21, 27, 0.95) 100%);
+}
+
+#coreTrack2 .vastu-card-overlay-gradient {
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.08) 0%, rgba(0, 0, 0, 0.45) 70%, rgba(18, 21, 27, 0.95) 100%);
+}
+
+/* Enhanced center icon emblem on solid cards */
+.core-carousel-track .vastu-card-art-accent {
+  width: 76px;
+  height: 76px;
+  font-size: 30px;
+  background: rgba(18, 21, 27, 0.88);
+  border: 2px solid rgba(245, 158, 11, 0.55);
+  box-shadow: 0 0 28px rgba(245, 158, 11, 0.22);
+  color: #FBBF24;
+}
+
+.core-carousel-track .vastu-card-slide.is-active:hover .vastu-card-art-accent {
+  transform: translate(-50%, -50%) scale(1.12);
+  border-color: #F59E0B;
+  box-shadow: 0 0 35px rgba(245, 158, 11, 0.45);
+}
+
+/* ==========================================================================
    CONSULTANT REVIEWS & TESTIMONIALS
    ========================================================================== */
 .ca-review-rating-summary {
