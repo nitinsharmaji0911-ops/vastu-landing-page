@@ -803,7 +803,9 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 24px;
+  position: relative;
+  z-index: 40;
 }
 
 .vastu-nav-dot {
@@ -843,7 +845,7 @@ body {
 }
 
 .vastu-carousel-wrap.workflow-916 .vastu-carousel-track {
-  height: 520px;
+  height: 555px;
 }
 
 .vastu-carousel-wrap.workflow-916 .vastu-card-slide {
@@ -922,7 +924,7 @@ body {
 
 @media (max-width: 480px) {
   .vastu-carousel-wrap.workflow-916 .vastu-carousel-track {
-    height: 490px;
+    height: 525px;
   }
   .vastu-carousel-wrap.workflow-916 .vastu-card-slide {
     width: 260px;
@@ -934,7 +936,7 @@ body {
 
 @media (max-width: 380px) {
   .vastu-carousel-wrap.workflow-916 .vastu-carousel-track {
-    height: 450px;
+    height: 485px;
   }
   .vastu-carousel-wrap.workflow-916 .vastu-card-slide {
     width: 240px;
