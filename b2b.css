@@ -194,10 +194,10 @@ body {
 }
 
 .ca-tm {
-  font-size: 8.5px;
+  font-size: 8px;
   font-weight: 850;
-  vertical-align: super;
-  margin-left: 1.5px;
+  vertical-align: 6px;
+  margin-left: 2px;
   color: inherit;
   line-height: 1;
   letter-spacing: 0;
@@ -2979,21 +2979,31 @@ body {
 .ca-modern-footer {
   background: #0B132B;
   color: #FFFFFF;
-  padding: 36px 0;
+  padding: 34px 0 110px;
   border-top: 2px solid var(--border-black);
+}
+
+@media (min-width: 640px) {
+  .ca-modern-footer {
+    padding: 34px 0;
+  }
 }
 
 .ca-footer-brand-wrap {
   text-align: center;
   max-width: 680px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ca-footer-logo-row {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0;
 }
 
 .ca-footer-logo {
@@ -3001,12 +3011,16 @@ body {
   width: 38px;
   object-fit: cover;
   border-radius: 9px;
+  display: block;
 }
 
 .ca-footer-brand-text {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 900;
   color: #FFFFFF;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .ca-footer-brand-text span {
