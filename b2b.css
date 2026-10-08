@@ -220,12 +220,33 @@ body {
 .pattern-menu-btn {
   background: none;
   border: none;
-  font-size: 20px;
-  color: var(--text-black);
   cursor: pointer;
   display: flex;
   align-items: center;
-  padding: 0;
+  justify-content: center;
+  padding: 6px 2px;
+  color: var(--text-black);
+}
+
+.pattern-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 15px;
+}
+
+.pattern-hamburger span {
+  display: block;
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--text-black);
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.pattern-menu-btn:hover .pattern-hamburger span {
+  background-color: var(--vastu-saffron);
 }
 
 /* ==========================================================================
