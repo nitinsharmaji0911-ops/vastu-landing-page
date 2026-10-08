@@ -7,6 +7,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initEyebrowTicker();
   initCountdownTimer();
   initVideoPlayer();
   initStepCarousel();
@@ -16,6 +17,36 @@ document.addEventListener('DOMContentLoaded', () => {
   initLeadModalForm();
   initPurchaseToast();
 });
+
+/* --------------------------------------------------------------------------
+   HERO ROTATING EYEBROW TICKER
+   -------------------------------------------------------------------------- */
+function initEyebrowTicker() {
+  const el = document.getElementById('heroEyebrowText');
+  if (!el) return;
+
+  const phrases = [
+    "BUILT FOR VASTU CONSULTANTS",
+    "FROM SITE VISIT TO CLIENT-READY REPORT",
+    "SPEND LESS TIME ORGANISING. CONSULT MORE",
+    "DESIGNED FOR INDIA’S VASTU PROFESSIONALS",
+    "ALL-IN-ONE VASTU ANALYSIS SOFTWARE",
+    "A COMPLETE TOOLKIT FOR PROFESSIONAL VASTU ANALYSIS",
+    "PROFESSIONAL VASTU TOOLS, NOW ON YOUR PHONE"
+  ];
+
+  let idx = 0;
+  setInterval(() => {
+    idx = (idx + 1) % phrases.length;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(-4px)';
+    setTimeout(() => {
+      el.textContent = phrases[idx];
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 220);
+  }, 3200);
+}
 
 /* --------------------------------------------------------------------------
    48-HOUR REAL-TIME COUNTDOWN TIMER
