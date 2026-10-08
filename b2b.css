@@ -2979,14 +2979,14 @@ body {
 .ca-modern-footer {
   background: #0B132B;
   color: #FFFFFF;
-  padding: 44px 0 28px;
+  padding: 36px 0;
   border-top: 2px solid var(--border-black);
 }
 
 .ca-footer-brand-wrap {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 28px;
+  margin: 0 auto;
 }
 
 .ca-footer-logo-row {
