@@ -857,12 +857,15 @@ body {
   transform: translate3d(2%, 0, -40px) scale(0.86);
 }
 
-.vastu-carousel-wrap.workflow-916 .vastu-card-slide.is-active {
-  transform: translate3d(-50%, 0, 0) scale(1);
+.vastu-carousel-wrap.workflow-916 .vastu-card-inner {
+  border: none !important;
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
 }
 
-.vastu-carousel-wrap.workflow-916 .vastu-card-inner {
-  border-radius: 26px;
+.vastu-carousel-wrap.workflow-916 .vastu-card-slide.is-active .vastu-card-inner {
+  border: none !important;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
 }
 
 .vastu-carousel-wrap.workflow-916 .vastu-card-img-wrap {
