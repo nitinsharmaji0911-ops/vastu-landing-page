@@ -193,6 +193,16 @@ body {
   color: var(--text-black);
 }
 
+.ca-tm {
+  font-size: 8.5px;
+  font-weight: 850;
+  vertical-align: super;
+  margin-left: 1.5px;
+  color: inherit;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
 .pattern-nav-right {
   display: flex;
   align-items: center;
