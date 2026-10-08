@@ -273,9 +273,10 @@ body {
   font-size: 13.5px;
   font-weight: 550;
   color: #4A3E39;
-  line-height: 1.5;
-  max-width: 440px;
+  line-height: 1.55;
+  max-width: 680px;
   margin: 0 auto 16px;
+  text-wrap: balance;
 }
 
 /* Standee / App Feature Box (Matching Screenshot Exactly) */
