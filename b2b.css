@@ -270,13 +270,22 @@ body {
 
 /* Subtitle */
 .pattern-sub {
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 550;
   color: #4A3E39;
-  line-height: 1.55;
-  max-width: 680px;
-  margin: 0 auto 16px;
+  line-height: 1.75;
+  max-width: 720px;
+  margin: 12px auto 22px;
   text-wrap: balance;
+}
+
+.pattern-sub .sub-line {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pattern-sub .sub-line:last-child {
+  margin-bottom: 0;
 }
 
 /* Standee / App Feature Box (Matching Screenshot Exactly) */
